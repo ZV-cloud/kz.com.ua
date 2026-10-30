@@ -1,0 +1,197 @@
+<!doctype html><html lang="uk"><head><meta charset=utf8><meta name="author" content="Катерина Звєрєва"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ланцюг — дошка</title>
+<style>
+  :root{
+    --purple:#5B2C87; --lilac:#7A4FA3; --pale:#F4EDF9; --line:#C9AEDC;
+    --s1:#E8E2F4; --s2:#E3EEF9; --s3:#FBF0E2; --s4:#E6F2E8; --s5:#F8E6EA;
+    --ink:#201a26;
+  }
+
+  :root{--bg:#fff;--panel:#fcfafd;--muted:#6b6476}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17131c; --panel:#201a26; --ink:#ece7f2; --muted:#a79fb3;
+      --purple:#c7a7e8; --lilac:#b48fd9; --pale:#2b2234; --line:#473a55;
+      --s1:#2a2336; --s2:#1f2a38; --s3:#342a1f; --s4:#1f2e24; --s5:#33222a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17131c; --panel:#201a26; --ink:#ece7f2; --muted:#a79fb3;
+    --purple:#c7a7e8; --lilac:#b48fd9; --pale:#2b2234; --line:#473a55;
+    --s1:#2a2336; --s2:#1f2a38; --s3:#342a1f; --s4:#1f2e24; --s5:#33222a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:18px 16px;font-family:"Times New Roman",Georgia,serif;background:var(--bg);color:var(--ink)}
+  h1{font-size:26px;color:var(--purple);margin:0 0 4px;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:15px;margin:0 0 16px}
+  .wrap{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+  .board{flex:1 1 560px;min-width:320px}
+  .row{display:grid;grid-template-columns:150px repeat(5,1fr);gap:6px;margin-bottom:6px;align-items:stretch}
+  @media (max-width:640px){.row{grid-template-columns:repeat(5,1fr)}.sector{grid-column:1/-1;min-height:0}.panel{flex:1 1 100%}}
+  .sector{display:flex;align-items:center;padding:6px 10px;font-weight:bold;color:var(--purple);
+          border-left:6px solid var(--purple);background:var(--pale);font-size:14px;border-radius:3px}
+  .cell{position:relative;border:1px solid var(--line);border-radius:4px;min-height:74px;padding:4px 6px;
+        display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.12s}
+  .cell:hover{outline:2px solid var(--lilac)}
+  .cell .n{font-size:13px;color:var(--muted)}
+  .cell .t{font-size:12px;font-weight:bold;color:var(--purple);letter-spacing:.4px}
+  .cell.key{border-width:2px;border-color:var(--purple)}
+  .r1 .cell{background:var(--s1)} .r2 .cell{background:var(--s2)} .r3 .cell{background:var(--s3)}
+  .r4 .cell{background:var(--s4)} .r5 .cell{background:var(--s5)}
+  .toks{display:flex;gap:3px;flex-wrap:wrap;min-height:16px}
+  .tok{width:15px;height:15px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 1px #0003}
+  .panel{flex:0 0 300px;border:1px solid var(--line);border-radius:6px;padding:14px;background:var(--panel)}
+  .panel h2{font-size:17px;color:var(--purple);margin:0 0 10px}
+  .team{display:grid;grid-template-columns:18px 1fr auto auto auto;gap:6px;align-items:center;margin-bottom:7px;font-size:15px}
+  .team button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);color:inherit;border-radius:4px;
+               cursor:pointer;padding:1px 7px}
+  .team button:hover{background:var(--pale)}
+  .big{width:100%;font:inherit;font-size:17px;padding:9px;margin:10px 0 6px;border:0;border-radius:5px;
+       background:var(--purple);color:var(--bg);cursor:pointer}
+  .big:hover{background:var(--lilac)}
+  .die{font-size:46px;text-align:center;color:var(--purple);font-weight:bold;min-height:56px;line-height:56px}
+  .hint{font-size:13px;color:var(--muted);line-height:1.45;margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+  .turn{font-size:15px;margin:2px 0 8px}
+  .turn b{color:var(--purple)}
+  .legend{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.6}
+  .legend span{display:inline-block;margin-right:12px}
+  .plaque{margin-top:18px;padding-top:8px;border-top:1px solid var(--line);
+          font-size:13px;color:var(--muted);text-align:right}
+  @media print{.panel{display:none}}
+</style>
+
+<h1>Ланцюг — п’ять ланок однієї справи</h1>
+<p class="sub">Клацніть на клітинці, щоб перемістити фішку команди, чий зараз хід. Кожна п’ята клітинка — ключова: далі неї в межах ходу не йдуть.</p>
+
+<div class="wrap">
+  <div class="board" id="board"></div>
+
+  <div class="panel">
+    <h2>Хід</h2>
+    <div class="turn">Ходить: <b id="curName">Синя</b></div>
+    <button class="big" id="roll">Кинути кубик</button>
+    <div class="die" id="die">–</div>
+    <button class="big" id="next" style="background:var(--lilac)">Передати хід</button>
+
+    <h2 style="margin-top:16px">Жетони норми</h2>
+    <div id="teams"></div>
+
+    <div class="legend">
+      <span><b>Н</b> норма</span><span><b>З</b> задача</span><span><b>П</b> пастка</span>
+      <span><b>Ш</b> штучний інтелект</span><span><b>К</b> ключова</span>
+    </div>
+    <div class="hint">
+      Перемагає не той, хто дійшов першим, а той, у кого більше жетонів. Команді, що завершила коло,
+      додається три жетони. Відповідь без статті не зараховується. Вигадана норма — мінус жетон.
+    </div>
+  </div>
+</div>
+
+<div class="plaque">Лектор: Катерина Звєрєва</div>
+
+<script>
+(function(){
+  var SECTORS = [
+    {name:'I. Простір',        cls:'r1'},
+    {name:'II. Права людини',  cls:'r2'},
+    {name:'III. Відповідальність', cls:'r3'},
+    {name:'IV. Форум',         cls:'r4'},
+    {name:'V. Конфлікт',       cls:'r5'}
+  ];
+  var TYPES = ['Н','З','П','Ш','К'];
+  var TEAMS = [
+    {name:'Синя',    color:'#2F5FA8', pos:0, pts:0},
+    {name:'Червона', color:'#B3261E', pos:0, pts:0},
+    {name:'Зелена',  color:'#2E7D32', pos:0, pts:0},
+    {name:'Жовта',   color:'#B8860B', pos:0, pts:0}
+  ];
+  var cur = 0;
+
+  var board = document.getElementById('board');
+  SECTORS.forEach(function(s, si){
+    var row = document.createElement('div');
+    row.className = 'row ' + s.cls;
+    var lab = document.createElement('div');
+    lab.className = 'sector';
+    lab.textContent = s.name;
+    row.appendChild(lab);
+    for (var i = 0; i < 5; i++){
+      var n = si * 5 + i + 1;
+      var c = document.createElement('div');
+      c.className = 'cell' + (i === 4 ? ' key' : '');
+      c.dataset.n = n;
+      c.innerHTML = '<div><span class="n">' + n + '</span> <span class="t">' + TYPES[i] + '</span></div>' +
+                    '<div class="toks" id="toks' + n + '"></div>';
+      c.addEventListener('click', function(){
+        TEAMS[cur].pos = parseInt(this.dataset.n, 10);
+        draw();
+      });
+      row.appendChild(c);
+    }
+    board.appendChild(row);
+  });
+
+  function draw(){
+    for (var n = 1; n <= 25; n++){
+      document.getElementById('toks' + n).innerHTML = '';
+    }
+    TEAMS.forEach(function(t){
+      if (t.pos < 1) return;
+      var d = document.createElement('div');
+      d.className = 'tok';
+      d.style.background = t.color;
+      d.title = t.name;
+      document.getElementById('toks' + t.pos).appendChild(d);
+    });
+    document.getElementById('curName').textContent = TEAMS[cur].name;
+    document.getElementById('curName').style.color = TEAMS[cur].color;
+    var box = document.getElementById('teams');
+    box.innerHTML = '';
+    TEAMS.forEach(function(t, i){
+      var row = document.createElement('div');
+      row.className = 'team';
+      row.innerHTML =
+        '<span class="tok" style="background:' + t.color + '"></span>' +
+        '<span>' + t.name + (i === cur ? ' ←' : '') + '</span>' +
+        '<button data-i="' + i + '" data-d="-1">−</button>' +
+        '<b style="min-width:22px;text-align:center;display:inline-block">' + t.pts + '</b>' +
+        '<button data-i="' + i + '" data-d="1">+</button>';
+      box.appendChild(row);
+    });
+    Array.prototype.forEach.call(box.querySelectorAll('button'), function(b){
+      b.addEventListener('click', function(){
+        var i = +this.dataset.i, d = +this.dataset.d;
+        TEAMS[i].pts = Math.max(0, TEAMS[i].pts + d);
+        draw();
+      });
+    });
+  }
+
+  document.getElementById('roll').addEventListener('click', function(){
+    var el = document.getElementById('die'), ticks = 0;
+    var spin = setInterval(function(){
+      el.textContent = 1 + Math.floor(Math.random() * 6);
+      if (++ticks > 9){
+        clearInterval(spin);
+        var v = 1 + Math.floor(Math.random() * 6);
+        el.textContent = v;
+        var t = TEAMS[cur];
+        var sector = Math.floor((t.pos === 0 ? 0 : t.pos - 1) / 5);
+        var limit = (sector + 1) * 5;
+        if (t.pos >= limit) limit = Math.min(25, limit + 5);
+        t.pos = Math.min(t.pos + v, limit, 25);
+        draw();
+      }
+    }, 55);
+  });
+
+  document.getElementById('next').addEventListener('click', function(){
+    cur = (cur + 1) % TEAMS.length;
+    draw();
+  });
+
+  draw();
+})();
+</script>
+
+</body></html>
