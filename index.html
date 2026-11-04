@@ -12,6 +12,14 @@
 <style>
 body{margin:0;background:#f7f2ea}
 a{color:#4f6b4c}a:hover{color:#2f2a26}
+.ihry-tabs,.ihry-levels{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.ihry-tabs button,.ihry-levels button{font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif;color:#4f6b4c;background:#fffdf9;border:1.5px solid #c9d6c4;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:44px;text-align:left}
+.ihry-tabs button:hover,.ihry-levels button:hover{border-color:#4f6b4c}
+.ihry-tabs button[aria-pressed="true"],.ihry-levels button[aria-pressed="true"]{background:#4f6b4c;border-color:#4f6b4c;color:#fff}
+.ihry-levels span{font:600 14px 'Source Sans 3',system-ui,sans-serif;color:#6b5f55}
+.ihry-levels button{font-size:14px;min-height:38px;padding:6px 14px}
+.ihra[hidden],.ihry-levels[hidden],.ihry-empty[hidden]{display:none!important}
+.ihry-empty{margin:0;padding:22px;background:#fffdf9;border:1px dashed #e3d8c7;border-radius:6px;color:#6b5f55;font:16px/1.5 'Source Sans 3',system-ui,sans-serif}
 </style>
 </head>
 <body>
@@ -91,18 +99,76 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 <span style="font-size: 15px; font-weight: 700; color: #a35f5b; letter-spacing: 0.12em; text-transform: uppercase;">Навчальні ігри</span>
 <h2 style="margin: 0; font-family: 'Lora', serif; font-size: clamp(30px, 6vw, 40px); line-height: 1.15; font-weight: 600;">Грати можна просто в браузері</h2>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Ланцюг</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МПП, ФМТП 3-3. Командна гра на парі: відкрийте з телефона, коли викладачка почне гру, і впишіть прізвище, як у журналі.</span><a href="ihry/lantsyuh.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Шлях вантажу</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП. Самостійна гра: оберіть свою групу, доставте вантаж маршрутом тем курсу. Бали йдуть у журнал.</span><span style="font-size: 15px; color: #4a413a; line-height: 1.6; background: #f3ece1; border-radius: 6px; padding: 10px 12px;"><b>ФМТП 3-13</b>: теми 6–7, відкрита до 05.11, 23:59.<br><b>ФМТП 3-14</b>: тема 6, відкрита до 03.11, 23:59.<br><b>ФМТП 4-4</b>: тема 19, відкрита до 03.11, 23:59.<br>Вхід за прізвищем, як у журналі.</span><a href="ihry/shlyakh-vantazhu.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Бюро розслідувань</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП, ФМТП 3-13 і 3-14, тема 6. Ви — слідчий Бюро розслідувань: відрізніть норму від фейку. Відкрито до 5 листопада, 23:00. Бали йдуть у журнал.</span><span style="font-size: 15px; color: #4a413a; line-height: 1.6; background: #f3ece1; border-radius: 6px; padding: 10px 12px;"><b>ФМТП 3-13</b>: теми 6–7, відкрита до 05.11, 23:59.<br><b>ФМТП 3-14</b>: тема 6, відкрита до 03.11, 23:59.<br><b>ФМТП 4-4</b>: тема 19, відкрита до 03.11, 23:59.<br>Вхід за прізвищем, як у журналі.</span><a href="ihry/byuro-rozsliduvan.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Сейфи епох</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП, ФМТП 4-4. Квест з артефактами: потрібен код команди від викладачки.</span><a href="ihry/seyfy-epokh.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Кризовий штаб</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП, ФМТП 4-4, тема 19. Самостійна гра: ви — юрисконсульт МЗС у кризовому штабі, 15 рішень з лімітом часу. Три спроби: кожна наступна — з іншими завданнями, у журнал іде найкраща. Відкрита до 05.11, 23:00, вхід за прізвищем, як у журналі.</span><a href="ihry/kryzovyi-shtab.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Крізь простори</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МПП, ФМТП 3-3. Самостійна гра: проведіть транспортер через дев’ять просторів, від кордону до космосу й Антарктиди. Відкривається 06.11, оберіть свою групу у списку. Бали йдуть у журнал.</span><a href="ihry/kriz-prostory.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Справа про відповідальність</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МПП, ФМТП 3-3. Самостійна гра: ви — слідчий міжнародної комісії, складіть висновок у справі про відповідальність держави. Відкривається 06.11, оберіть свою групу у списку. Бали йдуть у журнал.</span><a href="ihry/sprava.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
-<div style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Торгова епоха</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП. Незабаром.</span></div>
+<div class="ihry-tabs" role="group" aria-label="Дисципліни">
+<button type="button" data-disc="all" aria-pressed="true">Усі ігри</button>
+<button type="button" data-disc="mpp" aria-pressed="false">Міжнародне публічне право</button>
+<button type="button" data-disc="mtep" aria-pressed="false">Міжнародне торговельно-економічне право</button>
+<button type="button" data-disc="mzpl" aria-pressed="false">Міжнародний захист прав людини</button>
+<button type="button" data-disc="mtp" aria-pressed="false">Міжнародне транспортне право</button>
+<button type="button" data-disc="mkp" aria-pressed="false">Міжнародне космічне право</button>
+</div>
+<div class="ihry-levels" role="group" aria-label="Складність" hidden>
+<span>Складність:</span>
+<button type="button" data-level="all" aria-pressed="true">будь-яка</button>
+<button type="button" data-level="1" aria-pressed="false">базова</button>
+<button type="button" data-level="2" aria-pressed="false">середня</button>
+<button type="button" data-level="3" aria-pressed="false">поглиблена</button>
+</div>
+<p class="ihry-empty" hidden>Ігри з цієї дисципліни готуються. Зазирніть трохи згодом.</p>
+<div id="ihry-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+<div class="ihra" data-disc="mpp" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Ланцюг</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МПП, ФМТП 3-3. Командна гра на парі: відкрийте з телефона, коли викладачка почне гру, і впишіть прізвище, як у журналі.</span><a href="ihry/lantsyuh.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
+<div class="ihra" data-disc="mtep" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Шлях вантажу</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП. Самостійна гра: оберіть свою групу, доставте вантаж маршрутом тем курсу. Бали йдуть у журнал.</span><span style="font-size: 15px; color: #4a413a; line-height: 1.6; background: #f3ece1; border-radius: 6px; padding: 10px 12px;"><b>ФМТП 3-13</b>: теми 6–7, відкрита до 05.11, 23:59.<br><b>ФМТП 3-14</b>: тема 6, відкрита до 03.11, 23:59.<br><b>ФМТП 4-4</b>: тема 19, відкрита до 03.11, 23:59.<br>Вхід за прізвищем, як у журналі.</span><a href="ihry/shlyakh-vantazhu.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
+<div class="ihra" data-disc="mtep" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Бюро розслідувань</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП, ФМТП 3-13 і 3-14, тема 6. Ви — слідчий Бюро розслідувань: відрізніть норму від фейку. Відкрито до 5 листопада, 23:00. Бали йдуть у журнал.</span><a href="ihry/byuro-rozsliduvan.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
+<div class="ihra" data-disc="mtep" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Сейфи епох</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП, ФМТП 4-4. Квест з артефактами: потрібен код команди від викладачки.</span><a href="ihry/seyfy-epokh.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
+<div class="ihra" data-disc="mtep" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Кризовий штаб</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП, ФМТП 4-4, тема 19. Самостійна гра: ви — юрисконсульт МЗС у кризовому штабі, 15 рішень з лімітом часу. Три спроби: кожна наступна — з іншими завданнями, у журнал іде найкраща. Відкрита до 05.11, 23:00, вхід за прізвищем, як у журналі.</span><a href="ihry/kryzovyi-shtab.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
+<div class="ihra" data-disc="mpp" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Крізь простори</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МПП, ФМТП 3-3. Самостійна гра: проведіть транспортер через дев’ять просторів, від кордону до космосу й Антарктиди. Відкривається 06.11, оберіть свою групу у списку. Бали йдуть у журнал.</span><a href="ihry/kriz-prostory.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
+<div class="ihra" data-disc="mpp" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Справа про відповідальність</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МПП, ФМТП 3-3. Самостійна гра: ви — слідчий міжнародної комісії, складіть висновок у справі про відповідальність держави. Відкривається 06.11, оберіть свою групу у списку. Бали йдуть у журнал.</span><a href="ihry/sprava.html" style="align-self: flex-start; margin-top: 6px; background: #4f6b4c; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px;">Грати</a></div>
+<div class="ihra" data-disc="mtep" data-level="" style="background: #fffdf9; border: 1px solid #e3d8c7; border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600;">Торгова епоха</span><span style="font-size: 15px; color: #4a413a; line-height: 1.5;">МТЕП. Незабаром.</span></div>
 </div>
 <div style="background: #f6e3e1; color: #2f2a26; border: 1px solid #e8c9c5; border-radius: 6px; padding: 20px 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;"><div style="display: flex; flex-direction: column; gap: 4px; max-width: 640px;"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a35f5b;">Для викладачів</span><span style="font-size: 15px; line-height: 1.5; color: #4a413a;">Відкрийте гру своїй групі, задайте дедлайн і дивіться результати. Логін, пароль і доступ видає адміністратор сайту.</span></div><a href="ihry/pult.html" style="display: inline-flex; align-items: center; gap: 8px; background: #fffdf9; color: #a35f5b; text-decoration: none; font-weight: 700; font-size: 16px; padding: 10px 18px; border-radius: 6px; border: 2px solid #a35f5b;"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>Пульт викладача</a></div>
 </div>
+<script>
+/* Розділ «Навчальні ігри»: вибір дисципліни і складності. Складність ставиться в data-level картки (1 — базова, 2 — середня, 3 — поглиблена); фільтр складності з’являється, щойно хоч одна картка її має. Адреса #ihry-mtep відкриває одразу потрібну дисципліну. */
+(function () {
+  var grid = document.getElementById('ihry-grid');
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.ihra'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.ihry-tabs button'));
+  var lv = document.querySelector('.ihry-levels');
+  var lvBtns = Array.prototype.slice.call(lv.querySelectorAll('button'));
+  var empty = document.querySelector('.ihry-empty');
+  var st = { disc: 'all', level: 'all' };
+  if (cards.some(function (c) { return c.getAttribute('data-level'); })) lv.hidden = false;
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var ok = (st.disc === 'all' || c.getAttribute('data-disc') === st.disc) && (st.level === 'all' || c.getAttribute('data-level') === st.level);
+      c.hidden = !ok;
+      if (ok) shown++;
+    });
+    tabs.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-disc') === st.disc)); });
+    lvBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-level') === st.level)); });
+    empty.hidden = shown > 0;
+    empty.textContent = st.level !== 'all' && st.disc !== 'all' ? 'Ігор такої складності з цієї дисципліни поки немає.' : 'Ігри з цієї дисципліни готуються. Зазирніть трохи згодом.';
+  }
+  tabs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      st.disc = b.getAttribute('data-disc'); apply();
+      try { history.replaceState(null, '', st.disc === 'all' ? '#ihry' : '#ihry-' + st.disc); } catch (e) {}
+    });
+  });
+  lvBtns.forEach(function (b) { b.addEventListener('click', function () { st.level = b.getAttribute('data-level'); apply(); }); });
+  function fromHash() {
+    var m = /^#ihry-([a-z]+)$/.exec(location.hash);
+    if (m && tabs.some(function (x) { return x.getAttribute('data-disc') === m[1]; })) {
+      st.disc = m[1]; apply();
+      var sec = document.getElementById('ihry'); if (sec) sec.scrollIntoView();
+    }
+  }
+  window.addEventListener('hashchange', fromHash);
+  apply(); fromHash();
+})();
+</script>
 </section>
 
 <section id="shkola" style="background: #fffdf9; border-top: 1px solid #e3d8c7; border-bottom: 1px solid #e3d8c7;">
