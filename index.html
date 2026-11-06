@@ -20,7 +20,17 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 .ihry-levels button{font-size:14px;min-height:38px;padding:6px 14px}
 .ihra[hidden],.ihry-levels[hidden],.ihry-empty[hidden]{display:none!important}
 .ihry-empty{margin:0;padding:22px;background:#fffdf9;border:1px dashed #e3d8c7;border-radius:6px;color:#6b5f55;font:16px/1.5 'Source Sans 3',system-ui,sans-serif}
+.zg-js section[data-zghort]:not(.zg-open)>div>:not(:first-child){display:none!important}
+.zg-js section[data-zghort]:not(.zg-open)>div[style]{padding-top:2.5rem!important;padding-bottom:2.5rem!important}
+.zg-title{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.zg-title h2{cursor:pointer}
+.zg-btn{font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif;color:#4f6b4c;background:#fffdf9;border:1.5px solid #c9d6c4;border-radius:999px;padding:8px 14px 8px 16px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.zg-btn:hover{border-color:#4f6b4c;color:#2f2a26}
+.zg-btn svg{transition:transform .2s}
+.zg-open .zg-btn svg{transform:rotate(180deg)}
+.zg-n{background:#e8efe5;color:#3f5a3c;border-radius:999px;padding:1px 9px;font-size:14px}
 </style>
+<script src="zghort.js"></script>
 </head>
 <body>
 <div style="font-family: 'Source Sans 3', 'Segoe UI', sans-serif; color: #2f2a26; background: #f7f2ea; display: flex; flex-direction: column;">
@@ -70,7 +80,7 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 
 <section id="rozdily" style="background: #fffdf9; border-top: 1px solid #e3d8c7; border-bottom: 1px solid #e3d8c7;">
 <div style="max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px;">
-<a href="#publikatsii" style="text-decoration: none; color: #2f2a26; display: flex; flex-direction: column; gap: 12px;">
+<a href="publikatsii.html" style="text-decoration: none; color: #2f2a26; display: flex; flex-direction: column; gap: 12px;">
 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4f6b4c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6M9 17h4"></path></svg>
 <span style="font-family: 'Lora', serif; font-size: 25px; font-weight: 600;">Наукові праці</span>
 <span style="font-size: 17px; line-height: 1.55; color: #4a413a;">Статті, тези, розділи монографій з DOI і повними текстами.</span>
@@ -93,7 +103,7 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 </div>
 </section>
 
-<section id="ihry">
+<section id="ihry" data-zghort data-zghort-count=".ihra">
 <div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 760px;">
 <span style="font-size: 15px; font-weight: 700; color: #a35f5b; letter-spacing: 0.12em; text-transform: uppercase;">Навчальні ігри</span>
@@ -176,7 +186,7 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 </script>
 </section>
 
-<section id="shkola" style="background: #fffdf9; border-top: 1px solid #e3d8c7; border-bottom: 1px solid #e3d8c7;">
+<section id="shkola" data-zghort style="background: #fffdf9; border-top: 1px solid #e3d8c7; border-bottom: 1px solid #e3d8c7;">
 <div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px;">
 <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 14px;">
 <span style="font-size: 15px; font-weight: 700; color: #a35f5b; letter-spacing: 0.12em; text-transform: uppercase;">Відкрита школа</span>
@@ -192,7 +202,7 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 </div>
 </section>
 
-<section id="knyhy" style="background: #efe6d7;">
+<section id="knyhy" data-zghort data-zghort-count="article" style="background: #efe6d7;">
 <div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px;">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px;">
 <h2 style="margin: 0; font-family: 'Lora', serif; font-size: 40px; font-weight: 600;">Книги</h2>
@@ -215,16 +225,16 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 </div>
 </section>
 
-<section id="publikatsii">
+<section id="publikatsii" data-zghort>
 <div style="max-width: 1200px; margin: 0 auto; padding: 4.5rem 1.5rem; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px;">
 <h2 style="margin: 0; font-family: 'Lora', serif; font-size: 40px; font-weight: 600;">Нові публікації</h2>
-<a href="#" style="font-size: 17px; font-weight: 700;">Усі публікації</a>
+<a href="publikatsii.html" style="font-size: 17px; font-weight: 700;">Усі публікації (32)</a>
 </div>
 <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column;">
-<li style="border-top: 1px solid #e3d8c7; padding: 20px 0; display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px;"><span style="font-size: 18px; color: #6b5f55;">[рік]</span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Lora', serif; font-size: 21px; font-weight: 600;">[Назва статті]</span><span style="font-size: 16px; color: #4a413a; font-style: italic;">[Журнал], [том], [номер] · <a href="#">DOI</a></span></span></li>
-<li style="border-top: 1px solid #e3d8c7; padding: 20px 0; display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px;"><span style="font-size: 18px; color: #6b5f55;">[рік]</span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Lora', serif; font-size: 21px; font-weight: 600;">[Назва розділу]</span><span style="font-size: 16px; color: #4a413a; font-style: italic;">[Колективна праця] · <a href="#">Анотація</a></span></span></li>
-<li style="border-top: 1px solid #e3d8c7; border-bottom: 1px solid #e3d8c7; padding: 20px 0; display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px;"><span style="font-size: 18px; color: #6b5f55;">[рік]</span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Lora', serif; font-size: 21px; font-weight: 600;">[Назва тез]</span><span style="font-size: 16px; color: #4a413a; font-style: italic;">[Конференція] · <a href="#">PDF</a></span></span></li>
+<li style="border-top: 1px solid #e3d8c7; padding: 20px 0; display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px;"><span style="font-size: 18px; color: #6b5f55;">2026</span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Lora', serif; font-size: 21px; font-weight: 600;">Міжнародні угоди, які не мають обов’язкової юридичної сили</span><span style="font-size: 16px; color: #4a413a;"><i>Науковий вісник Ужгородського національного університету. Серія: Право</i>, 2026. № 96. С. 447–453 · <a href="publikatsii/zvierieva-2026-mizhnarodni-uhody.pdf" target="_blank">Стаття (PDF)</a> · <a href="https://doi.org/10.24144/2307-3322.2026.96.57" target="_blank" rel="noopener">DOI</a> · <a href="https://visnyk-pravo.uzhnu.edu.ua/" target="_blank" rel="noopener">Журнал</a></span></span></li>
+<li style="border-top: 1px solid #e3d8c7; padding: 20px 0; display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px;"><span style="font-size: 18px; color: #6b5f55;">2026</span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Lora', serif; font-size: 21px; font-weight: 600;">Між правом миру і правом сильного: післявоєнні міжнародні організації від Ліги Націй до Ради миру</span><span style="font-size: 16px; color: #4a413a;"><i>Академічні візії</i>, 2026. Вип. 57 · <a href="publikatsii/zvierieva-2026-mizh-pravom-myru-i-pravom-sylnoho.pdf" target="_blank">Стаття (PDF)</a> · <a href="https://doi.org/10.66556/2786-586x.55.zvierieva-k" target="_blank" rel="noopener">DOI</a> · <a href="https://academy-vision.org/index.php/av" target="_blank" rel="noopener">Журнал</a></span></span></li>
+<li style="border-top: 1px solid #e3d8c7; border-bottom: 1px solid #e3d8c7; padding: 20px 0; display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px;"><span style="font-size: 18px; color: #6b5f55;">2026</span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Lora', serif; font-size: 21px; font-weight: 600;">П’яте покоління прав людини</span><span style="font-size: 16px; color: #4a413a;"><i>Аналітично-порівняльне правознавство</i>, 2026. № 1, ч. 3. С. 210–215 · <a href="publikatsii/zvierieva-2026-piate-pokolinnia-prav-liudyny.pdf" target="_blank">Стаття (PDF)</a> · <a href="https://doi.org/10.24144/2788-6018.2026.01.3.32" target="_blank" rel="noopener">DOI</a> · <a href="https://app-journal.in.ua/" target="_blank" rel="noopener">Журнал</a></span></span></li>
 </ol>
 </div>
 </section>
@@ -261,7 +271,7 @@ a{color:#4f6b4c}a:hover{color:#2f2a26}
 <footer style="background: #3f5a3c;">
 <div style="max-width: 1200px; margin: 0 auto; padding: 2.25rem 1.5rem; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 16px; color: #e6eee2;">
 <span>© 2026 Катерина Звєрєва</span>
-<span style="display: flex; flex-wrap: wrap; gap: 24px;"><a href="#" style="color: #ffffff;">ORCID</a><a href="https://scholar.google.com/citations?user=alw63JcAAAAJ" style="color: #ffffff;" rel="noopener">Google Scholar</a><a href="#" style="color: #ffffff;">YouTube</a><a href="#" style="color: #ffffff;">Контакти</a></span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px;"><a href="https://orcid.org/0000-0003-2539-7035" style="color: #ffffff;" rel="noopener">ORCID</a><a href="https://scholar.google.com/citations?user=alw63JcAAAAJ" style="color: #ffffff;" rel="noopener">Google Scholar</a><a href="#" style="color: #ffffff;">YouTube</a><a href="#" style="color: #ffffff;">Контакти</a></span>
 </div>
 </footer>
 
