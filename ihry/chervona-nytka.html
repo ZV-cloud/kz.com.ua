@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Червона нитка — гра · Катерина Звєрєва</title>
+<meta name="description" content="Самостійна гра з міжнародного публічного права: дошка слідчого у справах про відповідальність держав.">
+<meta name="author" content="Катерина Звєрєва">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+/* Сторінка гри: без меню сайту, гра на весь екран. Лектор: Катерина Звєрєва */
+html,body{margin:0;padding:0;height:100%;background:#2a211b;overflow:hidden}
+iframe{display:block;width:100%;height:100vh;height:100dvh;border:none}
+</style>
+</head>
+<body>
+<iframe
+  src="https://script.google.com/macros/s/AKfycbwJRIJvrlzJZjSrwQ7RAihCla631Z5sysZRXFFX0dh2RLthm_hshNpm2IVuOpzWhEEwvA/exec?g=nytka"
+  title="Червона нитка"
+  width="100%"
+  height="600"
+  frameborder="0"
+  allow="clipboard-write"
+  style="border: none;">
+</iframe>
+<script>
+/* Посилання з ?s=… (наприклад, демо для гостей) відкриває саме цю гру. */
+(function () {
+  var m = /[?&]s=([a-z0-9]{6})(?:&|$)/.exec(location.search);
+  if (!m) return;
+  var f = document.querySelector('iframe');
+  f.src = f.src + (f.src.indexOf('?') < 0 ? '?' : '&') + 's=' + m[1];
+})();
+</script>
+</body>
+</html>
