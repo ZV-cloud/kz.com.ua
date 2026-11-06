@@ -20,6 +20,7 @@
 
   function setOpen(sec, open) {
     sec.classList.toggle('zg-open', open);
+    sec.classList.toggle('zg-closed', !open);
     var b = sec.querySelector('.zg-btn');
     if (!b) return;
     b.setAttribute('aria-expanded', String(open));
