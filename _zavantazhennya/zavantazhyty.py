@@ -28,7 +28,11 @@ def get(url, referer=None):
     headers = {"Referer": referer} if referer else {}
     for verify in (True, False):
         try:
+            time.sleep(6)
             r = S.get(url, timeout=90, allow_redirects=True, verify=verify, headers=headers)
+            if r.status_code == 429:
+                time.sleep(45)
+                r = S.get(url, timeout=90, allow_redirects=True, verify=verify, headers=headers)
             return r
         except requests.exceptions.SSLError:
             continue

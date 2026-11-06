@@ -1,8 +1,7 @@
 [
-  {"id": "a14", "wayback": true, "urls": ["https://efp.in.ua/uk/journal-article/1290", "https://efp.in.ua/uk/download/review?id=1290", "https://efp.in.ua/en/download/review?id=1290"]},
-  {"id": "a15", "wayback": true, "urls": ["https://inlawalmanac.mgu.od.ua/v30/2.pdf", "http://inlawalmanac.mgu.od.ua/v30/2.pdf", "http://www.inlawalmanac.mgu.od.ua/v30/2.pdf"]},
-  {"id": "a16", "wayback": true, "urls": ["https://www.inter-nauka.com/issues/2023/13/9053", "https://inter-nauka.com/issues/2023/13/9053"]},
   {"id": "a18", "wayback": true, "urls": ["https://sis-journal.com/wp-content/uploads/2021/02/Slovak-international-scientific-journal-%E2%84%9649-2021-Vol.3.pdf"]},
-  {"id": "a19", "wayback": true, "urls": ["https://almanah.ltd.ua/save/2021/1%20(46)/9.pdf", "http://almanah.ltd.ua/save/2021/1%20(46)/9.pdf"]},
-  {"id": "t02", "wayback": true, "urls": ["https://elartu.tntu.edu.ua/bitstream/lib/41600/1/%d0%9b%d0%b5%d1%82%d1%83%d0%bd%20%d0%97%d0%91%d0%86%d0%a0%d0%9d%d0%98%d0%9a_%d1%82%d0%be%d0%bc_1.pdf", "http://umsf.dp.ua/component/content/article/2-uncategorised/1839-shanovni-naukovtsi-dear-scientists?Itemid=101"]}
+  {"id": "a19", "wayback": true, "urls": ["http://almanah.ltd.ua/save/2021/1%20(46)/9.pdf"]},
+  {"id": "a16", "wayback": true, "urls": ["https://www.inter-nauka.com/issues/2023/13/9053"]},
+  {"id": "a14", "wayback": true, "urls": ["https://efp.in.ua/uk/download/review?id=1290", "https://efp.in.ua/uk/journal-article/1290"]},
+  {"id": "t06", "wayback": true, "urls": ["http://www.spilnota.net.ua/ua/article/id-3822/"]}
 ]
