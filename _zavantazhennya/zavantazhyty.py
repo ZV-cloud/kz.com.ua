@@ -6,6 +6,7 @@ import json
 import pathlib
 import re
 import subprocess
+import time
 import urllib.parse
 
 import requests
@@ -23,10 +24,11 @@ S.headers.update({"User-Agent": UA, "Accept": "text/html,application/pdf,*/*;q=0
                   "Accept-Language": "uk,en;q=0.8"})
 
 
-def get(url):
+def get(url, referer=None):
+    headers = {"Referer": referer} if referer else {}
     for verify in (True, False):
         try:
-            r = S.get(url, timeout=90, allow_redirects=True, verify=verify)
+            r = S.get(url, timeout=90, allow_redirects=True, verify=verify, headers=headers)
             return r
         except requests.exceptions.SSLError:
             continue
@@ -59,8 +61,11 @@ def pdf_links(html, base):
     return out[:8]
 
 
-def try_url(url, depth, log):
-    r = get(url)
+WB = "https://web.archive.org/web/2026id_/"
+
+
+def try_url(url, depth, log, referer=None, wayback=False):
+    r = get(url, referer)
     if not isinstance(r, requests.Response):
         log.append({"url": url, "error": str(r)})
         return None, None
@@ -71,9 +76,15 @@ def try_url(url, depth, log):
         return r.content, r.url
     if r.status_code == 200 and depth < 2 and b"<" in r.content[:2000]:
         for link in pdf_links(r.text, r.url):
-            data, final = try_url(link, depth + 1, log)
+            if link.startswith("https://web.archive.org/") and "id_/" not in link:
+                link = re.sub(r"/web/(\d+)/", r"/web/\1id_/", link)
+            data, final = try_url(link, depth + 1, log, referer=r.url, wayback=wayback)
             if data:
                 return data, final
+            if wayback and not link.startswith(WB[:28]):
+                data, final = try_url(WB + link, depth + 1, log)
+                if data:
+                    return data, final
         return None, r.text
     return None, None
 
@@ -101,14 +112,18 @@ def main():
             result.update(ok=ok, source=src["urls"][0], how="print")
         else:
             last_html = None
-            for url in src["urls"]:
-                data, extra = try_url(url, 0, log)
+            urls = list(src["urls"])
+            if src.get("wayback"):
+                urls += [WB + u for u in src["urls"] if not u.startswith("https://web.archive.org/")]
+            for url in urls:
+                data, extra = try_url(url, 0, log, wayback=bool(src.get("wayback")))
                 if data:
                     (OUT / f"{sid}.pdf").write_bytes(data)
                     result.update(ok=True, source=extra, bytes=len(data))
                     break
                 if isinstance(extra, str):
                     last_html = extra
+                time.sleep(3)
             if not result["ok"] and last_html:
                 (OUT / f"{sid}.html").write_text(last_html, encoding="utf-8")
         report[sid] = result
