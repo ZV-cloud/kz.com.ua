@@ -1,212 +1,9 @@
 {
- "a01": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://visnyk-juris-uzhnu.com/wp-content/uploads/2026/09/59.pdf",
-    "final": "https://visnyk-juris-uzhnu.com/wp-content/uploads/2026/09/59.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 376620
-   }
-  ],
-  "source": "https://visnyk-juris-uzhnu.com/wp-content/uploads/2026/09/59.pdf",
-  "bytes": 376620
- },
- "a02": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://academy-vision.org/index.php/av/article/view/3464",
-    "final": "https://academy-vision.org/index.php/av/article/view/3464",
-    "status": 200,
-    "type": "text/html; charset=utf-8",
-    "bytes": 51094
-   },
-   {
-    "url": "https://academy-vision.org/index.php/av/article/download/3464/3291",
-    "final": "https://academy-vision.org/index.php/av/article/download/3464/3291",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 162895
-   }
-  ],
-  "source": "https://academy-vision.org/index.php/av/article/download/3464/3291",
-  "bytes": 162895
- },
- "a03": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://app-journal.in.ua/wp-content/uploads/2026/02/34-2.pdf",
-    "final": "https://app-journal.in.ua/wp-content/uploads/2026/02/34-2.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 270420
-   }
-  ],
-  "source": "https://app-journal.in.ua/wp-content/uploads/2026/02/34-2.pdf",
-  "bytes": 270420
- },
- "a04": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://app-journal.in.ua/wp-content/uploads/2025/12/62-2.pdf",
-    "final": "https://app-journal.in.ua/wp-content/uploads/2025/12/62-2.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 274883
-   }
-  ],
-  "source": "https://app-journal.in.ua/wp-content/uploads/2025/12/62-2.pdf",
-  "bytes": 274883
- },
- "a05": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://journals.knute.edu.ua/foreign-trade/article/download/2335/2298",
-    "final": "https://journals.knute.edu.ua/foreign-trade/article/download/2335/2298",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 590147
-   }
-  ],
-  "source": "https://journals.knute.edu.ua/foreign-trade/article/download/2335/2298",
-  "bytes": 590147
- },
- "a06": {
-  "ok": true,
-  "log": [
-   {
-    "url": "http://law.stateandregions.zp.ua/archive/3_2025/16.pdf",
-    "final": "https://law.stateandregions.zp.ua/archive/3_2025/16.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 246982
-   }
-  ],
-  "source": "https://law.stateandregions.zp.ua/archive/3_2025/16.pdf",
-  "bytes": 246982
- },
- "a07": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://www.juris.vernadskyjournals.in.ua/journals/2025/3_2025/27.pdf",
-    "final": "https://www.juris.vernadskyjournals.in.ua/journals/2025/3_2025/27.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 298270
-   }
-  ],
-  "source": "https://www.juris.vernadskyjournals.in.ua/journals/2025/3_2025/27.pdf",
-  "bytes": 298270
- },
- "a08": {
-  "ok": true,
-  "log": [
-   {
-    "url": "http://pp-law.in.ua/archive/3_2025/26.pdf",
-    "final": "https://pp-law.in.ua/archive/3_2025/26.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 277197
-   }
-  ],
-  "source": "https://pp-law.in.ua/archive/3_2025/26.pdf",
-  "bytes": 277197
- },
- "a09": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://app-journal.in.ua/wp-content/uploads/2025/08/61-2.pdf",
-    "final": "https://app-journal.in.ua/wp-content/uploads/2025/08/61-2.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 282528
-   }
-  ],
-  "source": "https://app-journal.in.ua/wp-content/uploads/2025/08/61-2.pdf",
-  "bytes": 282528
- },
- "a10": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://zenodo.org/records/17069867/files/9-46-OLEKSANDR-S-ukraine.pdf?download=1",
-    "final": "https://zenodo.org/records/17069867/files/9-46-OLEKSANDR-S-ukraine.pdf?download=1",
-    "status": 200,
-    "type": "application/octet-stream, application/octet-stream",
-    "bytes": 1651751
-   }
-  ],
-  "source": "https://zenodo.org/records/17069867/files/9-46-OLEKSANDR-S-ukraine.pdf?download=1",
-  "bytes": 1651751
- },
- "a11": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://visnyk-pravo.uzhnu.edu.ua/article/view/337095",
-    "final": "https://visnyk-pravo.uzhnu.edu.ua/article/view/337095",
-    "status": 200,
-    "type": "text/html; charset=utf-8",
-    "bytes": 42947
-   },
-   {
-    "url": "https://visnyk-pravo.uzhnu.edu.ua/article/download/337095/325682",
-    "final": "https://visnyk-pravo.uzhnu.edu.ua/article/download/337095/325682",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 368938
-   }
-  ],
-  "source": "https://visnyk-pravo.uzhnu.edu.ua/article/download/337095/325682",
-  "bytes": 368938
- },
- "a12": {
-  "ok": true,
-  "log": [
-   {
-    "url": "http://efp.in.ua/uk/journal-article/1622",
-    "final": "https://efp.in.ua/uk/journal-article/1622",
-    "status": 200,
-    "type": "text/html; charset=UTF-8",
-    "bytes": 121706
-   },
-   {
-    "url": "https://efp.in.ua/uk/download/review?id=1622",
-    "final": "https://efp.in.ua/uk/download/review?id=1622",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 644364
-   }
-  ],
-  "source": "https://efp.in.ua/uk/download/review?id=1622",
-  "bytes": 644364
- },
- "a13": {
-  "ok": true,
-  "log": [
-   {
-    "url": "http://www.lsej.org.ua/2_2025/92.pdf",
-    "final": "https://www.lsej.org.ua/2_2025/92.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 397765
-   }
-  ],
-  "source": "https://www.lsej.org.ua/2_2025/92.pdf",
-  "bytes": 397765
- },
  "a14": {
   "ok": false,
   "log": [
    {
-    "url": "http://efp.in.ua/uk/journal-article/1290",
+    "url": "https://efp.in.ua/uk/journal-article/1290",
     "final": "https://efp.in.ua/uk/journal-article/1290",
     "status": 200,
     "type": "text/html; charset=UTF-8",
@@ -220,11 +17,18 @@
     "bytes": 0
    },
    {
-    "url": "http://efp.in.ua/en/journal-article/1290",
-    "final": "https://efp.in.ua/en/journal-article/1290",
+    "url": "https://web.archive.org/web/2026id_/https://efp.in.ua/uk/download/review?id=1290",
+    "final": "https://web.archive.org/web/2026id_/https://efp.in.ua/uk/download/review?id=1290",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
+   },
+   {
+    "url": "https://efp.in.ua/uk/download/review?id=1290",
+    "final": "https://efp.in.ua/uk/download/review?id=1290",
     "status": 200,
     "type": "text/html; charset=UTF-8",
-    "bytes": 120508
+    "bytes": 0
    },
    {
     "url": "https://efp.in.ua/en/download/review?id=1290",
@@ -232,20 +36,57 @@
     "status": 200,
     "type": "text/html; charset=UTF-8",
     "bytes": 0
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/https://efp.in.ua/uk/journal-article/1290",
+    "final": "https://web.archive.org/web/2026id_/https://efp.in.ua/uk/journal-article/1290",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/https://efp.in.ua/uk/download/review?id=1290",
+    "final": "https://web.archive.org/web/2026id_/https://efp.in.ua/uk/download/review?id=1290",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/https://efp.in.ua/en/download/review?id=1290",
+    "final": "https://web.archive.org/web/2026id_/https://efp.in.ua/en/download/review?id=1290",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
    }
   ]
  },
  "a15": {
-  "ok": false,
+  "ok": true,
   "log": [
+   {
+    "url": "https://inlawalmanac.mgu.od.ua/v30/2.pdf",
+    "final": "https://inlawalmanac.mgu.od.ua/v30/2.pdf",
+    "status": 403,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 4911
+   },
    {
     "url": "http://inlawalmanac.mgu.od.ua/v30/2.pdf",
     "final": "http://inlawalmanac.mgu.od.ua/v30/2.pdf",
     "status": 403,
     "type": "text/html; charset=UTF-8",
     "bytes": 4911
+   },
+   {
+    "url": "http://www.inlawalmanac.mgu.od.ua/v30/2.pdf",
+    "final": "https://www.inlawalmanac.mgu.od.ua:443/v30/2.pdf",
+    "status": 200,
+    "type": "application/pdf",
+    "bytes": 144546
    }
-  ]
+  ],
+  "source": "https://www.inlawalmanac.mgu.od.ua:443/v30/2.pdf",
+  "bytes": 144546
  },
  "a16": {
   "ok": false,
@@ -256,29 +97,29 @@
     "status": 403,
     "type": "text/html; charset=UTF-8",
     "bytes": 5737
-   }
-  ]
- },
- "a17": {
-  "ok": true,
-  "log": [
-   {
-    "url": "http://perspectives.pp.ua/index.php/sn/article/view/5815",
-    "final": "http://perspectives.pp.ua/index.php/sn/article/view/5815",
-    "status": 200,
-    "type": "text/html; charset=utf-8",
-    "bytes": 16424
    },
    {
-    "url": "http://perspectives.pp.ua/index.php/sn/article/download/5815/5848",
-    "final": "http://perspectives.pp.ua/index.php/sn/article/download/5815/5848",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 415888
+    "url": "https://inter-nauka.com/issues/2023/13/9053",
+    "final": "https://inter-nauka.com/issues/2023/13/9053",
+    "status": 403,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 5733
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/https://www.inter-nauka.com/issues/2023/13/9053",
+    "final": "https://web.archive.org/web/2026id_/https://www.inter-nauka.com/issues/2023/13/9053",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/https://inter-nauka.com/issues/2023/13/9053",
+    "final": "https://web.archive.org/web/2026id_/https://inter-nauka.com/issues/2023/13/9053",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
    }
-  ],
-  "source": "http://perspectives.pp.ua/index.php/sn/article/download/5815/5848",
-  "bytes": 415888
+  ]
  },
  "a18": {
   "ok": false,
@@ -289,6 +130,13 @@
     "status": 429,
     "type": "text/html; charset=utf-8",
     "bytes": 5023
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/https://sis-journal.com/wp-content/uploads/2021/02/Slovak-international-scientific-journal-%E2%84%9649-2021-Vol.3.pdf",
+    "final": "https://web.archive.org/web/2026id_/https://sis-journal.com/wp-content/uploads/2021/02/Slovak-international-scientific-journal-%E2%84%9649-2021-Vol.3.pdf",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
    }
   ]
  },
@@ -296,139 +144,41 @@
   "ok": false,
   "log": [
    {
+    "url": "https://almanah.ltd.ua/save/2021/1%20(46)/9.pdf",
+    "error": "HTTPSConnectionPool(host='almanah.ltd.ua', port=443): Max retries exceeded with url: /save/2021/1%20(46)/9.pdf (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f9c8933e210>: Failed to resolve 'almanah.ltd.ua' ([Errno -3] Temporary failure in name resolution)\"))"
+   },
+   {
     "url": "http://almanah.ltd.ua/save/2021/1%20(46)/9.pdf",
-    "error": "HTTPConnectionPool(host='almanah.ltd.ua', port=80): Max retries exceeded with url: /save/2021/1%20(46)/9.pdf (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection object at 0x7f18bd0a5250>: Failed to resolve 'almanah.ltd.ua' ([Errno -3] Temporary failure in name resolution)\"))"
+    "error": "HTTPConnectionPool(host='almanah.ltd.ua', port=80): Max retries exceeded with url: /save/2021/1%20(46)/9.pdf (Caused by NameResolutionError(\"<urllib3.connection.HTTPConnection object at 0x7f9c8952d9d0>: Failed to resolve 'almanah.ltd.ua' ([Errno -3] Temporary failure in name resolution)\"))"
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/https://almanah.ltd.ua/save/2021/1%20(46)/9.pdf",
+    "final": "https://web.archive.org/web/2026id_/https://almanah.ltd.ua/save/2021/1%20(46)/9.pdf",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
+   },
+   {
+    "url": "https://web.archive.org/web/2026id_/http://almanah.ltd.ua/save/2021/1%20(46)/9.pdf",
+    "final": "https://web.archive.org/web/20220818083511id_/http://almanah.ltd.ua/save/2021/1%20(46)/9.pdf",
+    "status": 429,
+    "type": "text/html",
+    "bytes": 620
    }
   ]
- },
- "c01": {
-  "ok": true,
-  "log": [
-   {
-    "url": "http://catalog.liha-pres.eu/index.php/liha-pres/catalog/download/437/14144/31865-1",
-    "final": "http://catalog.liha-pres.eu/index.php/liha-pres/catalog/download/437/14144/31865-1",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 236132
-   }
-  ],
-  "source": "http://catalog.liha-pres.eu/index.php/liha-pres/catalog/download/437/14144/31865-1",
-  "bytes": 236132
- },
- "c02": {
-  "ok": true,
-  "log": [
-   {
-    "url": "http://baltijapublishing.lv/omp/index.php/bp/catalog/download/648/17205/36570-1",
-    "final": "http://baltijapublishing.lv/omp/index.php/bp/catalog/download/648/17205/36570-1",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 371795
-   }
-  ],
-  "source": "http://baltijapublishing.lv/omp/index.php/bp/catalog/download/648/17205/36570-1",
-  "bytes": 371795
- },
- "t01": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://law.karazin.ua/resources/doks2021/nauka/repozitary/Aktualni_problemy_mizhnarodnoho_prava_matkonf_10-03-2023.pdf",
-    "final": "https://law.karazin.ua/resources/doks2021/nauka/repozitary/Aktualni_problemy_mizhnarodnoho_prava_matkonf_10-03-2023.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 2532876
-   }
-  ],
-  "source": "https://law.karazin.ua/resources/doks2021/nauka/repozitary/Aktualni_problemy_mizhnarodnoho_prava_matkonf_10-03-2023.pdf",
-  "bytes": 2532876
  },
  "t02": {
-  "ok": false,
-  "log": [
-   {
-    "url": "http://umsf.dp.ua/component/content/article/2-uncategorised/1839-shanovni-naukovtsi-dear-scientists?Itemid=101",
-    "final": "https://umsf.dp.ua/component/content/article/2-uncategorised/1839-shanovni-naukovtsi-dear-scientists?Itemid=101",
-    "status": 404,
-    "type": "text/html; charset=UTF-8",
-    "bytes": 1090
-   }
-  ]
- },
- "t03": {
   "ok": true,
   "log": [
    {
-    "url": "https://drive.google.com/uc?export=download&id=1k0Mjx8Q3zLPUwMP0YSsbsDG-wqfCgWG4",
-    "final": "https://drive.usercontent.google.com/download?id=1k0Mjx8Q3zLPUwMP0YSsbsDG-wqfCgWG4&export=download",
-    "status": 200,
-    "type": "application/octet-stream",
-    "bytes": 2842795
-   }
-  ],
-  "source": "https://drive.usercontent.google.com/download?id=1k0Mjx8Q3zLPUwMP0YSsbsDG-wqfCgWG4&export=download",
-  "bytes": 2842795
- },
- "t04": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://knute.edu.ua/file/MjIxNw==/27cc38a6612c0cbea72be02ece330fa5.pdf",
-    "final": "https://knute.edu.ua/file/MjIxNw==/27cc38a6612c0cbea72be02ece330fa5.pdf",
+    "url": "https://elartu.tntu.edu.ua/bitstream/lib/41600/1/%d0%9b%d0%b5%d1%82%d1%83%d0%bd%20%d0%97%d0%91%d0%86%d0%a0%d0%9d%d0%98%d0%9a_%d1%82%d0%be%d0%bc_1.pdf",
+    "final": "https://elartu.tntu.edu.ua/bitstream/lib/41600/1/%D0%9B%D0%B5%D1%82%D1%83%D0%BD%20%D0%97%D0%91%D0%86%D0%A0%D0%9D%D0%98%D0%9A_%D1%82%D0%BE%D0%BC_1.pdf",
     "status": 200,
     "type": "application/pdf",
-    "bytes": 3104933
+    "bytes": 235976
    }
   ],
-  "source": "https://knute.edu.ua/file/MjIxNw==/27cc38a6612c0cbea72be02ece330fa5.pdf",
-  "bytes": 3104933
- },
- "t05": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://drive.google.com/uc?export=download&id=1qk4f3NUqSUyXaSh6LDpys-0zaY1GfgeP",
-    "final": "https://drive.usercontent.google.com/download?id=1qk4f3NUqSUyXaSh6LDpys-0zaY1GfgeP&export=download",
-    "status": 200,
-    "type": "application/octet-stream",
-    "bytes": 3639335
-   }
-  ],
-  "source": "https://drive.usercontent.google.com/download?id=1qk4f3NUqSUyXaSh6LDpys-0zaY1GfgeP&export=download",
-  "bytes": 3639335
- },
- "t06": {
-  "ok": true,
-  "log": [],
-  "source": "http://www.spilnota.net.ua/ua/article/id-3822/",
-  "how": "print"
- },
- "t07": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://knute.edu.ua/file/MzEyMQ==/2c7deaa543dfca540518ee5270bc8aa7.pdf",
-    "final": "https://knute.edu.ua/file/MzEyMQ==/2c7deaa543dfca540518ee5270bc8aa7.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 5294304
-   }
-  ],
-  "source": "https://knute.edu.ua/file/MzEyMQ==/2c7deaa543dfca540518ee5270bc8aa7.pdf",
-  "bytes": 5294304
- },
- "t09": {
-  "ok": true,
-  "log": [
-   {
-    "url": "https://conf.ztu.edu.ua/wp-content/uploads/2020/12/pravova-polityka.pdf",
-    "final": "https://conf.ztu.edu.ua/wp-content/uploads/2020/12/pravova-polityka.pdf",
-    "status": 200,
-    "type": "application/pdf",
-    "bytes": 984663
-   }
-  ],
-  "source": "https://conf.ztu.edu.ua/wp-content/uploads/2020/12/pravova-polityka.pdf",
-  "bytes": 984663
+  "source": "https://elartu.tntu.edu.ua/bitstream/lib/41600/1/%D0%9B%D0%B5%D1%82%D1%83%D0%BD%20%D0%97%D0%91%D0%86%D0%A0%D0%9D%D0%98%D0%9A_%D1%82%D0%BE%D0%BC_1.pdf",
+  "bytes": 235976
  }
 }
