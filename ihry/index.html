@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Навчальні ігри з міжнародного права — Катерина Звєрєва</title>
+<meta name="description" content="Навчальні ігри Катерини Звєрєвої з міжнародного публічного і міжнародного торговельно-економічного права: самостійні й командні, з телефона чи комп’ютера.">
+<meta name="author" content="Катерина Звєрєва">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2f2a26;--ink2:#4a413a;--mut:#6b5f55;--paper:#fffdf9;--bg:#f7f2ea;--line:#e3d8c7;--g:#4f6b4c;--gd:#2f4a35;--gdd:#223a29;--r:#a35f5b;--gold:#e4c27a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 'Source Sans 3','Segoe UI',system-ui,sans-serif}
+a{color:var(--g)}a:hover{color:var(--ink)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+header.top{background:var(--gdd);color:#fff;position:sticky;top:0;z-index:5;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;padding-top:14px;padding-bottom:14px}
+.logo{text-decoration:none;color:#fff;display:flex;align-items:center;gap:12px}
+.logo b{font:600 22px/1.1 'Lora',serif;display:block}
+.logo small{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#c9d6c3}
+.logo svg{flex:none}
+nav.menu{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+nav.menu a{color:#e6eee2;text-decoration:none;font-weight:600;font-size:16px;padding:9px 14px;border-radius:999px}
+nav.menu a:hover{background:rgba(255,255,255,.1);color:#fff}
+nav.menu a.home{background:var(--paper);color:var(--gdd)}
+nav.menu a.home:hover{background:#fff}
+.hero{background:var(--gd) radial-gradient(rgba(255,255,255,.09) 1.2px,transparent 1.2px) 0 0/24px 24px;color:#fff;overflow:hidden}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:32px 48px;padding-top:4rem;padding-bottom:4.5rem}
+.hero .txt{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.hero h1{margin:0;font:600 clamp(34px,7.5vw,58px)/1.08 'Lora',serif;overflow-wrap:break-word}
+.hero p{margin:0;font-size:20px;line-height:1.6;color:#e6eee2;max-width:620px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding-top:4px}
+.chips span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 14px;font-weight:600;font-size:15px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;padding-top:6px}
+.b1,.b2{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:18px;padding:14px 24px;border-radius:10px;transition:transform .15s}
+.b1{background:var(--gold);color:var(--gdd)}.b1:hover{color:var(--gdd);transform:translateY(-2px)}
+.b2{border:1.5px solid rgba(255,255,255,.6);color:#fff}.b2:hover{color:#fff;background:rgba(255,255,255,.08)}
+.hero-art{flex:1 1 300px;max-width:380px;width:100%;height:auto}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:-2.2rem;position:relative}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;gap:16px;align-items:flex-start;box-shadow:0 10px 30px rgba(47,42,38,.08)}
+.step i{font:700 20px/1 'Lora',serif;font-style:normal;flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#e8efe5;color:var(--gd)}
+.step b{display:block;font:600 19px/1.3 'Lora',serif;margin-bottom:4px}
+.step span{color:var(--ink2);font-size:16px}
+.sec{padding:4.5rem 0}
+.sec h2{margin:0;font:600 clamp(28px,5.5vw,40px)/1.15 'Lora',serif}
+.sec .lead{margin:10px 0 0;color:var(--ink2);font-size:18px;max-width:720px}
+.tabs,.levels{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:26px}
+.tabs button,.levels button{font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif;color:var(--g);background:var(--paper);border:1.5px solid #c9d6c4;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:44px;text-align:left;display:inline-flex;align-items:center;gap:8px}
+.tabs button:hover,.levels button:hover{border-color:var(--g)}
+.tabs button[aria-pressed="true"],.levels button[aria-pressed="true"]{background:var(--g);border-color:var(--g);color:#fff}
+.tabs .n{background:#e8efe5;color:#3f5a3c;border-radius:999px;padding:0 8px;font-size:13px;min-width:22px;text-align:center}
+.tabs button[aria-pressed="true"] .n{background:rgba(255,255,255,.22);color:#fff}
+.levels span{font-weight:600;font-size:14px;color:var(--mut)}
+.levels button{font-size:14px;min-height:38px;padding:6px 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-top:26px}
+.ihra{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.ihra::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--g)}
+.ihra[data-disc="mtep"]::before{background:var(--r)}
+.ihra[data-disc="mzpl"]::before{background:#b8923f}
+.ihra[data-disc="mtp"]::before{background:#4a6f8a}
+.ihra[data-disc="mkp"]::before{background:#5b4f8a}
+.ihra:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(47,42,38,.10)}
+.ihra .tags{display:flex;gap:6px;flex-wrap:wrap}
+.ihra .lbl,.ihra .newb{font-size:12px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:3px 10px}
+.ihra .lbl{background:#e8efe5;color:#3f5a3c}
+.ihra[data-disc="mtep"] .lbl{background:#f6e3e1;color:#8a4a46}
+.ihra .newb{background:var(--gold);color:#4a3a12}
+.ihra .t{margin:0;font:600 23px/1.2 'Lora',serif}
+.ihra .d{margin:0;font-size:15px;color:var(--ink2)}
+.ihra .topic{margin:0;font-size:14px;color:var(--ink2)}
+.ihra .topic b{font-weight:600}
+.ihra .note{margin:0;font-size:15px;color:var(--ink2);line-height:1.6;background:#f3ece1;border-radius:10px;padding:10px 12px}
+.ihra details{font-size:14px;color:var(--ink2)}
+.ihra summary{cursor:pointer;color:var(--g);font-weight:600}
+.ihra details ul{margin:6px 0 0;padding-left:18px}
+.ihra .btn,.ihra .soon{align-self:flex-start;margin-top:auto;font-weight:700;font-size:16px;padding:11px 20px;border-radius:10px;text-decoration:none}
+.ihra .btn{background:var(--g);color:#fff}
+.ihra .btn:hover{background:var(--gd);color:#fff}
+.ihra .soon{background:#efe6d7;color:var(--mut)}
+.ihra[hidden],.levels[hidden],.empty[hidden]{display:none!important}
+.empty{margin:26px 0 0;padding:22px;background:var(--paper);border:1px dashed var(--line);border-radius:12px;color:var(--mut)}
+.teach{margin-top:40px;background:#f6e3e1;border:1px solid #e8c9c5;border-radius:16px;padding:24px 26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.teach .k{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--r)}
+.teach p{margin:4px 0 0;color:var(--ink2);max-width:640px}
+.teach a{display:inline-flex;align-items:center;gap:8px;background:var(--paper);color:var(--r);text-decoration:none;font-weight:700;padding:11px 18px;border-radius:10px;border:2px solid var(--r)}
+footer{background:#3f5a3c;color:#e6eee2}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:2.25rem;padding-bottom:2.25rem;font-size:16px}
+footer a{color:#fff}
+@media (max-width:720px){header.top{position:static}.hero .wrap{padding-top:2.75rem;padding-bottom:3.5rem}.hero-art{display:none}nav.menu a{padding:8px 11px;font-size:15px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="./"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="2" width="36" height="36" rx="10" fill="#e4c27a"/><circle cx="13" cy="13" r="3.2" fill="#223a29"/><circle cx="20" cy="20" r="3.2" fill="#223a29"/><circle cx="27" cy="27" r="3.2" fill="#223a29"/></svg><span><b>Навчальні ігри</b><small>Катерина Звєрєва</small></span></a>
+<nav class="menu" aria-label="Меню розділу ігор">
+<a href="#yak">Як грати</a>
+<a href="#katalog">Каталог</a>
+<a href="#vykladacham">Викладачам</a>
+<a class="home" href="../">На головний сайт</a>
+</nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<div class="txt">
+<span class="eyebrow">Міжнародне право · гра замість конспекту</span>
+<h1>Навчальні ігри з міжнародного права</h1>
+<p>Справи, суди, аукціони й квести для студентів. Гра відкривається з телефона чи комп’ютера, бали самостійних ігор потрапляють до викладачки.</p>
+<div class="chips"><span>16 ігор</span><span>10 — міжнародне публічне право</span><span>6 — торговельно-економічне право</span></div>
+<div class="cta"><a class="b1" href="#katalog">Обрати гру</a><a class="b2" href="#mpp">Міжнародне публічне право</a></div>
+</div>
+<svg viewBox="0 0 360 300" aria-hidden="true" class="hero-art">
+<defs><filter id="sh"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0d1f14" flood-opacity=".35"/></filter></defs>
+<g filter="url(#sh)">
+<g transform="translate(40 40) rotate(-12 60 60)"><rect width="120" height="120" rx="22" fill="#fffdf9"/><circle cx="32" cy="32" r="10" fill="#a35f5b"/><circle cx="60" cy="60" r="10" fill="#a35f5b"/><circle cx="88" cy="88" r="10" fill="#a35f5b"/></g>
+<g transform="translate(205 30)"><circle cx="55" cy="55" r="55" fill="#e4c27a"/><path d="M55 20v70M28 38h54M28 38l-14 28h28zM82 38l-14 28h28z" stroke="#6b4f1f" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/><path d="M40 90h30" stroke="#6b4f1f" stroke-width="6" stroke-linecap="round"/></g>
+<g transform="translate(150 165) rotate(8 50 50)"><path d="M50 8a20 20 0 0 1 14 34l10 30H26l10-30A20 20 0 0 1 50 8z" fill="#c9d6c3"/><rect x="18" y="72" width="64" height="18" rx="9" fill="#c9d6c3"/></g>
+<g transform="translate(262 175)"><circle cx="38" cy="38" r="38" fill="#f2dcd8"/><circle cx="38" cy="38" r="26" fill="none" stroke="#a35f5b" stroke-width="4"/><path d="M12 38h52M38 12c12 14 12 38 0 52M38 12c-12 14-12 38 0 52" stroke="#a35f5b" stroke-width="3" fill="none"/></g>
+</g></svg>
+</div></section>
+
+<div class="wrap" id="yak">
+<div class="steps">
+<div class="step"><i>1</i><div><b>Оберіть гру</b><span>Натисніть дисципліну й знайдіть гру своєї групи. Викладачка також може надіслати пряме посилання.</span></div></div>
+<div class="step"><i>2</i><div><b>Увійдіть за прізвищем</b><span>Прізвище та ім’я, як у журналі, і своя група. Код чи пароль не потрібні.</span></div></div>
+<div class="step"><i>3</i><div><b>Грайте у своєму темпі</b><span>Прогрес зберігається після кожної відповіді. Якщо спроб кілька, у журнал іде найкраща.</span></div></div>
+</div>
+</div>
+
+<section class="sec" id="katalog"><div class="wrap">
+<span class="eyebrow" style="color:var(--r)">Каталог</span>
+<h2>Оберіть дисципліну</h2>
+<p class="lead">На кожній картці — група, строк і тема. Розгорніть «Що треба знати», щоб повторити перед грою.</p>
+<div class="tabs" role="group" aria-label="Дисципліни">
+<button type="button" data-disc="all" aria-pressed="true">Усі ігри</button>
+<button type="button" data-disc="mpp" aria-pressed="false">Міжнародне публічне право</button>
+<button type="button" data-disc="mtep" aria-pressed="false">Міжнародне торговельно-економічне право</button>
+<button type="button" data-disc="mzpl" aria-pressed="false">Міжнародний захист прав людини</button>
+<button type="button" data-disc="mtp" aria-pressed="false">Міжнародне транспортне право</button>
+<button type="button" data-disc="mkp" aria-pressed="false">Міжнародне космічне право</button>
+</div>
+<div class="levels" role="group" aria-label="Складність" hidden>
+<span>Складність:</span>
+<button type="button" data-level="all" aria-pressed="true">будь-яка</button>
+<button type="button" data-level="1" aria-pressed="false">базова</button>
+<button type="button" data-level="2" aria-pressed="false">середня</button>
+<button type="button" data-level="3" aria-pressed="false">поглиблена</button>
+</div>
+<p class="empty" hidden>Ігри з цієї дисципліни готуються. Зазирніть трохи згодом.</p>
+<div class="grid" id="grid">
+<article class="ihra" data-disc="mpp" data-level="" data-new="1"><div class="tags"><span class="lbl">МПП</span><span class="newb">Нова</span></div><h3 class="t">Колізійний суд</h3><p class="d">МПП, ФМТП 2-23. Самостійна гра: ви — суддя. Шість справ про колізії національного і міжнародного права: аргументи сторін, питання справи, ухвала і норми, на які вона спирається, 65–85 хв. Три спроби, у журнал іде найкраща. Відкрита до 09.11, 23:00, вхід за прізвищем, як у журналі.</p><p class="topic"><b>Тема:</b> Взаємозв’язок та взаємодія національного права з міжнародним правом</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Місце міжнародних договорів у праві України (Конституція України, ст. 8, 9; Закон «Про міжнародні договори України», ст. 19)</li><li>Внутрішнє право не виправдовує невиконання договору (Віденська конвенція 1969, ст. 26, 27, 46)</li><li>Виконання рішень ЄСПЛ і застосування його практики (Закон 2006 року, ст. 1, 2, 10, 13, 17)</li><li>Обов’язковість рішень Ради Безпеки і пріоритет Статуту ООН (ст. 25, 103)</li></ul></details><a class="btn" href="kolizijnyi-sud.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level="" data-new="1"><div class="tags"><span class="lbl">МПП</span><span class="newb">Нова</span></div><h3 class="t">Вежі</h3><p class="d">МПП, ФМТП 2-23. Самостійна гра: шість правових систем — шість веж (Україна, міжнародний суд, Нідерланди, Франція, Велика Британія, США). Будуйте їх із цеглин-норм і витримайте «шторми»; далі монізм і дуалізм та майстерня імплементації, 45–50 хв. Три спроби, у журнал іде найкраща. Відкрита до 09.11, 23:00, вхід за прізвищем, як у журналі.</p><p class="topic"><b>Тема:</b> Взаємозв’язок та взаємодія національного права з міжнародним правом</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Теорії співвідношення права: монізм, дуалізм, змішані моделі</li><li>Трансформація, інкорпорація і відсилання як способи імплементації</li><li>Місце договорів у конституціях зарубіжних держав</li><li>Конституція України, ст. 9; Закон «Про міжнародні договори України», ст. 19</li></ul></details><a class="btn" href="vezhi.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level="" data-new="1"><div class="tags"><span class="lbl">МПП</span><span class="newb">Нова</span></div><h3 class="t">Аукціон максим</h3><p class="d">МПП, ФМТП 2-23. Самостійна гра: каталог із 26 латинських термінів і максим, а потім аукціон: ставте на відповідь, у якій упевнені, і стережіться пасток, 50–70 хв. Три спроби, у журнал іде найкраща. Відкрита до 09.11, 23:00, вхід за прізвищем, як у журналі.</p><p class="topic"><b>Тема:</b> Взаємозв’язок та взаємодія національного права з міжнародним правом</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Латинські терміни і максими теми: pacta sunt servanda, lex posterior, lex specialis, ultra vires, jus cogens та інші</li><li>Зв’язок максим із нормами Віденської конвенції 1969 року (ст. 26, 27, 46, 53)</li></ul></details><a class="btn" href="aukcion-maksym.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level=""><div class="tags"><span class="lbl">МПП</span></div><h3 class="t">Ланцюг</h3><p class="d">МПП, ФМТП 3-3. Командна гра на парі: відкрийте з телефона, коли викладачка почне гру, і впишіть прізвище, як у журналі.</p><p class="topic"><b>Теми:</b> Територія і населення; Права людини; Відповідальність і санкції; Мирне вирішення спорів; Безпека, гуманітарне і кримінальне право</p><a class="btn" href="lantsyuh.html">Грати</a></article>
+<article class="ihra" data-disc="mtep" data-level=""><div class="tags"><span class="lbl">МТЕП</span></div><h3 class="t">Шлях вантажу</h3><p class="d">МТЕП. Самостійна гра: оберіть свою групу, доставте вантаж маршрутом тем курсу. Бали йдуть у журнал.</p><p class="topic"><b>Тема:</b> Теми курсу на вибір викладача: від джерел МТЕП і права СОТ до платежів, транспорту, торговельного захисту, спорів і санкцій</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Залежить від тем, які викладач обрав для групи</li></ul></details><p class="note"><b>ФМТП 3-13</b>: теми 6–7, відкрита до 08.11, 23:00.<br><b>ФМТП 3-14</b>: тема 6, відкрита до 08.11, 23:00.<br><b>ФМТП 4-4</b>: тема 19, відкрита до 08.11, 23:00.<br>Вхід за прізвищем, як у журналі.</p><a class="btn" href="shlyakh-vantazhu.html">Грати</a></article>
+<article class="ihra" data-disc="mtep" data-level=""><div class="tags"><span class="lbl">МТЕП</span></div><h3 class="t">Бюро розслідувань</h3><p class="d">МТЕП, ФМТП 3-13 і 3-14, тема 6. Ви — слідчий Бюро розслідувань: відрізніть норму від фейку. Відкрито до 6 листопада, опівночі. Бали йдуть у журнал.</p><p class="topic"><b>Тема:</b> Право СОТ: принципи, доступ до ринку, винятки</p><a class="btn" href="byuro-rozsliduvan.html">Грати</a></article>
+<article class="ihra" data-disc="mtep" data-level=""><div class="tags"><span class="lbl">МТЕП</span></div><h3 class="t">Читач розкладів</h3><p class="d">МТЕП, ФМТП 3-13. Самостійна гра на самому аркуші розкладу: спершу переговори про вступ до СОТ, потім поради клієнтам. Відкрито з 6 листопада, 00:01, до 8 листопада, 23:00. Вхід за прізвищем, як у журналі. Бали йдуть у журнал.</p><p class="topic"><b>Тема:</b> Торгівля послугами: ГАТС, чотири способи поставки, розклади зобов’язань</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Чотири способи поставки послуг</li><li>«Немає» і «Не зобов’язано»: чим відрізняються</li><li>Доступ до ринку (ст. XVI) і національний режим (ст. XVII)</li><li>Горизонтальні записи, додаткові зобов’язання, винятки зі ст. II</li><li>Ст. XIV і справа про азартні ігри</li></ul></details><a class="btn" href="chytach-rozkladiv.html">Грати</a></article>
+<article class="ihra" data-disc="mtep" data-level=""><div class="tags"><span class="lbl">МТЕП</span></div><h3 class="t">Сейфи епох</h3><p class="d">МТЕП, ФМТП 4-4. Квест з артефактами: потрібен код команди від викладачки.</p><p class="topic"><b>Теми:</b> Міжнародні платежі і платіжні системи; Міжнародні розрахунки; Міжнародне транспортне право у торгівлі; Торговельний захист; Мирні методи вирішення торговельно-економічних спорів; Відповідальність, санкції, війна і кризи; Електронна торгівля і цифрові трансформації</p><a class="btn" href="seyfy-epokh.html">Грати</a></article>
+<article class="ihra" data-disc="mtep" data-level=""><div class="tags"><span class="lbl">МТЕП</span></div><h3 class="t">Кризовий штаб</h3><p class="d">МТЕП, ФМТП 4-4, тема 19. Самостійна гра: ви — юрисконсульт МЗС у кризовому штабі, 15 рішень з лімітом часу. Три спроби: кожна наступна — з іншими завданнями, у журнал іде найкраща. Відкрита до 08.11, 23:00, вхід за прізвищем, як у журналі.</p><p class="topic"><b>Тема:</b> Відповідальність, санкції, війна і кризи</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Міжнародно-протиправне діяння і присвоєння поведінки (Статті 2001, ст. 2, 4, 5, 8, 11, 12</li><li>справа «Нікарагуа», 1986)</li><li>контрзаходи: умови й межі (ст. 22, 49–53</li><li>справа «Габчиково-Надьмарош», 1997)</li><li>обставини, що виключають протиправність (ст. 20–26), самооборона (ст. 51 Статуту ООН)</li><li>санкції Ради Безпеки і власні санкції держав та ЄС (Статут ООН ст. 25, 27, 39, 41, 103</li><li>ст. 29 Договору про ЄС, ст. 215 Договору про функціонування ЄС</li><li>Статті 2001, ст. 48, 54)</li><li>виняток безпеки в СОТ (ст. XXI ГАТТ 1994</li><li>справа DS512 «Росія — заходи щодо транзиту», 2019)</li><li>відшкодування (ст. 30, 31, 34–37</li><li>справа про фабрику в Хожуві, 1928)</li><li>Реєстр збитків для України (Рада Європи, 2023) і Конвенція про Міжнародну комісію з розгляду претензій щодо України (2025)</li></ul></details><a class="btn" href="kryzovyi-shtab.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level=""><div class="tags"><span class="lbl">МПП</span></div><h3 class="t">Крізь простори</h3><p class="d">МПП, ФМТП 3-3. Самостійна гра: проведіть транспортер через дев’ять просторів, від кордону до космосу й Антарктиди. Відкрита до 08.11, 23:00, вхід за прізвищем, як у журналі. Бали йдуть у журнал.</p><p class="topic"><b>Тема:</b> Державна територія і правові режими просторів: море, повітря, космос, Антарктида</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Сухопутний кордон: перетин лише в пункті пропуску, кордон по річці за договором</li><li>Конвенція ООН з морського права 1982: внутрішні води (ст. 5, 7, 8), територіальне море і мирний прохід (ст. 2, 3, 17–20), прилегла зона (ст. 33), ВЕЗ (ст. 56–58), транзитний прохід протоками (ст. 37–39, 44), відкрите море, юрисдикція прапора, право відвідування, переслідування по гарячих слідах (ст. 87, 92, 110, 111)</li><li>Чиказька конвенція 1944: суверенітет над повітряним простором (ст. 1, 3, 6)</li><li>Договір про космос 1967: космос не підлягає присвоєнню (ст. II)</li><li>Договір про Антарктику 1959: мирні цілі, заморожені претензії, інспекції (ст. I, IV, VII)</li></ul></details><a class="btn" href="kriz-prostory.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level=""><div class="tags"><span class="lbl">МПП</span></div><h3 class="t">Справа про відповідальність</h3><p class="d">МПП, ФМТП 3-3. Самостійна гра: ви — слідчий міжнародної комісії, складіть висновок у справі про відповідальність держави. Відкривається 06.11, оберіть свою групу у списку. Бали йдуть у журнал.</p><p class="topic"><b>Тема:</b> Міжнародно-правова відповідальність держав</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Присвоєння поведінки державі (Статті 2001, ст. 4–11)</li><li>порушення чинного зобов’язання (ст. 2, 12, 13)</li><li>обставини, що виключають протиправність, та їхні умови (ст. 20–26)</li><li>припинення і гарантії неповторення (ст. 29, 30)</li><li>відшкодування: реституція, компенсація, сатисфакція (ст. 31, 34–37</li><li>справа про фабрику в Хожуві, 1928)</li><li>хто може посилатися на відповідальність, зобов’язання ерга омнес, серйозні порушення імперативних норм (ст. 40–42, 48)</li></ul></details><a class="btn" href="sprava.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level=""><div class="tags"><span class="lbl">МПП</span></div><h3 class="t">Коректура о 23:59</h3><p class="d">МПП, ФМТП 3-3. Самостійна гра: нічна зміна в редакції. У десяти рубриках знайдіть юридичну помилку в замітці, виправте її і назвіть норму або позначте «Помилки немає». Три спроби, кожна з іншими текстами. Відкрита до 08.11, 23:00, вхід за прізвищем, як у журналі. У журнал іде найкраща спроба.</p><p class="topic"><b>Теми:</b> Територія і населення; Права людини; Відповідальність і санкції; Мирне вирішення спорів; Сила, безпека і війна</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Морські простори: виключна економічна зона (Конвенція ООН з морського права 1982, ст. 55–58)</li><li>Невизнання незаконної анексії (Статті про відповідальність держав 2001, ст. 41)</li><li>Хто є біженцем (Конвенція 1951, ст. 1 А (2)); відступ від зобов’язань у надзвичайному стані (ЄКПЛ, ст. 15)</li><li>Присвоєння поведінки державі (Статті 2001, ст. 4–11); контрзаходи (ст. 22, 49–54); санкції ООН і ЄС</li><li>Юрисдикція Міжнародного Суду ООН: факультативне застереження (Статут Суду, п. 2 ст. 36), тимчасові заходи (ст. 41)</li><li>Пропорційність нападу (Додатковий протокол I до Женевських конвенцій, ст. 51); доповнюваність Міжнародного кримінального суду (Римський статут, ст. 17)</li></ul></details><a class="btn" href="koretura.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level=""><div class="tags"><span class="lbl">МПП</span></div><h3 class="t">Острів</h3><p class="d">МПП, ФМТП 3-3. Самостійна гра: ви — юрист острівної держави. П’ять розділів: карта і кордон, референдум, паспорти, човен з людьми, надзвичайний стан. Дві спроби, кожна з іншими завданнями. Відкрита до 08.11, 23:00, вхід за прізвищем, як у журналі. У журнал іде найкраща спроба.</p><p class="topic"><b>Тема:</b> Територія і населення</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Державна територія, кордони і способи набуття території</li><li>Агресія і невизнання її наслідків (Резолюція ГА ООН 3314 від 14.12.1974, ст. 3 додатка; Статті 2001, ст. 41)</li><li>Громадянство, особи без громадянства (Конвенція 1954, ст. 1), дипломатичний захист (Статті 2006, ст. 1, 14)</li><li>Біженці і заборона вислання (Конвенція 1951, ст. 1 А (2), 33; ЄКПЛ, ст. 3); тимчасовий захист у ЄС (Директива 2001/55/ЄС, рішення Ради 2022/382); внутрішньо переміщені особи (Керівні принципи 1998)</li><li>Відступ від зобов’язань у надзвичайному стані (ЄКПЛ, ст. 15; МПГПП, ст. 4)</li></ul></details><a class="btn" href="ostriv.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level=""><div class="tags"><span class="lbl">МПП</span></div><h3 class="t">Червона нитка</h3><p class="d">МПП, ФМТП 3-3. Самостійна гра: дошка слідчого. У п’яти справах протягніть нитку від факту до норми: чия поведінка, що порушено, що виправдовує, що відшкодувати, як примусити; наприкінці — нота. Дві спроби, кожна з іншими справами. Відкрита до 08.11, 23:00, вхід за прізвищем, як у журналі. У журнал іде найкраща спроба.</p><p class="topic"><b>Тема:</b> Міжнародно-правова відповідальність держав і санкції</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Елементи міжнародно-протиправного діяння (Статті 2001, ст. 2)</li><li>Присвоєння поведінки: органи, перевищення повноважень, контроль (ст. 4–11; справа Нікарагуа, 1986; справа про геноцид, 2007); допомога іншій державі (ст. 16)</li><li>Триваюче порушення (ч. 2 ст. 14); обставини, що виключають протиправність (ст. 20–27)</li><li>Припинення і гарантії (ст. 30); відшкодування: реституція, компенсація, сатисфакція (ст. 31, 34–37)</li><li>Контрзаходи (ст. 22, 49–53); зобов’язання перед усіма (ст. 48); санкції Ради Безпеки (Статут ООН, ст. 25, 39, 41, 103)</li></ul></details><a class="btn" href="chervona-nytka.html">Грати</a></article>
+<article class="ihra" data-disc="mpp" data-level=""><div class="tags"><span class="lbl">МПП</span></div><h3 class="t">Брама Мирного палацу</h3><p class="d">МПП, ФМТП 3-3. Самостійна гра: проведіть справу до Міжнародного Суду ООН через шість брам юрисдикції, потім — зала рішень і вибір форуму. Дві спроби, кожна з іншими справами. Відкрита до 08.11, 23:00, вхід за прізвищем, як у журналі. У журнал іде найкраща спроба.</p><p class="topic"><b>Тема:</b> Мирне вирішення міжнародних спорів</p><details><summary>Що треба знати, щоб пройти гру</summary><ul><li>Мирні засоби вирішення спорів (Статут ООН, п. 3 ст. 2, ст. 33)</li><li>Чи є спір (справа Мавромматіса, 1924; справа Маршаллових Островів, 2016); сторони — лише держави (Статут Суду, ст. 34)</li><li>Згода на юрисдикцію: спеціальна угода і компромісні застереження (п. 1 ст. 36; Конвенція про фінансування тероризму 1999, ст. 24; Конвенція про расову дискримінацію 1965, ст. 22), факультативне застереження і його обмеження (п. 2, 3 ст. 36; справа про норвезькі позики, 1957), згода після подання заяви (Регламент Суду, п. 5 ст. 38)</li><li>Відсутня третя держава (справа про монетарне золото, 1954; справа про Східний Тимор, 1995)</li><li>Тимчасові заходи обов’язкові (ст. 41; справа ЛаГранд, 2001); перегляд рішення (ст. 61); консультативні висновки (Статут ООН, ст. 96; Статут Суду, ст. 65)</li></ul></details><a class="btn" href="brama-myrnoho-palacu.html">Грати</a></article>
+<article class="ihra" data-disc="mtep" data-level=""><div class="tags"><span class="lbl">МТЕП</span></div><h3 class="t">Торгова епоха</h3><p class="d">МТЕП. Незабаром.</p><p class="topic"><b>Тема:</b> Огляд курсу: від ГАТТ до цифрової угоди</p><span class="soon">Незабаром</span></article>
+</div>
+<div class="teach" id="vykladacham"><div><span class="k">Для викладачів</span><p>Відкрийте гру своїй групі, задайте дедлайн і дивіться результати. Логін, пароль і доступ видає адміністратор сайту.</p></div><a href="pult.html"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>Пульт викладача</a></div>
+</div></section>
+
+<footer><div class="wrap">
+<span>© 2026 Катерина Звєрєва</span>
+<span style="display:flex;flex-wrap:wrap;gap:24px"><a href="../">Головна</a><a href="../publikatsii.html">Наукові праці</a><a href="../dity.html">Дитяча полиця</a></span>
+</div></footer>
+<script>
+(function () {
+  var grid = document.getElementById('grid');
+  var cards = [].slice.call(grid.querySelectorAll('.ihra'));
+  var tabs = [].slice.call(document.querySelectorAll('.tabs button'));
+  var lv = document.querySelector('.levels');
+  var lvBtns = [].slice.call(lv.querySelectorAll('button'));
+  var empty = document.querySelector('.empty');
+  var st = { disc: 'all', level: 'all' };
+  tabs.forEach(function (b) {
+    var d = b.getAttribute('data-disc');
+    var n = cards.filter(function (c) { return d === 'all' || c.getAttribute('data-disc') === d; }).length;
+    var s = document.createElement('span'); s.className = 'n'; s.textContent = n || 'скоро'; b.appendChild(s);
+  });
+  if (cards.some(function (c) { return c.getAttribute('data-level'); })) lv.hidden = false;
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var ok = (st.disc === 'all' || c.getAttribute('data-disc') === st.disc) && (st.level === 'all' || c.getAttribute('data-level') === st.level);
+      c.hidden = !ok; if (ok) shown++;
+    });
+    tabs.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-disc') === st.disc)); });
+    lvBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-level') === st.level)); });
+    empty.hidden = shown > 0;
+    empty.textContent = st.level !== 'all' && st.disc !== 'all' ? 'Ігор такої складності з цієї дисципліни поки немає.' : 'Ігри з цієї дисципліни готуються. Зазирніть трохи згодом.';
+  }
+  tabs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      st.disc = b.getAttribute('data-disc'); apply();
+      try { history.replaceState(null, '', st.disc === 'all' ? '#katalog' : '#' + st.disc); } catch (e) {}
+    });
+  });
+  lvBtns.forEach(function (b) { b.addEventListener('click', function () { st.level = b.getAttribute('data-level'); apply(); }); });
+  function fromHash() {
+    var m = /^#(?:ihry-)?([a-z]+)$/.exec(location.hash);
+    if (m && tabs.some(function (x) { return x.getAttribute('data-disc') === m[1]; })) {
+      st.disc = m[1]; apply();
+      var k = document.getElementById('katalog'); if (k) k.scrollIntoView();
+    }
+  }
+  window.addEventListener('hashchange', fromHash);
+  apply(); fromHash();
+})();
+</script>
+</body>
+</html>
