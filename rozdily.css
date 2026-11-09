@@ -1,0 +1,73 @@
+/* Розділи «Студентам», «Викладачам», «Зараз у роботі», тренажер Incoterms і вікно «Цитувати». */
+.rz-wrap{width:100%;max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4.5rem;box-sizing:border-box;display:flex;flex-direction:column;gap:40px}
+.rz-intro{display:flex;flex-direction:column;gap:14px;max-width:820px}
+.rz-eyebrow{font-size:15px;font-weight:700;color:#a35f5b;letter-spacing:.12em;text-transform:uppercase}
+.rz-intro h1{margin:0;font-family:'Lora',serif;font-size:clamp(34px,6vw,48px);line-height:1.1;font-weight:600}
+.rz-intro p{margin:0;font-size:19px;line-height:1.6;color:#4a413a}
+.rz-sec{display:flex;flex-direction:column;gap:18px}
+.rz-sec h2{margin:0;font-family:'Lora',serif;font-size:clamp(26px,5vw,32px);font-weight:600}
+.rz-sec>p{margin:0;font-size:17px;line-height:1.55;color:#4a413a;max-width:820px}
+.rz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.rz-card{background:#fffdf9;border:1px solid #e3d8c7;border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0;text-decoration:none;color:#2f2a26}
+a.rz-card{transition:transform .15s,box-shadow .15s}
+a.rz-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(47,42,38,.08);color:#2f2a26}
+.rz-card h3{margin:0;font-family:'Lora',serif;font-size:21px;line-height:1.3;font-weight:600}
+.rz-card p{margin:0;font-size:16.5px;line-height:1.55;color:#4a413a}
+.rz-card.is-soon{background:#fbf8f2;border-style:dashed}
+.rz-badge{align-self:flex-start;font-size:13px;font-weight:700;letter-spacing:.04em;border-radius:4px;padding:3px 8px;background:#e8efe5;color:#3f5a3c}
+.rz-badge--soon{background:#eee8dd;color:#6b5f55}
+.rz-go{margin-top:auto;font-weight:700;color:#4f6b4c;font-size:16px}
+.rz-note{font-size:15px;line-height:1.55;color:#6b5f55;background:#fffdf9;border:1px solid #e3d8c7;border-radius:6px;padding:14px 18px}
+/* Incoterms */
+.ic-panel{background:#fffdf9;border:1px solid #e3d8c7;border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.ic-panel h2{margin:0;font-family:'Lora',serif;font-size:24px;font-weight:600}
+.ic-rules{display:flex;flex-wrap:wrap;gap:10px}
+.ic-rules button,.ic-stages button{font:600 16px/1.3 'Source Sans 3',system-ui,sans-serif;color:#4f6b4c;background:#fffdf9;border:1.5px solid #c9d6c4;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:44px}
+.ic-rules button:hover,.ic-stages button:hover{border-color:#4f6b4c}
+.ic-rules button[aria-pressed="true"],.ic-stages button[aria-pressed="true"]{background:#4f6b4c;border-color:#4f6b4c;color:#fff}
+.ic-rules .ic-sea{border-style:dashed}
+.ic-lead{margin:0;font-size:18px;line-height:1.55;color:#2f2a26}
+.ic-meta{display:flex;flex-wrap:wrap;gap:8px}
+.ic-chip{font-size:14px;font-weight:700;border-radius:4px;padding:3px 9px;background:#e8efe5;color:#3f5a3c}
+.ic-chip--sea{background:#e4ecf3;color:#2f4a63}
+.ic-table{width:100%;border-collapse:collapse;font-size:16px}
+.ic-table th,.ic-table td{text-align:left;padding:10px 12px;border-bottom:1px solid #e3d8c7;vertical-align:top}
+.ic-table th{width:44%;font-weight:600;color:#4a413a}
+.ic-seller{color:#2f4a35;font-weight:700}
+.ic-buyer{color:#8a4a46;font-weight:700}
+.ic-none{color:#6b5f55;font-weight:600}
+.ic-route{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.ic-stg{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;width:100%;box-sizing:border-box;text-align:left;font:16px/1.4 'Source Sans 3',system-ui,sans-serif;color:#2f2a26;padding:10px 12px;min-height:44px;border-radius:6px;border:1px solid #e3d8c7;background:#fbf8f2;cursor:pointer}
+.ic-stg .ic-n{width:28px;height:28px;border-radius:50%;background:#e3d8c7;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.ic-stg .ic-who{font-weight:700;font-size:14px;white-space:nowrap}
+.ic-stg.is-seller{background:#e8efe5;border-color:#c9d6c4}
+.ic-stg.is-seller .ic-who{color:#2f4a35}
+.ic-stg.is-buyer{background:#f3e1dd;border-color:#e2c3bd}
+.ic-stg.is-buyer .ic-who{color:#8a4a46}
+.ic-stg[aria-pressed="true"]{outline:3px solid #2f2a26;outline-offset:1px}
+.ic-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:15px;color:#4a413a}
+.ic-legend i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:6px;vertical-align:-2px;border:1px solid #c9d6c4;background:#e8efe5}
+.ic-legend i.b{background:#f3e1dd;border-color:#e2c3bd}
+.ic-stages{display:flex;flex-direction:column;gap:8px}
+.ic-stages button{border-radius:8px;text-align:left}
+.ic-result{margin:0;padding:14px 16px;border-radius:8px;background:#f6ecd0;color:#3a2f12;font-size:17px;line-height:1.55}
+.ic-result b{font-weight:700}
+@media (max-width:560px){.ic-stg{grid-template-columns:30px minmax(0,1fr)}.ic-stg .ic-who{grid-column:2}.ic-table th{width:auto;display:block;border-bottom:0;padding-bottom:0}.ic-table td{display:block}}
+/* Цитувати */
+.pub-btn--cite{background:#fffdf9;color:#2f2a26;border:1px solid #d8cbb6;cursor:pointer}
+.pub-btn--cite:hover{border-color:#4f6b4c}
+dialog.ct-dlg{border:1px solid #e3d8c7;border-radius:10px;padding:0;max-width:min(680px,calc(100vw - 24px));width:100%;background:#fffdf9;color:#2f2a26;font-family:'Source Sans 3',system-ui,sans-serif}
+dialog.ct-dlg::backdrop{background:rgba(47,42,38,.45)}
+.ct-in{padding:22px;display:flex;flex-direction:column;gap:14px}
+.ct-in h2{margin:0;font-family:'Lora',serif;font-size:22px;font-weight:600}
+.ct-title{margin:0;font-size:15px;color:#6b5f55;line-height:1.45}
+.ct-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.ct-tabs button{font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif;color:#4f6b4c;background:#fffdf9;border:1.5px solid #c9d6c4;border-radius:999px;padding:8px 16px;cursor:pointer;min-height:44px}
+.ct-tabs button[aria-pressed="true"]{background:#4f6b4c;border-color:#4f6b4c;color:#fff}
+.ct-out{margin:0;padding:14px 16px;background:#f7f2ea;border:1px solid #e3d8c7;border-radius:6px;font-size:16.5px;line-height:1.6;overflow-wrap:anywhere;user-select:all}
+.ct-note{margin:0;font-size:14px;color:#6b5f55;line-height:1.5}
+.ct-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.ct-copy{font:700 16px/1.3 'Source Sans 3',system-ui,sans-serif;color:#fff;background:#4f6b4c;border:0;border-radius:6px;padding:11px 20px;min-height:44px;cursor:pointer}
+.ct-copy:hover{background:#3f5a3c}
+.ct-close{font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif;color:#2f2a26;background:transparent;border:1px solid #d8cbb6;border-radius:6px;padding:10px 16px;min-height:44px;cursor:pointer}
+.ct-ok{font-size:15px;font-weight:700;color:#3f5a3c}
