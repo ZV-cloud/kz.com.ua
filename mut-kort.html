@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Хаб для мут-кортів — Катерина Звєрєва</title>
+<meta name="description" content="Таймер оратора, чеклісти меморандуму й виступу, запитання суддів, тренувальне засідання за навчальною фабулою та оцінювальні листи для викладачів: Jessup, Vis, Telders.">
+<meta name="author" content="Kateryna Zviereva">
+<link rel="canonical" href="https://kz.com.ua/mut-kort.html">
+<meta property="og:title" content="Хаб для мут-кортів — Катерина Звєрєва">
+<meta property="og:description" content="Таймер оратора, чеклісти меморандуму й виступу, запитання суддів, тренувальне засідання за навчальною фабулою та оцінювальні листи для викладачів: Jessup, Vis, Telders.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kz.com.ua/mut-kort.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f7f2ea}a{color:#4f6b4c}a:hover{color:#2f2a26}</style>
+<link rel="stylesheet" href="rozdily.css">
+<style>
+.kt-wrap{gap:28px}
+.kt-modes,.kt-sub,.kt-chips{display:flex;flex-wrap:wrap;gap:8px}
+.kt-modes button,.kt-sub button,.kt-chips button,.kt-btn{font:600 16px/1.3 'Source Sans 3',system-ui,sans-serif;color:#4f6b4c;background:#fffdf9;border:1.5px solid #c9d6c4;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:44px;box-sizing:border-box}
+.kt-modes button{font-size:17px;padding:10px 18px}
+.kt-modes button:hover,.kt-sub button:hover,.kt-chips button:hover,.kt-btn:hover{border-color:#4f6b4c}
+.kt-modes button[aria-selected="true"],.kt-sub button[aria-selected="true"],.kt-chips button[aria-pressed="true"]{background:#4f6b4c;border-color:#4f6b4c;color:#fff}
+.kt-btn--main{background:#4f6b4c;border-color:#4f6b4c;color:#fff}
+.kt-btn--main:hover{background:#3f5a3c}
+.kt-btn--ghost{border-color:#d8cbb6;color:#2f2a26;border-radius:8px}
+.kt-modes button:focus-visible,.kt-sub button:focus-visible,.kt-chips button:focus-visible,.kt-btn:focus-visible,.kt-in:focus-visible,.kt-ta:focus-visible,.kt-chk input:focus-visible,.kt-lvl input:focus-visible,.kt-sel:focus-visible{outline:3px solid #2f2a26;outline-offset:2px}
+.kt-panel{display:flex;flex-direction:column;gap:18px;min-width:0}
+.kt-panel[hidden],.kt-sp[hidden]{display:none}
+.kt-card{background:#fffdf9;border:1px solid #e3d8c7;border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.kt-card h2,.kt-card h3{margin:0;font-family:'Lora',serif;font-weight:600;line-height:1.25}
+.kt-card h2{font-size:24px}
+.kt-card h3{font-size:19px}
+.kt-card p,.kt-card li{font-size:16.5px;line-height:1.55;color:#4a413a}
+.kt-card p{margin:0}
+.kt-small{font-size:15px!important;color:#6b5f55!important}
+.kt-sp{display:flex;flex-direction:column;gap:18px;min-width:0}
+.kt-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.kt-lab{font-weight:700;font-size:15px;color:#4a413a}
+.kt-in,.kt-sel{font:16px/1.3 'Source Sans 3',system-ui,sans-serif;color:#2f2a26;background:#fff;border:1.5px solid #c9bda9;border-radius:8px;padding:9px 12px;min-height:44px;box-sizing:border-box;max-width:100%}
+.kt-in--num{width:92px}
+.kt-ta{width:100%;box-sizing:border-box;font:16px/1.55 'Source Sans 3',system-ui,sans-serif;color:#2f2a26;background:#fff;border:1.5px solid #c9bda9;border-radius:8px;padding:12px;min-height:200px;resize:vertical}
+.kt-ok{font-size:15px;font-weight:700;color:#3f5a3c}
+/* timer */
+.kt-timer{display:flex;flex-direction:column;gap:14px;background:#fffdf9}
+.kt-clockbox{border-radius:10px;border:2px solid #e3d8c7;background:#fbf8f2;padding:18px 10px;text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center;transition:background .2s}
+.kt-clock{font:700 clamp(64px,23vw,150px)/1 'Source Sans 3',system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#2f2a26;letter-spacing:.02em}
+.kt-tstat{min-height:26px;font-size:18px;font-weight:700;color:#4a413a}
+.kt-s1{background:#f6ecd0;border-color:#d9c27a}
+.kt-s2{background:#f8dfc4;border-color:#d79a57}
+.kt-s3,.kt-s4{background:#f3d3cd;border-color:#a35f5b}
+.kt-s3 .kt-clock,.kt-s3 .kt-tstat,.kt-s4 .kt-clock,.kt-s4 .kt-tstat{color:#5e2420}
+.kt-over{background:#7a2f2a;border-color:#5e2420}
+.kt-over .kt-clock,.kt-over .kt-tstat{color:#fff}
+.kt-flash{animation:ktflash .9s ease-out 1}
+@keyframes ktflash{0%{box-shadow:0 0 0 0 rgba(163,95,91,.8)}100%{box-shadow:0 0 0 22px rgba(163,95,91,0)}}
+.kt-timer:fullscreen{justify-content:center;padding:24px;background:#f7f2ea;overflow:auto}
+.kt-timer:fullscreen .kt-clock{font-size:min(30vw,46vh)}
+.kt-timer:fullscreen .kt-tstat{font-size:clamp(20px,4vw,34px)}
+.kt-set{display:flex;flex-wrap:wrap;gap:10px}
+.kt-toggle[aria-pressed="true"]{background:#2f4a35;border-color:#2f4a35;color:#fff}
+/* check */
+.kt-chklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.kt-chklist h4{margin:14px 0 4px;font-family:'Lora',serif;font-size:17px;font-weight:600;color:#2f2a26}
+.kt-chk{display:flex;gap:12px;align-items:flex-start;min-height:44px;padding:8px 6px;border-radius:6px;cursor:pointer;font-size:16.5px;line-height:1.5;color:#2f2a26}
+.kt-chk:hover{background:#f7f2ea}
+.kt-chk input{width:24px;height:24px;margin:2px 0 0;flex:0 0 24px;accent-color:#4f6b4c}
+.kt-chk span{min-width:0;overflow-wrap:anywhere}
+.kt-chk small{display:block;color:#6b5f55;font-size:14.5px;margin-top:2px}
+.kt-prog{font-weight:700;color:#3f5a3c;font-size:16px}
+.kt-srcs{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.kt-srcs a,.kt-links a{color:#3f5a3c;overflow-wrap:anywhere}
+.kt-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.kt-links li{border-top:1px solid #e3d8c7;padding-top:12px}
+.kt-links li:first-child{border-top:0;padding-top:0}
+.kt-links b{display:block;font-size:17px;color:#2f2a26}
+/* formulas */
+.kt-form{display:flex;flex-direction:column;gap:8px;border:1px solid #e3d8c7;border-radius:8px;background:#fbf8f2;padding:14px}
+.kt-form .kt-uk{font-size:16.5px;color:#2f2a26;line-height:1.5;margin:0}
+.kt-form .kt-en{font-size:16.5px;color:#2f4a63;line-height:1.5;margin:0;font-style:italic}
+.kt-form .kt-when{font-size:14px;font-weight:700;color:#a35f5b;text-transform:uppercase;letter-spacing:.06em}
+/* question */
+.kt-q{border-radius:10px;border:2px solid #c9d6c4;background:#fbf8f2;padding:18px;display:flex;flex-direction:column;gap:10px;min-height:150px}
+.kt-q .kt-qtext{font:600 clamp(20px,4.6vw,26px)/1.4 'Lora',serif;color:#2f2a26;margin:0}
+.kt-qmeta{font-size:14.5px;font-weight:700;color:#3f5a3c}
+.kt-badge{display:inline-block;font-size:13.5px;font-weight:700;background:#e8efe5;color:#3f5a3c;border-radius:4px;padding:3px 9px;align-self:flex-start}
+.kt-badge--r{background:#f3e1dd;color:#8a4a46}
+/* play */
+.kt-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.kt-steps li{border:1.5px solid #e3d8c7;border-radius:8px;background:#fbf8f2;padding:8px 10px;font-size:14.5px;line-height:1.35;color:#6b5f55;min-width:0}
+.kt-steps li b{display:block;color:#2f2a26;font-size:15.5px}
+.kt-steps li.is-now{border-color:#4f6b4c;background:#e8efe5;outline:2px solid #4f6b4c}
+.kt-steps li.is-done{opacity:.65}
+.kt-facts{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+.kt-tag{background:#f6ecd0;color:#3a2f12;border-radius:6px;padding:12px 14px;font-size:15.5px;line-height:1.5}
+/* judge */
+.kt-sheet{background:#fff;border:1px solid #c9bda9;border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.kt-sheet h3{margin:0;font-family:'Lora',serif;font-size:21px}
+.kt-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.kt-fields label{display:flex;flex-direction:column;gap:3px;font-size:14.5px;font-weight:700;color:#4a413a}
+.kt-crit{border:1px solid #e3d8c7;border-radius:8px;padding:10px 12px;margin:0;min-width:0}
+.kt-crit legend{font-weight:700;font-size:16.5px;padding:0 6px;color:#2f2a26}
+.kt-lvl{display:flex;gap:10px;align-items:flex-start;min-height:44px;padding:6px 4px;font-size:15.5px;line-height:1.4;cursor:pointer;border-radius:6px}
+.kt-lvl:hover{background:#f7f2ea}
+.kt-lvl input{width:22px;height:22px;flex:0 0 22px;margin:1px 0 0;accent-color:#4f6b4c}
+.kt-lvl b{display:inline-block;min-width:1.1em}
+.kt-total{font-weight:700;font-size:18px;color:#2f2a26}
+.kt-qlist{margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px}
+.kt-qlist li{font-size:16.5px;line-height:1.5;color:#2f2a26}
+@media (max-width:560px){.kt-card{padding:16px}.kt-sheet{padding:14px}}
+@media (prefers-reduced-motion:reduce){.kt-flash{animation:none}.kt-clockbox{transition:none}}
+@media print{
+ @page{margin:14mm}
+ body,body>div{background:#fff!important;min-height:0!important}
+ header,footer,.kt-noprint,.kt-p-hide{display:none!important}
+ .rz-wrap{padding:0!important;max-width:none!important}
+ .kt-card,.kt-sheet{border:0!important;padding:0!important;background:#fff!important}
+ .kt-sheet{break-inside:auto;gap:8px}
+ .kt-crit{break-inside:avoid;padding:4px 8px}
+ .kt-lvl{min-height:0;padding:1px 2px;font-size:11.5pt}
+ .kt-lvl input{width:14px;height:14px;flex-basis:14px}
+ .kt-in,.kt-ta{border:0;border-bottom:1px solid #000;border-radius:0;background:transparent;padding:2px 0;min-height:24px}
+ .kt-ta{border:1px solid #000;min-height:90px}
+ body{font-size:12pt;color:#000}
+}
+</style>
+
+</head>
+<body>
+<div style="font-family: 'Source Sans 3', 'Segoe UI', sans-serif; color: #2f2a26; background: #f7f2ea; display: flex; flex-direction: column; min-height: 100vh;">
+
+<header style="border-bottom: 1px solid #e3d8c7; background: #f7f2ea;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 1.25rem 1.5rem; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 40px;">
+<a href="index.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 2px;" aria-label="На початок">
+<span style="font-family: 'Lora', serif; font-size: 26px; font-weight: 600; color: #2f2a26;">Катерина Звєрєва</span>
+<span style="font-size: 14px; color: #6b5f55; letter-spacing: 0.08em; text-transform: uppercase;">Особистий сайт</span>
+</a>
+<nav aria-label="Головне меню" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-size: 17px;">
+<a href="publikatsii.html" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Наукові праці</a>
+<a href="index.html#knyhy" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Книги</a>
+<a href="index.html#ihry" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Ігри</a>
+<a href="index.html#shkola" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Відкрита школа</a>
+<a href="novyny.html"  style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Новини</a>
+<a href="studentam.html" aria-current="page" style="text-decoration: none; color: #4f6b4c; padding: 10px 0; font-weight: 700; border-bottom: 2px solid #4f6b4c;">Студентам</a>
+<a href="index.html#pro-mene" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Про мене</a>
+<span style="font-size: 15px; color: #6b5f55; border: 1px solid #e3d8c7; border-radius: 6px; padding: 6px 10px;"><b style="color: #2f2a26;">UA</b> · EN</span>
+</nav>
+</div>
+</header>
+
+<main class="rz-wrap kt-wrap" id="kt-root">
+<div class="rz-intro"><span class="rz-eyebrow">Студентам</span><h1>Хаб для мут-кортів</h1>
+<p>Усе для підготовки до змагань з міжнародного права й арбітражу (Jessup, Vis, Telders та інші): таймер оратора, чеклісти меморандуму та виступу, запитання суддів, тренувальне засідання за навчальною фабулою, а також матеріали для викладачів. Нічого не надсилається на сервер: чеклісти зберігаються лише у вашому браузері.</p></div>
+
+<div class="kt-modes kt-noprint" role="tablist" aria-label="Розділи хабу" id="kt-modes">
+<button type="button" role="tab" id="kt-t-prep" aria-controls="kt-p-prep" aria-selected="true">Підготовка</button>
+<button type="button" role="tab" id="kt-t-play" aria-controls="kt-p-play" aria-selected="false" tabindex="-1">Зіграти засідання</button>
+<button type="button" role="tab" id="kt-t-judge" aria-controls="kt-p-judge" aria-selected="false" tabindex="-1">Режим судді</button>
+<button type="button" role="tab" id="kt-t-src" aria-controls="kt-p-src" aria-selected="false" tabindex="-1">Фабули й джерела</button>
+</div>
+
+<section class="kt-panel" id="kt-p-prep" role="tabpanel" aria-labelledby="kt-t-prep">
+ <div class="kt-sub kt-noprint" role="tablist" aria-label="Розділи підготовки" id="kt-sub">
+  <button type="button" role="tab" id="kt-st-timer" aria-controls="kt-sp-timer" aria-selected="true">Таймер</button>
+  <button type="button" role="tab" id="kt-st-memo" aria-controls="kt-sp-memo" aria-selected="false" tabindex="-1">Чекліст меморандуму</button>
+  <button type="button" role="tab" id="kt-st-skel" aria-controls="kt-sp-skel" aria-selected="false" tabindex="-1">Каркаси меморандумів</button>
+  <button type="button" role="tab" id="kt-st-oral" aria-controls="kt-sp-oral" aria-selected="false" tabindex="-1">Усний виступ</button>
+  <button type="button" role="tab" id="kt-st-ques" aria-controls="kt-sp-ques" aria-selected="false" tabindex="-1">Запитання суддів</button>
+ </div>
+
+ <div class="kt-sp" id="kt-sp-timer" role="tabpanel" aria-labelledby="kt-st-timer">
+  <div class="kt-card">
+   <h2>Таймер оратора</h2>
+   <p class="kt-small">Оберіть тривалість і натисніть «Старт». Сигнали на 5, 2 і 1 хвилині до кінця та в кінці вмикаються лише вашим дозволом нижче; без кліку звук не відтворюється. Після нуля таймер показує перевищення часу.</p>
+   <div id="kt-timer-prep"></div>
+   <div class="kt-set" role="group" aria-label="Сигнали">
+    <button type="button" class="kt-btn kt-toggle" id="kt-snd" aria-pressed="false">Звук: вимкнено</button>
+    <button type="button" class="kt-btn kt-toggle" id="kt-vib" aria-pressed="false">Вібрація: вимкнено</button>
+   </div>
+   <p class="kt-small" id="kt-sigstat" aria-live="polite">Натисніть, щоб дозволити сигнал; зазвучить короткий пробний сигнал. Вібрація працює лише на пристроях, що її підтримують.</p>
+  </div>
+  <div class="kt-card">
+   <h3>Орієнтири з чинних правил</h3>
+   <ul class="kt-srcs">
+    <li><b>Jessup 2027</b> (Official Rules, правила 6.1, 6.4, 6.5, 7.1): усне слухання триває 90 хвилин, по 45 хвилин на сторону; виступають двоє доповідачів; жоден не може отримати понад 25 хвилин, включно з реплікою; до 5 хвилин можна зарезервувати на репліку (rebuttal) чи відповідь на неї (surrebuttal). Джерело: <a href="https://www.ilsa.org/History/Jessup%202027/Jessup%202027%20Official%20Rules.pdf" rel="noopener">Jessup 2027 Official Rules</a>. Національні змагання можуть мати власні додатки.</li>
+    <li><b>Vis Moot (34-й, 2027)</b>: виступ команди в принципі триває 30 хвилин, ділиться між двома виступаючими; трибунал може продовжити, але разом із відповідями на запитання не більш як 45 хвилин (параграф 67 правил). Джерело: <a href="https://www.vismoot.org/wp-content/uploads/2026/08/34th-Vis-Moot-Rules_FINAL.pdf" rel="noopener">34th Vis Moot Rules</a>.</li>
+    <li>Для Telders та інших змагань тривалість дивіться у їхніх Rules of Procedure.</li>
+   </ul>
+  </div>
+ </div>
+
+ <div class="kt-sp" id="kt-sp-memo" role="tabpanel" aria-labelledby="kt-st-memo" hidden>
+  <div class="kt-card">
+   <h2>Чекліст структури меморандуму</h2>
+   <div class="kt-chips" id="kt-memo-prof" role="group" aria-label="Правила змагання"></div>
+   <div id="kt-memo-note"></div>
+   <div class="kt-row"><span class="kt-prog" id="kt-memo-prog" aria-live="polite"></span><button type="button" class="kt-btn kt-btn--ghost" id="kt-memo-reset">Зняти всі позначки</button></div>
+   <ul class="kt-chklist" id="kt-memo-list"></ul>
+  </div>
+ </div>
+
+ <div class="kt-sp" id="kt-sp-skel" role="tabpanel" aria-labelledby="kt-st-skel" hidden>
+  <div class="kt-card">
+   <h2>Каркас меморандуму</h2>
+   <p class="kt-small">Порожні розділи з підказками. Текст редагується тут же, його можна скопіювати й вставити у Word. Це навчальний каркас, а не готовий меморандум; обов’язкові вимоги завжди беріть з чинних правил вашого змагання.</p>
+   <div><span class="kt-lab">Правила</span><div class="kt-chips" id="kt-sk-prof" role="group" aria-label="Правила для каркаса"></div></div>
+   <div><span class="kt-lab">Сторона</span><div class="kt-chips" id="kt-sk-side" role="group" aria-label="Сторона"></div></div>
+   <label class="kt-lab" for="kt-sk-ta">Текст каркаса</label>
+   <textarea class="kt-ta" id="kt-sk-ta" style="min-height:360px" spellcheck="false"></textarea>
+   <div class="kt-row"><button type="button" class="kt-btn kt-btn--main" id="kt-sk-copy">Скопіювати як текст</button><button type="button" class="kt-btn kt-btn--ghost" id="kt-sk-reset">Повернути заготовку</button><span class="kt-ok" id="kt-sk-ok" role="status"></span></div>
+  </div>
+ </div>
+
+ <div class="kt-sp" id="kt-sp-oral" role="tabpanel" aria-labelledby="kt-st-oral" hidden>
+  <div class="kt-card">
+   <h2>Чекліст перед усним виступом</h2>
+   <div class="kt-row"><span class="kt-prog" id="kt-oral-prog" aria-live="polite"></span><button type="button" class="kt-btn kt-btn--ghost" id="kt-oral-reset">Зняти всі позначки</button></div>
+   <ul class="kt-chklist" id="kt-oral-list"></ul>
+  </div>
+  <div class="kt-card">
+   <h2>Формули ввічливості й звернення до суду</h2>
+   <p class="kt-small">Оригінальні робочі формулювання для тренування. Традиції звернення різняться: у змаганнях за зразком Міжнародного суду звертаються до «Суду», в арбітражних (Vis) до «Трибуналу»; завжди зважайте на правила й настанови організаторів та вказівки головуючого.</p>
+   <div class="kt-chips" id="kt-form-tabs" role="group" aria-label="Тип суду"></div>
+   <div id="kt-form-list" style="display:flex;flex-direction:column;gap:10px"></div>
+   <span class="kt-ok" id="kt-form-ok" role="status"></span>
+  </div>
+ </div>
+
+ <div class="kt-sp" id="kt-sp-ques" role="tabpanel" aria-labelledby="kt-st-ques" hidden>
+  <div class="kt-card">
+   <h2>Запитання від суддів</h2>
+   <p class="kt-small">Оригінальні запитання без прив’язки до конкретної фабули: підставте власні факти й норми. Відповідайте так, ніби суддя вже перервав вас.</p>
+   <div class="kt-chips" id="kt-q-cats" role="group" aria-label="Категорія запитань"></div>
+   <div class="kt-q" aria-live="polite" id="kt-q-box"><span class="kt-badge" id="kt-q-badge">Категорія</span><p class="kt-qtext" id="kt-q-text">Натисніть «Наступне запитання».</p><span class="kt-qmeta" id="kt-q-meta"></span></div>
+   <div class="kt-row"><button type="button" class="kt-btn kt-btn--main" id="kt-q-next">Наступне запитання</button><button type="button" class="kt-btn kt-btn--ghost" id="kt-q-prev">Попереднє</button>
+    <label class="kt-chk" style="min-height:44px;padding:0 6px"><input type="checkbox" id="kt-q-auto" checked><span>Запускати таймер на відповідь одразу</span></label></div>
+   <h3>Таймер на відповідь</h3>
+   <div id="kt-timer-q"></div>
+  </div>
+ </div>
+</section>
+
+<section class="kt-panel" id="kt-p-play" role="tabpanel" aria-labelledby="kt-t-play" hidden>
+ <div class="kt-card">
+  <h2>Зіграти засідання</h2>
+  <p>Оберіть навчальну фабулу й сторону. Ви пройдете шість раундів: вступ, аргумент 1, запитання судді, аргумент 2, запитання судді, заключне слово, кожен з таймером. Запитання до вас підбираються з оригінального набору для обраної фабули. Формат навчальний і не копіює регламенту жодного змагання.</p>
+  <div class="kt-tag"><b>Навчальна фабула.</b> Усі держави, події й документи у фабулах вигадані авторкою сторінки для тренування; збіги з реальністю випадкові. Це не фабули жодного змагання.</div>
+  <div><label class="kt-lab" for="kt-pl-fab">Фабула</label><br><select class="kt-sel" id="kt-pl-fab" style="width:100%;max-width:520px"></select></div>
+  <div><span class="kt-lab">Ваша сторона</span><div class="kt-chips" id="kt-pl-side" role="group" aria-label="Сторона"></div></div>
+  <div><span class="kt-lab">Тривалість засідання</span><div class="kt-chips" id="kt-pl-len" role="group" aria-label="Тривалість"></div></div>
+  <div class="kt-row"><button type="button" class="kt-btn kt-btn--main" id="kt-pl-go">Почати засідання</button><button type="button" class="kt-btn kt-btn--ghost" id="kt-pl-reset" hidden>Завершити й повернутися</button></div>
+ </div>
+ <div class="kt-card" id="kt-pl-case"></div>
+ <div class="kt-card" id="kt-pl-run" hidden>
+  <ol class="kt-steps" id="kt-pl-steps" aria-label="Раунди"></ol>
+  <h2 id="kt-pl-rt"></h2>
+  <p id="kt-pl-rp"></p>
+  <div class="kt-q" id="kt-pl-qbox" hidden aria-live="polite"><span class="kt-badge kt-badge--r">Запитання судді</span><p class="kt-qtext" id="kt-pl-qtext"></p><div><button type="button" class="kt-btn kt-btn--ghost" id="kt-pl-qother">Інше запитання</button></div></div>
+  <div id="kt-timer-play"></div>
+  <div class="kt-row"><button type="button" class="kt-btn kt-btn--ghost" id="kt-pl-prev">Попередній раунд</button><button type="button" class="kt-btn kt-btn--main" id="kt-pl-next">Наступний раунд</button></div>
+  <div class="kt-set" role="group" aria-label="Сигнали для засідання">
+   <button type="button" class="kt-btn kt-toggle" id="kt-snd2" aria-pressed="false">Звук: вимкнено</button>
+   <button type="button" class="kt-btn kt-toggle" id="kt-vib2" aria-pressed="false">Вібрація: вимкнено</button>
+  </div>
+ </div>
+ <div class="kt-card" id="kt-pl-end" hidden>
+  <h2>Засідання завершено</h2>
+  <p>Запишіть, що спрацювало, а що ні, поки це свіже. Нотатки лишаються лише на цій сторінці.</p>
+  <label class="kt-lab" for="kt-pl-notes">Нотатки після засідання</label>
+  <textarea class="kt-ta" id="kt-pl-notes" style="min-height:220px"></textarea>
+  <div class="kt-row"><button type="button" class="kt-btn kt-btn--main" id="kt-pl-copy">Скопіювати нотатки</button><button type="button" class="kt-btn kt-btn--ghost" id="kt-pl-again">Зіграти ще раз</button><span class="kt-ok" id="kt-pl-ok" role="status"></span></div>
+ </div>
+</section>
+
+<section class="kt-panel" id="kt-p-judge" role="tabpanel" aria-labelledby="kt-t-judge" hidden>
+ <div class="kt-card kt-noprint">
+  <h2>Режим судді для викладачів</h2>
+  <p>Набір запитань до студентів і друкований оцінювальний лист (п’ять рівнів за кожним критерієм). Листи навчальні, їх можна заповнювати на екрані або надрукувати порожніми, і вони не замінюють офіційних форм оцінювання змагань.</p>
+ </div>
+
+ <div class="kt-card kt-noprint">
+  <h3>Набір запитань для проведення засідання</h3>
+  <div class="kt-row"><label class="kt-lab" for="kt-j-src">Джерело запитань</label><select class="kt-sel" id="kt-j-src"></select></div>
+  <div class="kt-row"><label class="kt-lab" for="kt-j-n">Кількість</label><select class="kt-sel" id="kt-j-n"><option>5</option><option selected>8</option><option>12</option><option>16</option></select>
+   <button type="button" class="kt-btn kt-btn--main" id="kt-j-gen">Сформувати набір</button></div>
+ </div>
+ <div class="kt-card" id="kt-qset" hidden>
+  <h3 id="kt-qset-h">Набір запитань</h3>
+  <ol class="kt-qlist" id="kt-qset-l"></ol>
+  <div class="kt-row kt-noprint"><button type="button" class="kt-btn kt-btn--main" data-print="qset">Друкувати набір</button><button type="button" class="kt-btn kt-btn--ghost" id="kt-j-copy">Скопіювати як текст</button><span class="kt-ok" id="kt-j-ok" role="status"></span></div>
+ </div>
+
+ <div class="kt-sheet" id="kt-sheet-oral">
+  <h3>Оцінювальний лист: усний виступ</h3>
+  <div class="kt-fields">
+   <label>Команда або виступаючий<input class="kt-in" type="text"></label>
+   <label>Сторона<input class="kt-in" type="text"></label>
+   <label>Суддя<input class="kt-in" type="text"></label>
+   <label>Дата, раунд<input class="kt-in" type="text"></label>
+  </div>
+  <p class="kt-small">Рівні: 1 початковий, 2 достатній, 3 добрий, 4 дуже добрий, 5 відмінний.</p>
+  <div id="kt-oral-crit" style="display:flex;flex-direction:column;gap:10px"></div>
+  <div class="kt-total" id="kt-oral-total" aria-live="polite">Сума: 0 з 30</div>
+  <label class="kt-lab" for="kt-oral-cm">Коментар: що найсильніше, що поліпшити</label>
+  <textarea class="kt-ta" id="kt-oral-cm"></textarea>
+  <div class="kt-row kt-noprint"><button type="button" class="kt-btn kt-btn--main" data-print="oral">Друкувати лист</button><button type="button" class="kt-btn kt-btn--ghost" data-clear="oral">Очистити</button></div>
+ </div>
+
+ <div class="kt-sheet" id="kt-sheet-memo">
+  <h3>Оцінювальний лист: меморандум</h3>
+  <div class="kt-fields">
+   <label>Команда<input class="kt-in" type="text"></label>
+   <label>Сторона<input class="kt-in" type="text"></label>
+   <label>Рецензент<input class="kt-in" type="text"></label>
+   <label>Дата<input class="kt-in" type="text"></label>
+  </div>
+  <p class="kt-small">Рівні: 1 початковий, 2 достатній, 3 добрий, 4 дуже добрий, 5 відмінний.</p>
+  <div id="kt-memo-crit" style="display:flex;flex-direction:column;gap:10px"></div>
+  <div class="kt-total" id="kt-memo-total" aria-live="polite">Сума: 0 з 30</div>
+  <label class="kt-lab" for="kt-memo-cm">Коментар</label>
+  <textarea class="kt-ta" id="kt-memo-cm"></textarea>
+  <div class="kt-row kt-noprint"><button type="button" class="kt-btn kt-btn--main" data-print="memo">Друкувати лист</button><button type="button" class="kt-btn kt-btn--ghost" data-clear="memo">Очистити</button></div>
+ </div>
+</section>
+
+<section class="kt-panel" id="kt-p-src" role="tabpanel" aria-labelledby="kt-t-src" hidden>
+ <div class="kt-card">
+  <h2>Фабули й джерела</h2>
+  <div class="kt-tag"><b>Важливо про офіційні фабули.</b> Фабули, правила й меморандуми змагань є матеріалами організаторів. Їх використання (тренування, розміщення, копіювання, розповсюдження, використання чужих меморандумів) регулюється правилами конкретного змагання та умовами сайту, де їх опубліковано. Тут лише посилання на офіційні сторінки; тексти фабул і меморандумів на цій сторінці не копіюються. Перед використанням перевірте актуальні правила та національні додатки.</div>
+  <p class="kt-small">Посилання перевірено 10 листопада 2026 року. Сторінки змагань оновлюються, тож орієнтуйтеся на дати й редакції правил, указані на самих сайтах.</p>
+ </div>
+ <div class="kt-card">
+  <h3>Philip C. Jessup International Law Moot Court Competition (ILSA)</h3>
+  <ul class="kt-links">
+   <li><a href="https://www.ilsa.org/jessup/jessup-2027/" rel="noopener"><b>Jessup 2027: головна сторінка змагання</b></a>правила, проблема, календар (меморандуми подаються до 12 січня 2027 року), національні додатки.</li>
+   <li><a href="https://www.ilsa.org/History/Jessup%202027/Jessup%202027%20Official%20Rules.pdf" rel="noopener"><b>Jessup 2027 Official Rules (PDF)</b></a>структура меморіалу, ліміти слів, регламент усних раундів.</li>
+   <li><a href="https://www.ilsa.org/?p=49079" rel="noopener"><b>Що змінилося в правилах 2027</b></a>зокрема заборону розділу «Questions Presented» і обмеження щодо скорочень.</li>
+   <li><a href="https://www.ilsa.org/History/Jessup%202027/Jessup%202027%20Problem%20Final.pdf" rel="noopener"><b>Jessup 2027: офіційна проблема (PDF)</b></a></li>
+   <li><a href="https://www.ilsa.org/Jessup-history" rel="noopener"><b>Архів: усі роки змагання з 1960</b></a>перелік років з посиланнями на сторінки кожного року (наприклад, <a href="https://www.ilsa.org/jessup-year/jessup-2026/" rel="noopener">Jessup 2026</a>, де є проблема й допоміжні матеріали).</li>
+  </ul>
+ </div>
+ <div class="kt-card">
+  <h3>Willem C. Vis International Commercial Arbitration Moot</h3>
+  <ul class="kt-links">
+   <li><a href="https://www.vismoot.org/home/34th-vis-moot/" rel="noopener"><b>34-й Vis Moot (2027): головна сторінка</b></a>терміни: проблема з 2 жовтня 2026, меморандум позивача до 10 грудня 2026, відповідача до 21 січня 2027, усні раунди 20–25 березня 2027 року, Відень.</li>
+   <li><a href="https://www.vismoot.org/wp-content/uploads/2026/08/34th-Vis-Moot-Rules_FINAL.pdf" rel="noopener"><b>34th Vis Moot Rules (PDF)</b></a></li>
+   <li><a href="https://www.vismoot.org/wp-content/uploads/2026/10/26-10-02_34th-Vis-Moot_The-Problem.pdf" rel="noopener"><b>34-й Vis Moot: проблема (PDF)</b></a></li>
+   <li><a href="https://www.vismoot.org/previous-moots/" rel="noopener"><b>Архів попередніх змагань</b></a>29-й по 33-й Vis Moot з проблемою й правилами (наприклад, <a href="https://www.vismoot.org/previous-moots/33rd-vis-moot/" rel="noopener">33-й Vis Moot</a>).</li>
+  </ul>
+ </div>
+ <div class="kt-card">
+  <h3>Telders International Law Moot Court Competition (Лейденський університет)</h3>
+  <ul class="kt-links">
+   <li><a href="https://www.universiteitleiden.nl/teldersmcc" rel="noopener"><b>Офіційний сайт Telders</b></a>розділи про змагання, суддів, спонсорів і попередні видання (Former Editions).</li>
+   <li><a href="https://universiteitleiden.nl/teldersmcc/about-us" rel="noopener"><b>Про змагання</b></a>національні раунди в європейських країнах і міжнародні раунди в Гаазі.</li>
+   <li><a href="https://www.universiteitleiden.nl/teldersmcc/competition/telders-case-of-2027" rel="noopener"><b>Telders: справа 2027 року</b></a>офіційна фабула й додатки до неї.</li>
+   <li><a href="https://www.universiteitleiden.nl/teldersmcc/competition/telders-case-of-2026" rel="noopener"><b>Telders: справа 2026 року</b></a></li>
+   <li><a href="https://universiteitleiden.nl/teldersmcc/competition/pleading--memorials" rel="noopener"><b>Меморіали та усні виступи</b></a>організатори публікують тут настанови для меморіалів, вступ до виступу в суді та зразки меморіалів минулих років.</li>
+  </ul>
+ </div>
+ <div class="kt-card">
+  <h3>Інші змагання</h3>
+  <ul class="kt-links">
+   <li><a href="https://iisl.space/mlmc-official-rules/" rel="noopener"><b>Manfred Lachs Space Law Moot Court Competition (IISL)</b></a>офіційні правила й документи змагання з космічного права.</li>
+  </ul>
+ </div>
+</section>
+
+<noscript><p class="rz-note">Для роботи хабу потрібен JavaScript.</p></noscript>
+<div class="rz-note"><b>Важливо.</b> Хаб є навчальним: усі запитання, формули, каркаси й листи оцінювання створено як допоміжні матеріали для тренування й не є офіційними документами жодного змагання. Вимоги до меморандумів і виступів, наведені зі посиланнями на правила Jessup 2027 та 34-го Vis Moot, перевірено станом на 10 листопада 2026 року; правила змінюються щороку, а національні раунди мають власні додатки, тож завжди звіряйтеся з чинним текстом правил.</div>
+</main>
+
+<script>
+window.KT_Q = {
+ fact: {name:'Факти', sec:90, items:[
+  'На який пункт фабули ви спираєтеся, коли стверджуєте, що держава знала про ризик заздалегідь?',
+  'Чи є у фабулі факт, який суперечить вашій версії подій? Як ви з ним працюєте?',
+  'Яких фактів вам бракує для остаточного висновку, і що має робити суд за їх відсутності?',
+  'Де проходить межа між фактом із фабули та вашим висновком із нього? Чи не додаєте ви припущення?',
+  'Яка хронологія подій вирішальна для вашого аргументу, і що зміниться, якщо один етап зсунути в часі?',
+  'Хто є автором документа, на який ви посилаєтеся, і чому суд має вважати його надійним?',
+  'Яку частину фабули суперник читає інакше, і чому ваше прочитання краще?',
+  'Достатньо одного доказу для встановлення цього факту? Який стандарт доказування ви пропонуєте?',
+  'Чи змінився б ваш висновок, якби подія сталася на місяць пізніше?',
+  'Яка саме особа чи орган діяли, і чому їхню поведінку можна приписати державі?',
+  'Яке фактичне місце вашої позиції найслабше?',
+  'Що у фабулі свідчить про спроби сторін домовитися до звернення до суду?'
+ ]},
+ law: {name:'Право', sec:90, items:[
+  'Яка норма центральна для вашого аргументу, і чому саме вона, а не загальніша?',
+  'Із чого випливає це правило: з договору, звичаю чи загальних принципів? Як ви це доведете?',
+  'Чи є рішення міжнародного суду, що йде проти вас, і чим ваш випадок від нього відрізняється?',
+  'Як співвідносяться спеціальна й загальна норми у вашому аргументі?',
+  'Чи обов’язкова ця норма саме для обох сторін спору, і з якої підстави?',
+  'Як тлумачити цей термін за загальним правилом тлумачення договорів: за звичайним значенням, у контексті, з огляду на об’єкт і мету?',
+  'Чи достатньо практики держав та переконання про обов’язковість (opinio juris) для звичаєвої норми, на яку ви посилаєтеся?',
+  'Яким є стандарт належної обачності у вашому аргументі, і чи був він дотриманий?',
+  'Якщо суд відхилить вашу головну норму, на чому тримається ваш висновок? Яка запасна лінія?',
+  'Якщо вашій нормі суперечить інша зобов’язальна норма, яка з них переважає і чому?',
+  'Яка вага рішення, на яке ви посилаєтеся: воно обов’язкове для суду чи лише допоміжний засіб?',
+  'Чи не тлумачите ви норму надто широко? Де межа такого тлумачення?'
+ ]},
+ jur: {name:'Юрисдикція й допустимість', sec:90, items:[
+  'На якій підставі суд має юрисдикцію у цій справі, і чи є застереження або обмеження?',
+  'У чому, на вашу думку, різниця між юрисдикцією та допустимістю, і до якої з них належить ваш довід?',
+  'Чи вичерпано внутрішні засоби захисту, якщо ця вимога застосовна? Хто має доводити?',
+  'Чи має ваша держава правовий інтерес для подання такої вимоги? Чи йдеться про зобов’язання перед усіма?',
+  'Чи існував між сторонами спір, а не лише розбіжність поглядів, на момент звернення до суду?',
+  'Чи не стала вимога беззмістовною, бо предмета спору вже немає?',
+  'Чи може суд розглянути вимогу, не вирішуючи водночас прав третьої держави, яка не є стороною?',
+  'Чи виконані передумови звернення (обмін думками, переговори, повідомлення, строки)?',
+  'Чи охоплює юрисдикційне застереження саме цей різновид вимог?',
+  'Чи належить вимога до дипломатичного захисту, і чи є необхідний зв’язок громадянства?',
+  'Навіть якщо юрисдикція є, чи не слід суду утриматися від її здійснення з міркувань судової доцільності?',
+  'Які заперечення суперника щодо юрисдикції найсильніші, і як ви їм відповісте?'
+ ]},
+ cons: {name:'Наслідки', sec:90, items:[
+  'Яке конкретне рішення ви просите, і чи може суд його виконати?',
+  'Чи співмірні ваші вимоги порушенню, на яке ви скаржитеся?',
+  'Достатньо констатації порушення, чи потрібні відновлення стану, компенсація або сатисфакція?',
+  'Який причинний зв’язок між порушенням і шкодою, і як суд має його оцінити?',
+  'Які наслідки ваше тлумачення матиме для інших держав і стабільності правопорядку?',
+  'Чи не створить вашу позицію небезпечний прецедент?',
+  'Хто виконуватиме рішення, і яка роль у цьому інших держав чи організацій?',
+  'Що станеться, якщо суд задовольнить лише частину ваших вимог?',
+  'Чи потрібні тимчасові заходи до остаточного рішення, і за яких умов?',
+  'Чи можуть діяти обставини, що виключають протиправність, і чому ні (або так) у цій справі?',
+  'Які гарантії неповторення ви просите, і чому вони доречні?',
+  'Як ваше прохання про відшкодування узгоджується з вимогою повного відшкодування без подвійного стягнення?'
+ ]},
+ hot: {name:'Гаряча лава', sec:30, items:[
+  'Одним реченням: чого ви просите суд?',
+  'Ваш найсильніший довід за двадцять секунд.',
+  'Припустімо, суд не погодився з вашою головною нормою. Що далі?',
+  'Ви визнаєте цей факт чи ні?',
+  'Так чи ні: чи порушила ваша сторона це зобов’язання? Поясніть коротко.',
+  'Яка одна цитата з джерела найкраще підтримує вашу позицію?',
+  'Назвіть найсильніший довід суперника й дайте відповідь.',
+  'Чим цей випадок відрізняється від того, на який ви щойно послалися?',
+  'Де саме суд має провести межу?',
+  'На який компроміс ви могли б погодитися?',
+  'Що ви скажете, якщо суд вважатиме це питанням політики, а не права?',
+  'Яка слабка ланка у вашому аргументі?',
+  'Яка норма найбільше шкодить вашій позиції?'
+ ]}
+};
+
+window.KT_FAB = [
+{ id:'sea', title:'Справа про протоку Тарн (Вельдія проти Ормарії)',
+  A:'Республіка Вельдія', R:'Королівство Ормарія',
+  forum:'Міжнародний трибунал з морського права за спеціальною угодою сторін (вигадана ситуація).',
+  facts:[
+   'Республіка Вельдія і Королівство Ормарія є учасницями Конвенції ООН з морського права 1982 року (далі Конвенція). Вельдія не має берега на протоці Тарн.',
+   'Протока Тарн завширшки 18 морських миль з’єднує виключну економічну зону на заході з виключною економічною зоною на сході. Вона лежить між материковою Ормарією та її островом Карра. Південніше острова Карра існує інший морський маршрут через виключну економічну зону, довший на 140 морських миль, із гіршими гідрографічними умовами й частими штормами.',
+   'Після розливу нафти в протоці у 2024 році Ормарія ухвалила Закон про захист протоки Тарн (далі Закон). Він вимагає попереднього дозволу на прохід суден валовою місткістю понад 50 000 тонн і забороняє скидання баласту, що містить залишки нафтопродуктів.',
+   'Вельдія протестувала проти Закону дипломатичною нотою, а Ормарія відповіла, що проходу без дозволу вона не допустить. Переговорів між сторонами не було.',
+   '12 березня 2026 року танкер «Сіренія» (80 000 тонн, під прапором Вельдії) пройшов протоку без дозволу, прямуючи між двома портами за межами Ормарії, і не заходив до її територіального моря поза протокою.',
+   'Кораблі берегової охорони Ормарії зупинили «Сіренію» в протоці й відвели до порту Карра-Бей. Судно та екіпаж затримано. Капітана, громадянина Вельдії, обвинувачено за Законом.',
+   'За версією Ормарії, перед затриманням танкер скинув баласт із залишками нафтопродуктів, що підтверджує аналіз води. Вельдія стверджує, що скидання не було, а проби відібрали без її представника й без належного ланцюга зберігання.',
+   'Суд Ормарії наклав на судновласника штраф у 4 млн ормарійських крон. Через сім місяців судно досі утримується до сплати застави.',
+   'Обидві держави зробили заяви щодо обрання Міжнародного трибуналу з морського права. Ормарія додатково зробила заяву за статтею 298 Конвенції про виключення певних категорій спорів. Сторони уклали спеціальну угоду, за якою Трибунал розглядає вимоги Вельдії та заперечення Ормарії.'
+  ],
+  claims:{A:['Закон і затримання порушують право транзитного проходу, захищене Конвенцією.','Затримання судна й екіпажу є незаконним; потрібні звільнення й компенсація.'],
+          R:['Прохід «Сіренії» не підпадав під режим транзитного проходу, а Закон є правомірним заходом захисту довкілля.','Трибунал не має юрисдикції, або вимоги неприйнятні.']},
+  rounds:{A:{intro:'Представтеся, назвіть команду й дорожню карту: чого ви просите Трибунал і які два блоки аргументів подасте.',
+             a1:'Юрисдикція й допустимість: підстава юрисдикції, обмін думками між сторонами, вплив заяви Ормарії та чи охоплює вона цей спір.',
+             a2:'Суть: чи підпадає протока під режим транзитного проходу (зокрема виняток для протоки між островом і материком), чи порушує Закон цей режим, правовий статус затримання та засоби захисту.',
+             close:'Підсумуйте у 2 хвилини: одне порушення, одна ключова норма, конкретні прохання.'},
+          R:{intro:'Представтеся, назвіть команду й дорожню карту: яким є ваш головний захист і в якому порядку ви відповісте Вельдії.',
+             a1:'Юрисдикція й допустимість: заперечення щодо юрисдикції, вплив власної заяви за статтею 298, обмін думками, оцінка предмета спору.',
+             a2:'Суть: чому режим протоки не є транзитним проходом, на які норми про захист довкілля в протоках ви спираєтеся, чому заходи пропорційні та чи правомірне затримання.',
+             close:'Підсумуйте у 2 хвилини: чому вимоги слід відхилити і що Трибунал має зробити за запасною лінією.'}},
+  qs:{A:{1:['Чи охоплює заява Ормарії за статтею 298 саме цей спір, і як вона співвідноситься з вашою вимогою про затримання судна?',
+            'Чи вичерпували сторони можливості обмінятися думками до звернення, коли Ормарія відповіла лише нотою? Чи достатньо було однієї ноти?',
+            'Вельдія не має берега на протоці. Яка ваша правова підстава вимагати захисту прав судна?',
+            'Якщо Трибунал вважатиме, що спір має два аспекти, чи можна розглядати один без іншого?'],
+         2:['Чому виняток для протоки між островом і материком не застосовується, коли південний маршрут довший на 140 морських миль?',
+            'Закон спрямований на запобігання забрудненню після реальної катастрофи. Чому дозвільний режим не є допустимим заходом?',
+            'Якщо Трибунал визнає, що скидання відбулося, як це впливає на правомірність затримання і розмір вашої компенсації?',
+            'Яка найменша міра відшкодування, яку ви вважатимете задовільною, якщо головної вимоги не буде задоволено?']},
+      R:{1:['Якщо ваша заява за статтею 298 охоплює лише певні категорії спорів, чому вона виключає вимогу про режим протоки?',
+            'Ви стверджуєте, що переговорів не було через позицію Вельдії. На що саме ви спираєтеся?',
+            'Чи заперечуєте ви, що між сторонами існував спір на момент подання вимог?',
+            'Чи можете ви показати у фабулі, що аналіз води був належним, якщо представника Вельдії не було?'],
+         2:['Якщо Закон вимагає дозволу на прохід, чи не перешкоджає він транзитному проходу, якщо виняток до протоки не застосовується?',
+            'Чому довший південний маршрут можна вважати маршрутом «подібної зручності» за навігаційними й гідрографічними характеристиками?',
+            'Навіть якщо Закон правомірний, чи пропорційне триваюче затримання судна й екіпажу сім місяців?',
+            'Яка застава була б розумною, і чому ви не запропонували її раніше?']}},
+  refs:'Орієнтири для пошуку джерел (самостійно перевірте за текстом Конвенції та практикою): Частина III (протоки, зокрема статті 34, 38, 39, 42, 44, 45, 233), Частина XV (врегулювання спорів, зокрема статті 283, 286, 287, 292, 298).' },
+
+{ id:'trade', title:'Справа про вуглецевий збір (Тамарія проти Корвенії)',
+  A:'Союз Тамарія', R:'Республіка Корвенія',
+  forum:'Арбітражний трибунал за Договором про економічне партнерство між сторонами (вигаданий договір, що включає за посиланням положення ГАТТ 1994 про недискримінацію, кількісні обмеження й загальні винятки).',
+  facts:[
+   'Союз Тамарія і Республіка Корвенія є сторонами вигаданого Договору про економічне партнерство (далі Договір). Договір за посиланням включає до свого тексту статті I, II, III, XI та XX ГАТТ 1994 mutatis mutandis і передбачає арбітражне вирішення спорів.',
+   'У 2025 році Корвенія запровадила Збір за вуглецеве коригування (далі Збір) на імпорт сталі й алюмінію. Збір розраховується за обсягом викидів, закладених у товар, що перевищують корвенійський контрольний рівень, і сплачується під час ввезення.',
+   'Корвенійські виробники сталі й алюмінію отримують безкоштовні квоти на викиди в межах внутрішньої системи торгівлі; ці квоти покривають близько 80% їхніх викидів. Імпортери такого зменшення не мають.',
+   'Імпорт із держави Ліссарія звільнено від Збору, оскільки торговельна система викидів Ліссарії пов’язана з корвенійською окремою угодою. Імпорт із Тамарії такого звільнення не має, хоча тамарійська система торгівлі викидами за рівнем вимог порівнянна з корвенійською.',
+   'За оцінкою тамарійських виробників, Збір дорівнює приблизно 14% вартості їхнього експорту й практично закрив для них корвенійський ринок.',
+   'Окремо Корвенія надає «гранти зеленого переходу» корвенійським виробникам, що закуповують не менш як 60% обладнання у корвенійських постачальників.',
+   'Корвенія пояснює Збір потребою знизити глобальні викиди й не допустити перенесення виробництва в країни з менш суворими вимогами (так званий витік вуглецю). Тамарія вважає, що Збір є прихованим протекціонізмом.',
+   'Тамарія подала запит на консультації, які не дали результату. Корвенія заперечує проти розгляду вимог про гранти, бо Договір містить виняток для «заходів, спрямованих на зелений перехід, що не мають мети обмежити торгівлю»; сторони розходяться в тому, чи охоплює цей виняток вимогу про місцевий вміст.'
+  ],
+  claims:{A:['Збір і звільнення Ліссарії порушують недискримінацію (режим найбільшого сприяння та національний режим).','Гранти з вимогою місцевого вмісту суперечать Договору, а загальні винятки не виправдовують заходи.'],
+          R:['Збір є вторинним щодо екологічної мети й підпадає під загальні винятки.','Вимога про гранти виходить за межі компетенції Трибуналу через виняток Договору.']},
+  rounds:{A:{intro:'Представтеся, назвіть команду й дорожню карту: які заходи ви оскаржуєте і які два блоки аргументів подасте.',
+             a1:'Компетенція Трибуналу й порушення: вимога про гранти та виняток Договору, недискримінація щодо Ліссарії та корвенійських виробників.',
+             a2:'Загальні винятки та засоби захисту: чому екологічна мета Корвенії не виправдовує захід за вступною частиною винятку, чому існують менш обмежувальні альтернативи, прохання щодо усунення порушення.',
+             close:'Підсумуйте у 2 хвилини: порушення, чому виняток не діє, що саме Корвенія має змінити.'},
+          R:{intro:'Представтеся, назвіть команду й дорожню карту: головний захист і порядок відповіді.',
+             a1:'Компетенція й відсутність порушення: чому виняток Договору виключає гранти з розгляду, чому різниця у режимі Ліссарії обґрунтована, чому збір не дискримінаційний.',
+             a2:'Загальні винятки: на які підстави для винятків ви спираєтеся, як ви доведете зв’язок із довкіллям і відсутність довільної чи невиправданої дискримінації, чому заходи не є прихованим обмеженням торгівлі.',
+             close:'Підсумуйте у 2 хвилини: чому вимоги слід відхилити, а за запасною лінією яким має бути обмежене рішення.'}},
+  qs:{A:{1:['Яким чином вимога про гранти, прив’язані до місцевого вмісту, не підпадає під виняток Договору для заходів зеленого переходу?',
+            'Чому Збір слід розглядати як внутрішній захід, а не як митний збір на кордоні, і чи це впливає на вашу вимогу про національний режим?',
+            'Ви зіставляєте тамарійську й корвенійську системи торгівлі викидами. Які докази показують, що вони порівнянні?',
+            'Чи достатньо Тамарії показати різний режим, чи потрібно доводити, що товари подібні? Які критерії подібності ви пропонуєте?'],
+         2:['Чи не є захист клімату легітимною метою, яка за самою своєю природою виправдовує збір? Чому ні?',
+            'Які менш обмежувальні альтернативи Збору мала б обрати Корвенія, і чому вони так само ефективні?',
+            'Якщо Трибунал визнає, що Збір має екологічну мету, але виняток для Ліссарії дискримінаційний, чи достатньо усунути лише виняток?',
+            'Яким має бути конкретний засіб захисту, якщо виробники вже втратили ринок?']},
+      R:{1:['Чи охоплює виняток Договору прив’язку до місцевого обладнання, якщо вона очевидно обмежує імпорт?',
+            'Чому Ліссарія отримала звільнення, а Тамарія ні, якщо системи торгівлі викидами порівнянні?',
+            'Безкоштовні квоти покривають 80% викидів корвенійських виробників. Чи не означає це менш сприятливий режим для імпорту?',
+            'Чи можна вважати консультації належно проведеними, якщо Корвенія не змінила жодного елемента заходу?'],
+         2:['Чи необхідний Збір для захисту довкілля, якщо можна було обмежитися внутрішніми стимулами?',
+            'Як ви доведете, що Збір стосується збереження вичерпних природних ресурсів чи здоров’я людей, а не захисту промисловості?',
+            'Чи не є різне ставлення до Ліссарії й Тамарії довільною чи невиправданою дискримінацією у розумінні вступної частини винятку?',
+            'Якщо Трибунал визнає порушення лише щодо грантів, яке обмежене рішення ви вважатимете прийнятним?']}},
+  refs:'Орієнтири для пошуку джерел (самостійно перевірте за текстом ГАТТ 1994 та практикою органів СОТ): статті I:1, III:2 і III:4, XI:1, XX (пункти b і g та вступна частина), а також розділ про субсидії й місцевий вміст в угодах СОТ.' }
+];
+
+window.KT_ORAL_CHECK = [
+ {h:'Підготовка до виступу'},
+ {t:'Знаю свою тривалість і заплановані хвилини на вступ, кожен аргумент і прохання.'},
+ {t:'Дорожню карту можу сказати двома-трьома реченнями без паперу.'},
+ {t:'Для кожного аргументу є норма, факт із фабули (з номером пункту) і висновок.'},
+ {t:'Ключові джерела під рукою: точні назви, статті, пункти й сторінки.'},
+ {t:'Підготував відповіді на п’ять найнезручніших запитань для моєї позиції.'},
+ {t:'Маю запасну лінію на випадок, якщо суд відхилить головний аргумент.'},
+ {t:'Знаю, що можна визнати без шкоди для позиції, а що ні.'},
+ {t:'Відрепетирував фразу «Дозвольте повернутися до цього питання пізніше» та коротку відповідь «Не маю цього під рукою».'},
+ {t:'З напарником узгодили межі: хто що розкриває й чого не повторює.'},
+ {t:'Прохання до суду можу сформулювати одним реченням.'},
+ {t:'Перевірив таймер, воду, порядок аркушів і зв’язок, якщо виступ онлайн.'},
+ {h:'Під час виступу'},
+ {t:'Починаю зі звернення до суду та представлення, без поспіху.'},
+ {t:'Озвучую дорожню карту й дотримуюсь її.'},
+ {t:'На запитання судді відповідаю одразу й прямо, а вже потім повертаюся до плану.'},
+ {t:'Тримаю темп і паузи, дивлюся на суддів, а не лише в нотатки.'},
+ {t:'Стежу за часом і лишаю запас на прохання.'},
+ {t:'Цитую джерела точно; якщо не певний, кажу про це, а не вгадую.'},
+ {t:'Поводжусь шанобливо й до суду, і до суперника.'},
+ {h:'Після виступу'},
+ {t:'Записав, на які запитання відповів слабко, і що поправлю.'},
+ {t:'Позначив, де вклався в час, а де ні.'},
+ {t:'Виніс один конкретний пункт для наступного тренування.'}
+];
+
+window.KT_FORMS = {
+ court:{name:'Суд (за зразком Міжнародного суду)', items:[
+  {w:'Початок виступу', uk:'Із дозволу Суду. Мене звати …, і я маю честь виступати від імені Заявника.', en:'May it please the Court. My name is …, and I have the honour to appear on behalf of the Applicant.'},
+  {w:'Початок виступу (відповідач)', uk:'Високоповажний Суде, мене звати …, і я маю честь представляти Відповідача.', en:'Mr President, Members of the Court, my name is …, and I have the honour to represent the Respondent.'},
+  {w:'Дорожня карта', uk:'Я розкрию два питання: по-перше, юрисдикцію й допустимість; по-друге, порушення та наслідки. Мій колега розгляне …', en:'I will address two issues: first, jurisdiction and admissibility; second, breach and consequences. My colleague will address …'},
+  {w:'Прохання про час', uk:'Чи дозволите Ви мені зарезервувати … хвилин для завершення?', en:'May I reserve … minutes for my conclusion?'},
+  {w:'Відповідь на запитання', uk:'Дякую за запитання. Коротка відповідь така: …', en:'I am grateful for the question. The short answer is …'},
+  {w:'Уточнення запитання', uk:'Чи правильно я розумію, що Суд цікавить …?', en:'May I take it that the Court is asking whether …?'},
+  {w:'Відкласти відповідь', uk:'Дозвольте мені повернутися до цього питання за кілька хвилин, коли я розгляну відповідні норми.', en:'With the Court’s permission, I will return to that question shortly, once I have addressed the relevant provisions.'},
+  {w:'Не маю відповіді', uk:'Я не маю цієї інформації під рукою і не хотів би вводити Суд в оману. Дозвольте подати відповідь письмово, якщо Суд це дозволяє.', en:'I do not have that to hand and would not wish to mislead the Court. With the Court’s leave, I will revert in writing.'},
+  {w:'Поступка', uk:'Це слушне зауваження, і я визнаю, що … Однак це не змінює висновку, що …', en:'That is a fair point and I accept that … That does not, however, alter the conclusion that …'},
+  {w:'Незгода', uk:'З належною повагою, я не можу погодитися з цією характеристикою, і ось чому: …', en:'With respect, I cannot accept that characterisation, for the following reasons: …'},
+  {w:'Передача слова напарнику', uk:'Із дозволу Суду, на цьому я завершую свій виступ. Мій колега продовжить розгляд питання …', en:'With the Court’s leave, that concludes my submissions. My colleague will continue with …'},
+  {w:'Завершення', uk:'Підсумовуючи, Заявник просить Суд визнати …; Дякую, Високоповажний Суде.', en:'In conclusion, the Applicant respectfully asks the Court to adjudge and declare that … I thank the Court.'}
+ ]},
+ trib:{name:'Арбітражний трибунал (Vis та подібні)', items:[
+  {w:'Початок виступу', uk:'Шановний пане голово, шановні члени Трибуналу, мене звати …, і я виступаю від імені Позивача.', en:'Mr President, Madam Arbitrator, Mr Arbitrator, my name is … and I appear on behalf of the Claimant.'},
+  {w:'Початок виступу (відповідач)', uk:'Шановний Трибунале, мене звати …, і я представляю Відповідача.', en:'Members of the Tribunal, my name is … and I appear for the Respondent.'},
+  {w:'Дорожня карта', uk:'Я зупинюся на трьох питаннях: чинності арбітражної угоди, застосовному праву та засобах захисту.', en:'I will address three issues: the validity of the arbitration agreement, the applicable law and the remedies sought.'},
+  {w:'Відповідь на запитання', uk:'Дякую, це суттєве запитання. Наша позиція така: …', en:'Thank you, that is an important question. Our position is …'},
+  {w:'Уточнення запитання', uk:'Дозвольте уточнити: чи йдеться про …?', en:'May I clarify whether the Tribunal is asking about …?'},
+  {w:'Відкласти відповідь', uk:'Я розгляну це питання нижче, у межах другого аргументу, якщо Трибунал не заперечує.', en:'If the Tribunal permits, I will deal with that under my second submission.'},
+  {w:'Посилання на матеріали', uk:'Прошу Трибунал звернути увагу на пункт … Меморандуму Позивача.', en:'I would refer the Tribunal to paragraph … of the Claimant’s Memorandum.'},
+  {w:'Поступка', uk:'Ми визнаємо, що … Проте навіть за цієї умови вимога підлягає задоволенню, оскільки …', en:'We accept that … Even so, the claim succeeds because …'},
+  {w:'Завершення', uk:'За цих підстав Позивач просить Трибунал … Дякую за увагу.', en:'For these reasons the Claimant respectfully requests the Tribunal to … Thank you.'}
+ ]}
+};
+
+window.KT_ORAL_CRIT = [
+ ['Структура і дорожня карта',['Хаотично, плану немає','План є, але виступ губиться','Структура зрозуміла, інколи відхилення','Чітка дорожня карта, логічні переходи','Бездоганна побудова, кожна частина має висновок']],
+ ['Знання фактів фабули',['Помилки або вигадані факти','Базові факти, плутає деталі','Факти точні, посилання на пункти не завжди','Точні факти з посиланням на пункти','Вільно володіє фактами й використовує їх у відповідях']],
+ ['Право й джерела',['Норм немає або вони хибні','Називає норми без застосування','Правильні норми, поверхневе застосування','Точне застосування норм і практики до фактів','Глибоке застосування з відмежуванням контраргументів']],
+ ['Робота із запитаннями суду',['Уникає відповідей','Відповідає неповно, збивається','Відповідає по суті, інколи не одразу','Відповідає прямо й повертається до аргументу','Відповідає прямо й використовує запитання для посилення позиції']],
+ ['Подача: мова, голос, переконливість',['Нерозбірливо або читає з аркуша','Монотонно, мало контакту з судом','Зрозуміло й загалом упевнено','Переконливо, добрий темп і паузи','Вільно, природно й переконливо']],
+ ['Час і процесуальна етика',['Суттєво порушує час або неповага до суду','Порушує час, звернення неточні','Вкладається з малими відхиленнями, звернення коректне','Точний розподіл часу, коректна поведінка','Бездоганне керування часом, коректна реакція на втручання судді']]
+];
+window.KT_MEMO_CRIT = [
+ ['Відповідність вимогам правил',['Суттєві порушення структури чи обсягу','Кілька порушень вимог','Дрібні відхилення','Відповідає вимогам','Повна відповідність, чисте оформлення']],
+ ['Виклад фактів',['Спотворені або вигадані факти','Неповно й без посилань','Точно, але з оцінками або без посилань','Точно, нейтрально, з посиланнями на пункти','Точно, стисло, стратегічно відібрано']],
+ ['Правова аргументація',['Тези без обґрунтування','Логічні прогалини','Логічно, але без відповіді на контраргументи','Повна логіка, враховує контраргументи','Переконливо, із запасними лініями й відмежуванням']],
+ ['Джерела',['Джерел бракує або вони хибні','Неточні чи застарілі','Адекватні, є неточності цитування','Якісні, точні й актуальні','Широка база, влучне використання первинних джерел']],
+ ['Мова й стиль',['Багато помилок, незрозуміло','Помилки заважають читанню','Зрозуміло, інколи помилки чи вода','Чисто й чітко','Стисло, точно, професійно']],
+ ['Прохання й висновок',['Відсутнє або не пов’язане з аргументами','Загальне й нечітке','Чітке, частково відповідає аргументам','Конкретне й узгоджене з аргументами','Точне, повне й реалістичне для суду']]
+];
+
+window.KT_MEMO_PROF = [
+ {id:'jessup', label:'Jessup 2027', srcs:[['Jessup 2027 Official Rules, правило 5 (PDF)','https://www.ilsa.org/History/Jessup%202027/Jessup%202027%20Official%20Rules.pdf'],['Зміни в правилах 2027','https://www.ilsa.org/?p=49079']],
+  note:'Складено за Jessup 2027 Official Rules (правило 5.5 про склад меморіалу, 5.12 про ліміти слів) і оглядом змін 2027 року. Формат файлу, титул, оформлення цитат і подання перевірте в Official Rules та у національному додатку вашої країни.',
+  groups:[
+   {h:'Склад і порядок частин (правило 5.5(a))', items:[
+     'Cover Page (титульна сторінка)','Table of Contents (зміст)','Index of Authorities (перелік джерел)','Statement of Jurisdiction (заява про юрисдикцію)','Statement of Facts (виклад фактів)','Summary of Pleadings (стислий виклад аргументів)','Pleadings (аргументи)','Prayer for Relief або Conclusion (прохання або висновок)']},
+   {h:'Обмеження слів (правило 5.12)', items:[
+     'Statement of Facts: не більш як 1200 слів','Summary of Pleadings: не більш як 700 слів','Pleadings: не більш як 9500 слів','Prayer for Relief або Conclusion: не більш як 200 слів']},
+   {h:'Чого не має бути', items:[
+     'Немає розділу «Questions Presented»: у правилах 2027 року його заборонено','Немає розділів, яких не названо в правилі 5.5(a) (наприклад, таблиці скорочень)','Скорочення лише ті, що вживаються в неюридичній англійській (наприклад, «etc.», «e.g.»); юридичні скорочення на кшталт «CIL» чи «PIL» не вживаються']},
+   {h:'Змістовна перевірка', items:[
+     'Кожне твердження про факти має посилання на пункт фабули','Порядок аргументів у Pleadings збігається з порядком у Summary of Pleadings','Кожне джерело з тексту є в Index of Authorities, і навпаки','Прохання до суду конкретні й випливають з аргументів','Перевірено національний додаток (National Rules Supplement) і крайній строк подання (12 січня 2027 року)']}
+  ]},
+ {id:'vis', label:'Vis Moot (34-й)', srcs:[['34th Vis Moot Rules (PDF)','https://www.vismoot.org/wp-content/uploads/2026/08/34th-Vis-Moot-Rules_FINAL.pdf'],['34-й Vis Moot, терміни','https://www.vismoot.org/home/34th-vis-moot/']],
+  note:'Складено за 34th Vis Moot Rules (параграфи 44 до 53, 83 і 86). Меморандум позивача подається до 10 грудня 2026 року, відповідача до 21 січня 2027 року. Правила не вимагають окремих розділів, окрім викладу фактів, аргументів і висновку.',
+  groups:[
+   {h:'Склад (параграф 50)', items:[
+     'Cover page з назвою команди й позначкою, для кого меморандум (позивач чи відповідач), на видному місці (параграф 52)','Table of contents','List of authorities з повними посиланнями (параграфи 46 до 48)','Statement of facts, Argument і Conclusion в межах 35 сторінок; титул, зміст і перелік джерел до обсягу не входять']},
+   {h:'Оформлення (параграфи 44 до 53)', items:[
+     'Усі абзаци пронумеровано, перехресні посилання йдуть за номерами абзаців (параграф 45)','Цитати в тексті у скороченій формі, без виносок і кінцевих приміток; повні посилання лише в List of Authorities (параграф 47)','У List of Authorities біля кожного джерела вказано всі абзаци, де його цитовано; слова «passim» недостатньо (параграф 46)','Шрифт не менше 12 пунктів, інтервал 1,5, поля не менше 2,5 см чи 1 дюйма (параграф 51)','Формальна англійська, без сленгу й скорочених форм на кшталт «don’t» (параграф 49)','Один PDF із можливістю пошуку, не більш як 1 МБ (параграф 53)']},
+   {h:'Подання й доброчесність', items:[
+     'Додано заяву, що меморандум написали лише студенти команди (параграф 83)','Заповнено заяву про використання інструментів штучного інтелекту (Додаток 3 до правил, параграф 86)','Усі запозичені слова взято в лапки з посиланням, інакше це плагіат','Меморандум відповідача відсилає до меморандуму позивача за номерами абзаців (параграф 45)']}
+  ]},
+ {id:'univ', label:'Універсальний (Telders та інші)', srcs:[['Telders: меморіали й усні виступи','https://universiteitleiden.nl/teldersmcc/competition/pleading--memorials'],['Telders: офіційний сайт','https://www.universiteitleiden.nl/teldersmcc']],
+  note:'Це загальна структура меморандуму для змагань, правила яких тут не відтворено. Ліміти обсягу тут не вказано навмисно: вони різні в кожному змаганні й щороку. Для Telders організатори публікують «Guidelines for Writing a Memorial»; для інших змагань дивіться їхні Rules. Деякі правила забороняють розділ «Питання», тож перевіряйте.',
+  groups:[
+   {h:'Типова структура', items:[
+     'Титульна сторінка (команда, сторона, назва справи, за вимогами змагання)','Зміст','Перелік джерел (договори, практика, доктрина), з повними посиланнями','Юрисдикція й допустимість (якщо вимагає змагання)','Питання, що розглядаються (лише якщо правила це дозволяють)','Виклад фактів','Стислий виклад аргументів','Аргументи','Прохання до суду']},
+   {h:'Перевірка', items:[
+     'Звірено склад частин, порядок і ліміти зі свіжою редакцією правил змагання та національним додатком','Усі факти мають посилання на пункти фабули','Структура аргументів: норма, застосування до фактів, відповідь на контраргумент, висновок','Кожне джерело перевірено й відкривається','Прохання відповідають аргументам','Мова, стиль і оформлення цитат однакові по всьому тексту']}
+  ]}
+];
+
+</script>
+<script>
+(function(){
+'use strict';
+function $(id){return document.getElementById(id);}
+function h(tag,props,kids){var e=document.createElement(tag);if(props){for(var k in props){if(k==='text')e.textContent=props[k];else if(k==='class')e.className=props[k];else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),props[k]);else e.setAttribute(k,props[k]);}}
+ (kids||[]).forEach(function(c){if(c==null)return;e.appendChild(typeof c==='string'?document.createTextNode(c):c);});return e;}
+function lsGet(k){try{return window.localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{window.localStorage.setItem(k,v);}catch(e){}}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pad(n){return n<10?'0'+n:''+n;}
+function fmt(sec){var m=Math.floor(sec/60),s=sec%60;return pad(m)+':'+pad(s);}
+function okMsg(el,t){el.textContent=t;setTimeout(function(){el.textContent='';},2500);}
+function copyText(text,okEl){
+ function done(){okMsg(okEl,'Скопійовано');}
+ function fb(){var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){okMsg(okEl,'Не вдалося скопіювати');}document.body.removeChild(ta);}
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fb);}else{fb();}
+}
+function plural(n,a,b,c){var m=n%10,k=n%100;if(k>=11&&k<=14)return c;if(m===1)return a;if(m>=2&&m<=4)return b;return c;}
+
+/* ---------- tabs ---------- */
+function tabs(listEl,panelOf,onShow){
+ var btns=Array.prototype.slice.call(listEl.querySelectorAll('[role=tab]'));
+ function show(btn,focus){btns.forEach(function(b){var on=b===btn;b.setAttribute('aria-selected',on?'true':'false');b.tabIndex=on?0:-1;var p=$(b.getAttribute('aria-controls'));if(p)p.hidden=!on;});if(focus)btn.focus();if(onShow)onShow(btn);}
+ btns.forEach(function(b,i){
+  b.addEventListener('click',function(){show(b,false);});
+  b.addEventListener('keydown',function(e){var n=-1;if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%btns.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+btns.length)%btns.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=btns.length-1;if(n>=0){e.preventDefault();show(btns[n],true);}});
+ });
+ return {show:function(id){btns.forEach(function(b){if(b.id===id)show(b,false);});}};
+}
+function chipGroup(el,items,sel,onPick){
+ el.textContent='';var btns=[];
+ items.forEach(function(it){var b=h('button',{type:'button','aria-pressed':it.id===sel?'true':'false',text:it.label});b.addEventListener('click',function(){btns.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');onPick(it.id);});btns.push(b);el.appendChild(b);});
+}
+
+/* ---------- signals ---------- */
+var AC=null,sndOn=false,vibOn=false;
+function ensureAudio(){try{if(!AC){var C=window.AudioContext||window.webkitAudioContext;if(!C)return null;AC=new C();}if(AC.state==='suspended')AC.resume();return AC;}catch(e){return null;}}
+function tone(freq,start,dur){var c=AC;if(!c)return;var o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=freq;var t0=c.currentTime+start;g.gain.setValueAtTime(0.0001,t0);g.gain.exponentialRampToValueAtTime(0.5,t0+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);o.connect(g);g.connect(c.destination);o.start(t0);o.stop(t0+dur+0.05);}
+function beeps(n,final){if(!sndOn||!ensureAudio())return;if(final){tone(660,0,0.7);tone(660,0.9,0.7);tone(880,1.8,1.0);return;}for(var i=0;i<n;i++)tone(880,i*0.3,0.16);}
+function vibrate(p){if(vibOn&&navigator.vibrate){try{navigator.vibrate(p);}catch(e){}}}
+function sigButtons(sndIds,vibIds,statEl){
+ function render(){sndIds.forEach(function(id){var b=$(id);b.setAttribute('aria-pressed',sndOn?'true':'false');b.textContent='Звук: '+(sndOn?'увімкнено':'вимкнено');});vibIds.forEach(function(id){var b=$(id);b.setAttribute('aria-pressed',vibOn?'true':'false');b.textContent='Вібрація: '+(vibOn?'увімкнено':'вимкнено');});}
+ sndIds.forEach(function(id){$(id).addEventListener('click',function(){sndOn=!sndOn;if(sndOn){if(ensureAudio()){tone(880,0,0.15);statEl.textContent='Звук увімкнено, пробний сигнал відтворено.';}else{sndOn=false;statEl.textContent='Ваш браузер не підтримує звукові сигнали.';}}else statEl.textContent='Звук вимкнено.';render();});});
+ vibIds.forEach(function(id){$(id).addEventListener('click',function(){if(!vibOn&&!navigator.vibrate){statEl.textContent='Цей пристрій або браузер не підтримує вібрацію.';return;}vibOn=!vibOn;if(vibOn)vibrate(150);statEl.textContent=vibOn?'Вібрація увімкнена.':'Вібрація вимкнена.';render();});});
+ render();
+}
+
+/* ---------- timer ---------- */
+var wake=null;
+function wakeOn(){try{if(navigator.wakeLock&&!wake){navigator.wakeLock.request('screen').then(function(l){wake=l;l.addEventListener('release',function(){wake=null;});},function(){});}}catch(e){}}
+function wakeOff(){try{if(wake){wake.release();wake=null;}}catch(e){}}
+function buildTimer(root,cfg){
+ var total=cfg.initial,left=total*1000,running=false,endAt=0,iv=null,fired=[],endFired=false,level=0;
+ var warns=cfg.warns||[];
+ var clock=h('div',{class:'kt-clock',role:'timer','aria-label':'Таймер'}),stat=h('div',{class:'kt-tstat','aria-live':'polite'});
+ var box=h('div',{class:'kt-clockbox'},[clock,stat]);
+ var bStart=h('button',{type:'button',class:'kt-btn kt-btn--main',text:'Старт'}),bReset=h('button',{type:'button',class:'kt-btn kt-btn--ghost',text:'Скинути'});
+ var bM=h('button',{type:'button',class:'kt-btn kt-btn--ghost',text:'−1 хв','aria-label':'Відняти одну хвилину'}),bP=h('button',{type:'button',class:'kt-btn kt-btn--ghost',text:'+1 хв','aria-label':'Додати одну хвилину'});
+ var bFs=h('button',{type:'button',class:'kt-btn kt-btn--ghost',text:'На весь екран'});
+ var ctr=h('div',{class:'kt-row'},[bStart,bReset,bM,bP]);
+ var tm=h('div',{class:'kt-timer'},[box,ctr]);
+ var presetsEl=null,pbtns=[];
+ if(cfg.presets){presetsEl=h('div',{class:'kt-chips',role:'group','aria-label':'Тривалість'});cfg.presets.forEach(function(p){var b=h('button',{type:'button','aria-pressed':'false',text:p.label});b.addEventListener('click',function(){setTotal(p.sec);mark(b);});pbtns.push(b);presetsEl.appendChild(b);});tm.appendChild(presetsEl);}
+ var inM=null,inS=null;
+ if(cfg.custom){inM=h('input',{type:'number',class:'kt-in kt-in--num',min:'0',max:'180',value:'5',id:cfg.id+'-m','aria-label':'Хвилини'});inS=h('input',{type:'number',class:'kt-in kt-in--num',min:'0',max:'59',value:'0',id:cfg.id+'-s','aria-label':'Секунди'});
+  var bSet=h('button',{type:'button',class:'kt-btn',text:'Задати власний час'});bSet.addEventListener('click',function(){var m=Math.max(0,Math.min(180,parseInt(inM.value,10)||0)),s=Math.max(0,Math.min(59,parseInt(inS.value,10)||0));if(m*60+s<=0){stat.textContent='Вкажіть час більший за нуль.';return;}setTotal(m*60+s);mark(null);});
+  tm.appendChild(h('div',{class:'kt-row'},[h('span',{class:'kt-lab',text:'Власний час:'}),inM,h('span',{text:'хв'}),inS,h('span',{text:'с'}),bSet]));}
+ tm.appendChild(h('div',{class:'kt-row'},[bFs]));
+ root.appendChild(tm);
+ function mark(b){pbtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});}
+ function activeWarns(){return warns.filter(function(w){return w<total;});}
+ function remaining(){return running?endAt-performance.now():left;}
+ function paint(){
+  var rem=remaining(),txt;
+  if(rem<=0&&(endFired||running)){txt='+'+fmt(Math.floor(-rem/1000));}else txt=fmt(Math.max(0,Math.ceil(rem/1000)));
+  clock.textContent=txt;
+  var cls='kt-clockbox',aw=activeWarns();
+  if(rem<=0&&endFired)cls+=' kt-over';else{var lv=0;aw.forEach(function(w){if(rem<=w*1000)lv++;});if(lv>0)cls+=' kt-s'+Math.min(lv,3);}
+  if(box._flash)cls+=' kt-flash';
+  box.className=cls;
+  document.title=document.title;
+ }
+ function alertAt(w,idx){
+  var msg;
+  if(w===0)msg='Час вийшов.';else{var m=Math.floor(w/60),s=w%60;msg='Залишилося '+(m>0?m+' '+plural(m,'хвилина','хвилини','хвилин'):'')+(m>0&&s>0?' ':'')+(s>0?s+' '+plural(s,'секунда','секунди','секунд'):'')+'.';}
+  stat.textContent=msg;
+  box._flash=true;paint();setTimeout(function(){box._flash=false;paint();},950);
+  if(w===0){beeps(0,true);vibrate([400,150,400,150,700]);}else{beeps(idx+1,false);vibrate(Array(idx+1).fill(120).reduce(function(a,x,i){a.push(x);if(i<idx)a.push(100);return a;},[]));}
+  if(cfg.onAlert)cfg.onAlert(w);
+ }
+ function tick(){
+  var rem=endAt-performance.now(),aw=activeWarns();
+  aw.forEach(function(w,i){if(!fired[i]&&rem<=w*1000&&rem>0){fired[i]=true;alertAt(w,i);}});
+  if(rem<=0&&!endFired){endFired=true;aw.forEach(function(w,i){fired[i]=true;});alertAt(0,0);if(cfg.onEnd)cfg.onEnd();}
+  paint();
+ }
+ function recalc(){var rem=remaining(),aw=activeWarns();fired=aw.map(function(w){return rem<=w*1000;});endFired=rem<=0;}
+ function start(){if(running)return;if(!(cfg.noEnsure))ensureAudio&&sndOn&&ensureAudio();if(left<=0&&endFired){left=total*1000;recalc();}running=true;endAt=performance.now()+left;iv=setInterval(tick,200);bStart.textContent='Пауза';stat.textContent='';wakeOn();tick();}
+ function pause(){if(!running)return;left=endAt-performance.now();running=false;clearInterval(iv);iv=null;bStart.textContent='Продовжити';stat.textContent='Пауза';wakeOff();paint();}
+ function reset(){running=false;clearInterval(iv);iv=null;left=total*1000;fired=[];endFired=false;bStart.textContent='Старт';stat.textContent='';wakeOff();recalc();endFired=false;paint();}
+ function setTotal(sec){total=sec;reset();}
+ bStart.addEventListener('click',function(){running?pause():start();});
+ bReset.addEventListener('click',reset);
+ function adj(d){var rem=remaining();if(running){endAt+=d*1000;}else{left=Math.max(0,left+d*1000);}total=Math.max(60,total+d);if(!running){if(left<=0){left=0;}}recalc();if(!running)endFired=false;stat.textContent=(d>0?'Додано':'Віднято')+' хвилину.';paint();}
+ bP.addEventListener('click',function(){adj(60);});
+ bM.addEventListener('click',function(){var rem=remaining();if(rem<=60000){stat.textContent='Менше хвилини лишилось, віднімати нічого.';return;}adj(-60);});
+ if(tm.requestFullscreen){bFs.addEventListener('click',function(){if(document.fullscreenElement){document.exitFullscreen();}else{tm.requestFullscreen().catch(function(){stat.textContent='Повноекранний режим недоступний.';});}});document.addEventListener('fullscreenchange',function(){bFs.textContent=document.fullscreenElement===tm?'Вийти з повного екрана':'На весь екран';});}
+ else{bFs.hidden=true;}
+ document.addEventListener('visibilitychange',function(){if(running&&document.visibilityState==='visible')wakeOn();});
+ reset();
+ return {set:function(sec,w){if(w)warns=w;setTotal(sec);mark(null);},start:start,pause:pause,reset:reset,isRunning:function(){return running;},setPreset:function(i){if(pbtns[i]){pbtns[i].click();}}};
+}
+
+/* ---------- checklist ---------- */
+function checklist(ul,key,items,progEl){
+ var saved={};try{saved=JSON.parse(lsGet('kt:'+key)||'{}')||{};}catch(e){saved={};}
+ ul.textContent='';var boxes=[];var idx=0;
+ items.forEach(function(it){
+  if(it.h){ul.appendChild(h('h4',{text:it.h}));return;}
+  var i=idx++;var cb=h('input',{type:'checkbox'});cb.checked=!!saved[i];
+  cb.addEventListener('change',function(){saved[i]=cb.checked;lsSet('kt:'+key,JSON.stringify(saved));prog();});
+  boxes.push(cb);
+  ul.appendChild(h('li',null,[h('label',{class:'kt-chk'},[cb,h('span',{text:it.t||it})])]));
+ });
+ function prog(){var n=boxes.filter(function(b){return b.checked;}).length;progEl.textContent='Виконано '+n+' з '+boxes.length;}
+ prog();
+ return {reset:function(){boxes.forEach(function(b){b.checked=false;});saved={};lsSet('kt:'+key,'{}');prog();}};
+}
+
+/* ---------- skeletons ---------- */
+function skeleton(prof,side){
+ var A=side==='A';var L=[];
+ function sec(t,hint,lim){L.push(t.toUpperCase()+(lim?'  ['+lim+']':''));L.push('[Підказка: '+hint+']');L.push('');L.push('…');L.push('');L.push('');}
+ var head=(prof==='vis'?(A?'MEMORANDUM FOR CLAIMANT (Меморандум позивача)':'MEMORANDUM FOR RESPONDENT (Меморандум відповідача)'):(A?'MEMORIAL FOR THE APPLICANT (Меморіал заявника)':'MEMORIAL FOR THE RESPONDENT (Меморіал відповідача)'));
+ L.push(head);L.push('Навчальний каркас. Видаліть підказки в квадратних дужках перед поданням.');L.push('');L.push('');
+ if(prof==='jessup'){
+  sec('Cover Page (титульна сторінка)','склад титулу визначте за Jessup 2027 Official Rules, правило 5, і національним додатком.');
+  sec('Table of Contents (зміст)','оновіть після остаточного редагування.');
+  sec('Index of Authorities (перелік джерел)','групуйте за типом: договори, судова практика, доктрина; повні посилання; кожне джерело з тексту має бути в переліку.');
+  sec('Statement of Jurisdiction (заява про юрисдикцію)',A?'на якій підставі суд має юрисдикцію і які вимоги просите розглянути; без аргументації.':'коротко вкажіть позицію щодо юрисдикції; розгорнуті заперечення подавайте в Pleadings, якщо правила це допускають.');
+  sec('Statement of Facts (виклад фактів)',A?'лише факти з фабули з посиланнями на пункти; без оцінок і права; послідовно, у хронології.':'лише факти з фабули; можна виокремити факти, яких бракує у викладі заявника, але не вигадуйте нових.','до 1200 слів, правило 5.12(b)');
+  sec('Summary of Pleadings (стислий виклад аргументів)','кожен аргумент у 2 до 4 реченнях, у тому ж порядку, що й у Pleadings.','до 700 слів, правило 5.12(c)');
+  L.push('PLEADINGS (аргументи)  [до 9500 слів, правило 5.12(d)]');
+  if(A){[['I. Суд має юрисдикцію, вимога прийнятна','Підстава юрисдикції; відповідь на очікувані заперечення; передумови звернення.'],['II. Відповідач порушив зобов’язання','Норма (джерело й зміст); застосування до фактів; відповідь на контраргумент.'],['III. Поведінка приписується державі, обставин, що виключають протиправність, немає','Приписування; можливі обставини, що виключають протиправність, і чому вони не діють.'],['IV. Засоби захисту','Які саме форми відшкодування й чому суд має їх присудити.']].forEach(function(x){L.push('');L.push(x[0]);L.push('[Підказка: '+x[1]+' Для кожного підрозділу: A. Норма. B. Застосування. C. Контраргумент і відповідь.]');L.push('…');});}
+  else{[['I. Заперечення щодо юрисдикції та допустимості (якщо є підстави)','Починайте з процесуальних питань; не зловживайте слабкими запереченнями; майте запасну лінію.'],['II. Поведінка Відповідача була правомірною','Норма; чому її тлумачення заявника хибне; застосування до фактів.'],['III. Навіть за порушення: обставини, що виключають протиправність, або відсутність причинного зв’язку','Підстава, умови, докази з фабули.'],['IV. Запитувані засоби захисту надмірні','Співмірність, прямий причинний зв’язок, межі відшкодування.']].forEach(function(x){L.push('');L.push(x[0]);L.push('[Підказка: '+x[1]+' Для кожного підрозділу: A. Норма. B. Застосування. C. Відповідь на аргумент заявника.]');L.push('…');});}
+  L.push('');L.push('');
+  sec('Prayer for Relief або Conclusion (прохання або висновок)',A?'пронумеровані конкретні прохання: що суд має визнати, оголосити, зобов’язати; узгоджені з аргументами.':'що суд має відхилити (юрисдикція, допустимість, суть) і, за запасною лінією, як обмежити засоби.','до 200 слів, правило 5.12(e)');
+ } else if(prof==='vis'){
+  sec('Cover page (титульна сторінка)','назва команди та позначка Claimant або Respondent на видному місці (параграф 52 правил).');
+  sec('Table of contents (зміст)','за номерами абзаців чи сторінок, як вам зручно за правилами.');
+  sec('List of authorities (перелік джерел)','повні посилання; біля кожного джерела вкажіть усі абзаци, де його цитовано; без слова «passim» (параграфи 46 до 48).');
+  sec('Statement of facts (виклад фактів)','лише факти з проблеми та процесуальних ухвал; у межах 35 сторінок разом з аргументами й висновком (параграф 50); пронумеровані абзаци.');
+  L.push('ARGUMENT (аргументи)  [пронумеровані абзаци, цитати в тексті у скороченій формі, без виносок: параграфи 45 і 47]');
+  L.push('[Структура залежить від проблеми цього року. Типова логіка: процесуальні питання, застосовне право, суть, засоби захисту, витрати.]');
+  [A?['Issue 1. Процесуальні питання (арбітражна угода, юрисдикція, процедура)','Позиція Позивача, правова підстава, відповідь на очікувані заперечення.']:['Issue 1. Процесуальні питання (арбітражна угода, юрисдикція, процедура)','Позиція Відповідача й посилання на відповідні абзаци меморандуму Позивача.'],['Issue 2. Застосовне матеріальне право і тлумачення договору','Норма, тлумачення, застосування до фактів.'],['Issue 3. Суть спору і доведення','Що доводиться, чим, хто несе тягар доведення.'],['Issue 4. Засоби захисту та відшкодування','Вид, обсяг, причинний зв’язок, обмеження.']].forEach(function(x){L.push('');L.push(x[0]);L.push('[Підказка: '+x[1]+']');L.push('…');});
+  L.push('');L.push('');
+  sec('Conclusion and request for relief (висновок і прохання)',A?'пронумеровані конкретні прохання до трибуналу.':'що трибунал має відхилити; запасна лінія щодо відшкодування й витрат.');
+ } else {
+  sec('Титульна сторінка','команда, сторона, назва справи (за вимогами вашого змагання).');
+  sec('Зміст','оновіть після остаточного редагування.');
+  sec('Перелік джерел','групуйте за типом; повні посилання; перевіряйте, що кожне джерело відкривається.');
+  sec('Юрисдикція й допустимість',A?'підстава юрисдикції суду й чому вимога прийнятна.':'заперечення проти юрисдикції чи прийнятності, якщо вони є.');
+  sec('Питання, що розглядаються','включайте лише якщо правила змагання це дозволяють (у Jessup 2027 цей розділ заборонено).');
+  sec('Виклад фактів','лише факти з фабули з посиланнями на пункти; без оцінок і права.');
+  sec('Стислий виклад аргументів','кожен аргумент у кількох реченнях, у порядку основного тексту.');
+  L.push('АРГУМЕНТИ');
+  [A?['I. Порушення норми Відповідачем','Норма, застосування, відповідь на контраргумент.']:['I. Відсутність порушення','Норма, тлумачення, застосування, відповідь на аргумент заявника.'],['II. Відповідальність і приписування','Приписування поведінки державі; обставини, що виключають протиправність.'],['III. Наслідки та засоби захисту','Що і чому має присудити суд.']].forEach(function(x){L.push('');L.push(x[0]);L.push('[Підказка: '+x[1]+']');L.push('…');});
+  L.push('');L.push('');
+  sec('Прохання до суду',A?'пронумеровані конкретні прохання.':'що суд має відхилити та запасна лінія.');
+ }
+ return L.join('\n');
+}
+
+/* ---------- init ---------- */
+var KTQ=window.KT_Q,FAB=window.KT_FAB;
+var topTabs=tabs($('kt-modes'));
+var subTabs=tabs($('kt-sub'));
+function hashGo(){var m=(location.hash||'').replace('#','');var map={'prep':'kt-t-prep','zihraty':'kt-t-play','suddya':'kt-t-judge','dzherela':'kt-t-src','tajmer':'kt-t-prep'};if(map[m])topTabs.show(map[m]);}
+window.addEventListener('hashchange',hashGo);hashGo();
+
+/* prep timer */
+var prepTimer=buildTimer($('kt-timer-prep'),{id:'kt-pt',initial:600,warns:[300,120,60],presets:[{label:'10 хв',sec:600},{label:'15 хв',sec:900},{label:'20 хв',sec:1200},{label:'30 хв',sec:1800}],custom:true});
+prepTimer.setPreset(0);
+sigButtons(['kt-snd','kt-snd2'],['kt-vib','kt-vib2'],$('kt-sigstat'));
+
+/* memo checklist */
+(function(){
+ var cur=lsGet('kt:memoprof')||'jessup';var P=window.KT_MEMO_PROF;var cl=null;
+ function find(id){for(var i=0;i<P.length;i++)if(P[i].id===id)return P[i];return P[0];}
+ function render(id){
+  var p=find(id);cur=p.id;lsSet('kt:memoprof',cur);
+  var note=$('kt-memo-note');note.textContent='';
+  note.appendChild(h('div',{class:'rz-note'},[h('span',{text:p.note+' Станом на 10 листопада 2026 року. Джерела: '}),].concat(p.srcs.map(function(s,i){return h('span',null,[i?document.createTextNode('; '):'',h('a',{href:s[1],rel:'noopener',text:s[0]})]);}))));
+  var items=[];p.groups.forEach(function(g){items.push({h:g.h});g.items.forEach(function(t){items.push({t:t});});});
+  cl=checklist($('kt-memo-list'),'memo-'+p.id,items,$('kt-memo-prog'));
+  chipGroup($('kt-memo-prof'),P.map(function(x){return {id:x.id,label:x.label};}),cur,render);
+ }
+ $('kt-memo-reset').addEventListener('click',function(){if(cl)cl.reset();});
+ render(cur);
+})();
+
+/* skeleton */
+(function(){
+ var prof='jessup',side='A';
+ var ta=$('kt-sk-ta');
+ function fill(){ta.value=skeleton(prof,side);}
+ function render(){
+  chipGroup($('kt-sk-prof'),[{id:'jessup',label:'Jessup 2027'},{id:'vis',label:'Vis Moot (34-й)'},{id:'univ',label:'Універсальний'}],prof,function(id){prof=id;rs();fill();});
+  rs();
+ }
+ function rs(){
+  var a=prof==='vis'?'Позивач (Claimant)':'Заявник (Applicant)';
+  chipGroup($('kt-sk-side'),[{id:'A',label:a},{id:'R',label:'Відповідач (Respondent)'}],side,function(id){side=id;fill();});
+ }
+ $('kt-sk-copy').addEventListener('click',function(){copyText(ta.value,$('kt-sk-ok'));});
+ $('kt-sk-reset').addEventListener('click',fill);
+ render();fill();
+})();
+
+/* oral */
+(function(){
+ var cl=checklist($('kt-oral-list'),'oral',window.KT_ORAL_CHECK,$('kt-oral-prog'));
+ $('kt-oral-reset').addEventListener('click',cl.reset);
+ var cur='court';
+ function render(){
+  chipGroup($('kt-form-tabs'),Object.keys(window.KT_FORMS).map(function(k){return {id:k,label:window.KT_FORMS[k].name};}),cur,function(id){cur=id;list();});
+  list();
+ }
+ function list(){
+  var box=$('kt-form-list');box.textContent='';
+  window.KT_FORMS[cur].items.forEach(function(f){
+   var b=h('button',{type:'button',class:'kt-btn kt-btn--ghost',text:'Скопіювати англійською'});
+   b.addEventListener('click',function(){copyText(f.en,$('kt-form-ok'));});
+   var b2=h('button',{type:'button',class:'kt-btn kt-btn--ghost',text:'Скопіювати українською'});
+   b2.addEventListener('click',function(){copyText(f.uk,$('kt-form-ok'));});
+   box.appendChild(h('div',{class:'kt-form'},[h('span',{class:'kt-when',text:f.w}),h('p',{class:'kt-uk',text:f.uk}),h('p',{class:'kt-en',lang:'en',text:f.en}),h('div',{class:'kt-row'},[b,b2])]));
+  });
+ }
+ render();
+})();
+
+/* questions */
+(function(){
+ var cats=[{id:'all',label:'Усі'}].concat(Object.keys(KTQ).map(function(k){return {id:k,label:KTQ[k].name};}));
+ var cat='all',deck=[],pos=-1,hist=[],hp=-1;
+ var qt=null;
+ function pool(){var a=[];Object.keys(KTQ).forEach(function(k){if(cat==='all'||cat===k)KTQ[k].items.forEach(function(t){a.push({c:k,t:t});});});return a;}
+ function newDeck(){deck=shuffle(pool());pos=-1;}
+ function show(q){
+  $('kt-q-badge').textContent=KTQ[q.c].name;$('kt-q-text').textContent=q.t;
+  $('kt-q-meta').textContent='Рекомендований час відповіді: '+KTQ[q.c].sec+' с';
+  qt.set(KTQ[q.c].sec,[60,30].filter(function(w){return w<KTQ[q.c].sec;}));
+  if($('kt-q-auto').checked)qt.start();
+ }
+ function next(){
+  if(hp<hist.length-1){hp++;show(hist[hp]);return;}
+  pos++;if(pos>=deck.length)newDeck(),pos=0;
+  var q=deck[pos];hist.push(q);hp=hist.length-1;show(q);
+ }
+ function prev(){if(hp>0){hp--;show(hist[hp]);}}
+ qt=buildTimer($('kt-timer-q'),{id:'kt-qt',initial:90,warns:[60,30],presets:[{label:'30 с',sec:30},{label:'60 с',sec:60},{label:'90 с',sec:90},{label:'120 с',sec:120}],custom:false});
+ chipGroup($('kt-q-cats'),cats,cat,function(id){cat=id;newDeck();hist=[];hp=-1;next();qt.pause();qt.reset();});
+ $('kt-q-next').addEventListener('click',next);$('kt-q-prev').addEventListener('click',prev);
+ newDeck();
+})();
+
+/* ---------- play mode ---------- */
+(function(){
+ var fabId=FAB[0].id,side='A',scale=1,rIdx=0,fab=FAB[0],qcur=null,qdeck={};
+ var sel=$('kt-pl-fab');FAB.forEach(function(f){sel.appendChild(h('option',{value:f.id,text:f.title}));});
+ function getFab(){for(var i=0;i<FAB.length;i++)if(FAB[i].id===sel.value)return FAB[i];return FAB[0];}
+ var ROUNDS=[{k:'intro',t:'Вступ',s:120},{k:'a1',t:'Аргумент 1',s:480},{k:'q1',t:'Запитання судді',s:180,q:1},{k:'a2',t:'Аргумент 2',s:480},{k:'q2',t:'Запитання судді',s:180,q:2},{k:'close',t:'Заключне слово',s:120}];
+ var LENS=[{id:'0.5',label:'Короткий (близько 13 хв)'},{id:'1',label:'Стандарт (близько 26 хв)'},{id:'1.5',label:'Розширений (близько 39 хв)'}];
+ function dur(r){return Math.max(30,Math.round(r.s*scale/15)*15);}
+ function chips(){
+  chipGroup($('kt-pl-side'),[{id:'A',label:'Заявник/позивач: '+fab.A},{id:'R',label:'Відповідач: '+fab.R}],side,function(id){side=id;});
+  chipGroup($('kt-pl-len'),LENS,String(scale),function(id){scale=parseFloat(id);});
+ }
+ function caseCard(){
+  var c=$('kt-pl-case');c.textContent='';
+  var det=h('details');det.open=true;
+  det.appendChild(h('summary',{style:'font-weight:700;font-size:18px;cursor:pointer;min-height:44px;display:flex;align-items:center',text:'Фабула: '+fab.title}));
+  var inner=h('div',{style:'display:flex;flex-direction:column;gap:12px;margin-top:8px'});
+  inner.appendChild(h('div',{class:'kt-tag',text:'Навчальна фабула. Держави й події вигадані, збіги випадкові.'}));
+  inner.appendChild(h('p',null,[h('b',{text:'Сторони: '}),document.createTextNode(fab.A+' (заявник/позивач) проти '+fab.R+' (відповідач).')]));
+  inner.appendChild(h('p',null,[h('b',{text:'Форум: '}),document.createTextNode(fab.forum)]));
+  var ol=h('ol',{class:'kt-facts'});fab.facts.forEach(function(f){ol.appendChild(h('li',{text:f}));});
+  inner.appendChild(h('h3',{text:'Факти'}));inner.appendChild(ol);
+  inner.appendChild(h('h3',{text:'Позиції сторін'}));
+  inner.appendChild(h('p',null,[h('b',{text:fab.A+': '}),document.createTextNode(fab.claims.A.join(' '))]));
+  inner.appendChild(h('p',null,[h('b',{text:fab.R+': '}),document.createTextNode(fab.claims.R.join(' '))]));
+  inner.appendChild(h('p',{class:'kt-small',text:fab.refs}));
+  det.appendChild(inner);c.appendChild(det);
+ }
+ var pt=buildTimer($('kt-timer-play'),{id:'kt-plt',initial:120,warns:[120,60,30],presets:null,custom:false});
+ function setRound(){
+  var r=ROUNDS[rIdx];var d=dur(r);
+  $('kt-pl-rt').textContent=(rIdx+1)+'. '+r.t+' ('+fmt(d)+')';
+  var rp=fab.rounds[side];var txt=rp[r.k]||'';
+  if(r.q){txt='Суддя ставить вам запитання; відповідайте прямо й коротко, потім поверніться до своєї лінії.';}
+  $('kt-pl-rp').textContent=txt;
+  var qb=$('kt-pl-qbox');qb.hidden=!r.q;
+  if(r.q){pickQ(false);}
+  pt.set(d,[120,60,30]);
+  var ol=$('kt-pl-steps');ol.textContent='';
+  ROUNDS.forEach(function(x,i){var li=h('li',{class:i===rIdx?'is-now':(i<rIdx?'is-done':'')},[h('b',{text:(i+1)+'. '+x.t}),document.createTextNode(fmt(dur(x)))]);if(i===rIdx)li.setAttribute('aria-current','step');ol.appendChild(li);});
+  $('kt-pl-prev').disabled=rIdx===0;
+  $('kt-pl-next').textContent=rIdx===ROUNDS.length-1?'Завершити засідання':'Наступний раунд';
+ }
+ function pickQ(force){
+  var r=ROUNDS[rIdx];var key=fab.id+side+r.q;var arr=fab.qs[side][r.q];
+  if(!qdeck[key]||qdeck[key].length===0)qdeck[key]=shuffle(arr);
+  var q=qdeck[key].pop();$('kt-pl-qtext').textContent=q;
+ }
+ $('kt-pl-qother').addEventListener('click',function(){pickQ(true);});
+ sel.addEventListener('change',function(){fab=getFab();chips();caseCard();});
+ $('kt-pl-go').addEventListener('click',function(){
+  fab=getFab();rIdx=0;qdeck={};
+  $('kt-pl-run').hidden=false;$('kt-pl-end').hidden=true;$('kt-pl-reset').hidden=false;$('kt-pl-go').hidden=true;
+  setRound();$('kt-pl-run').scrollIntoView({block:'start'});
+ });
+ $('kt-pl-prev').addEventListener('click',function(){if(rIdx>0){rIdx--;setRound();}});
+ $('kt-pl-next').addEventListener('click',function(){
+  if(rIdx<ROUNDS.length-1){rIdx++;setRound();}
+  else{pt.pause();$('kt-pl-run').hidden=true;$('kt-pl-end').hidden=false;$('kt-pl-end').scrollIntoView({block:'start'});}
+ });
+ function back(){pt.pause();pt.reset();$('kt-pl-run').hidden=true;$('kt-pl-end').hidden=true;$('kt-pl-reset').hidden=true;$('kt-pl-go').hidden=false;}
+ $('kt-pl-reset').addEventListener('click',back);
+ $('kt-pl-again').addEventListener('click',function(){back();$('kt-p-play').scrollIntoView({block:'start'});});
+ $('kt-pl-copy').addEventListener('click',function(){var t='Тренувальне засідання: '+fab.title+'\nСторона: '+(side==='A'?fab.A:fab.R)+'\n\n'+$('kt-pl-notes').value;copyText(t,$('kt-pl-ok'));});
+ chips();caseCard();
+})();
+
+/* ---------- judge mode ---------- */
+(function(){
+ var src=$('kt-j-src');src.appendChild(h('option',{value:'bank',text:'Загальний банк запитань'}));
+ FAB.forEach(function(f){src.appendChild(h('option',{value:f.id,text:'Фабула: '+f.title}));});
+ var lastText='';
+ $('kt-j-gen').addEventListener('click',function(){
+  var n=parseInt($('kt-j-n').value,10),v=src.value,pool=[];
+  if(v==='bank'){Object.keys(KTQ).forEach(function(k){KTQ[k].items.forEach(function(t){pool.push(t);});});}
+  else FAB.forEach(function(f){if(f.id===v){['A','R'].forEach(function(s){[1,2].forEach(function(p){f.qs[s][p].forEach(function(t){pool.push('['+(s==='A'?f.A:f.R)+'] '+t);});});});}});
+  var pick=shuffle(pool).slice(0,n);
+  var l=$('kt-qset-l');l.textContent='';pick.forEach(function(t){l.appendChild(h('li',{text:t}));});
+  $('kt-qset-h').textContent='Набір запитань ('+pick.length+')'+(v==='bank'?'':': '+src.options[src.selectedIndex].text);
+  $('kt-qset').hidden=false;lastText=$('kt-qset-h').textContent+'\n\n'+pick.map(function(t,i){return (i+1)+'. '+t;}).join('\n');
+ });
+ $('kt-j-copy').addEventListener('click',function(){copyText(lastText,$('kt-j-ok'));});
+ function sheet(boxId,totalId,name,crit){
+  var box=$(boxId);box.textContent='';
+  crit.forEach(function(c,ci){
+   var fs=h('fieldset',{class:'kt-crit'},[h('legend',{text:(ci+1)+'. '+c[0]})]);
+   c[1].forEach(function(d,i){var inp=h('input',{type:'radio',name:name+ci,value:String(i+1)});inp.addEventListener('change',total);fs.appendChild(h('label',{class:'kt-lvl'},[inp,h('span',null,[h('b',{text:String(i+1)}),document.createTextNode(' '+d)])]));});
+   box.appendChild(fs);
+  });
+  function total(){var s=0;box.querySelectorAll('input:checked').forEach(function(i){s+=parseInt(i.value,10);});$(totalId).textContent='Сума: '+s+' з '+crit.length*5;}
+  return total;
+ }
+ var t1=sheet('kt-oral-crit','kt-oral-total','o',window.KT_ORAL_CRIT);
+ var t2=sheet('kt-memo-crit','kt-memo-total','m',window.KT_MEMO_CRIT);
+ function clearSheet(id,cmId,tot){var s=$(id);s.querySelectorAll('input[type=radio]').forEach(function(i){i.checked=false;});s.querySelectorAll('input[type=text]').forEach(function(i){i.value='';});$(cmId).value='';tot();}
+ document.querySelectorAll('[data-clear]').forEach(function(b){b.addEventListener('click',function(){if(b.getAttribute('data-clear')==='oral')clearSheet('kt-sheet-oral','kt-oral-cm',t1);else clearSheet('kt-sheet-memo','kt-memo-cm',t2);});});
+ /* print */
+ function markPrint(el){var n=el;while(n&&n!==document.body){var ps=n.parentNode?Array.prototype.slice.call(n.parentNode.children):[];ps.forEach(function(s){if(s!==n&&s.tagName!=='SCRIPT'&&s.tagName!=='STYLE')s.classList.add('kt-p-hide');});n=n.parentNode;}}
+ function unmark(){Array.prototype.forEach.call(document.querySelectorAll('.kt-p-hide'),function(e){e.classList.remove('kt-p-hide');});}
+ window.addEventListener('afterprint',unmark);
+ document.querySelectorAll('[data-print]').forEach(function(b){b.addEventListener('click',function(){
+  var id={oral:'kt-sheet-oral',memo:'kt-sheet-memo',qset:'kt-qset'}[b.getAttribute('data-print')];
+  unmark();markPrint($(id));window.print();setTimeout(unmark,1000);
+ });});
+ window.__ktMarkPrint=function(id){unmark();markPrint($(id));};window.__ktUnmark=unmark;
+})();
+})();
+
+</script>
+
+
+<footer style="background: #3f5a3c;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 2.25rem 1.5rem; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 16px; color: #e6eee2;">
+<span>© 2026 Катерина Звєрєва</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px;"><a href="https://orcid.org/0000-0003-2539-7035" style="color: #ffffff;" rel="noopener">ORCID</a><a href="https://scholar.google.com/citations?user=alw63JcAAAAJ" style="color: #ffffff;" rel="noopener">Google Scholar</a><a href="vykladacham.html" style="color: #ffffff;">Викладачам</a><a href="zaraz.html" style="color: #ffffff;">Зараз у роботі</a><a href="#" style="color: #ffffff;">YouTube</a><a href="#" style="color: #ffffff;">Контакти</a></span>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
