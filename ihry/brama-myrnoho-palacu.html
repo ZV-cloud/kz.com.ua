@@ -10,10 +10,15 @@
 <style>
 /* Сторінка гри: без меню сайту, гра на весь екран. Лектор: Катерина Звєрєва */
 html,body{margin:0;padding:0;height:100%;background:#ece5d6;overflow:hidden}
-iframe{display:block;width:100%;height:100vh;height:100dvh;border:none}
+body{display:flex;flex-direction:column;height:100vh;height:100dvh}
+.kzbar{flex:0 0 auto;display:flex;gap:18px;align-items:center;padding:0 14px;padding-top:env(safe-area-inset-top,0px);min-height:30px;background:#1d1d1f;font:500 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.kzbar a{color:#fff;text-decoration:none;padding:8px 0;opacity:.9}
+.kzbar a:hover,.kzbar a:focus-visible{opacity:1;text-decoration:underline}
+iframe{display:block;flex:1 1 auto;min-height:0;width:100%;height:auto;border:none}
 </style>
 </head>
 <body>
+<nav class="kzbar" aria-label="Навігація сайту"><a href="./">← Усі ігри</a><a href="../">Головна сайту</a></nav>
 <iframe
   src="https://script.google.com/macros/s/AKfycbwJRIJvrlzJZjSrwQ7RAihCla631Z5sysZRXFFX0dh2RLthm_hshNpm2IVuOpzWhEEwvA/exec?g=brama"
   title="Брама Мирного палацу"
