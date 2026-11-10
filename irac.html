@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тренажер розв’язання юридичних задач (IRAC) — Катерина Звєрєва</title>
+<meta name="description" content="Покроковий тренажер розв’язання юридичних задач за схемами IRAC і CRAC з підказками, типовими помилками, чеклістом самоперевірки та двома навчальними казусами з еталонним каркасом.">
+<meta name="author" content="Kateryna Zviereva">
+<link rel="canonical" href="https://kz.com.ua/irac.html">
+<meta property="og:title" content="Тренажер розв’язання юридичних задач (IRAC) — Катерина Звєрєва">
+<meta property="og:description" content="Покроковий тренажер розв’язання юридичних задач за схемами IRAC і CRAC з підказками, типовими помилками, чеклістом самоперевірки та двома навчальними казусами з еталонним каркасом.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kz.com.ua/irac.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#f7f2ea}a{color:#4f6b4c}a:hover{color:#2f2a26}</style>
+<link rel="stylesheet" href="rozdily.css">
+<style>
+.irz-grp{display:flex;flex-wrap:wrap;gap:10px}
+.irz-grp button,.irz-steps button{font:600 16px/1.3 'Source Sans 3',system-ui,sans-serif;color:#4f6b4c;background:#fffdf9;border:1.5px solid #c9d6c4;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:44px}
+.irz-grp button:hover,.irz-steps button:hover{border-color:#4f6b4c}
+.irz-grp button[aria-pressed="true"]{background:#4f6b4c;border-color:#4f6b4c;color:#fff}
+.irz-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.irz-steps button{border-radius:8px;padding:8px 6px;text-align:center;display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center}
+.irz-steps button .irz-l{font-size:17px;font-weight:700}
+.irz-steps button .irz-s{font-size:13px;font-weight:600;opacity:.9}
+.irz-steps button[aria-current="step"]{background:#4f6b4c;border-color:#4f6b4c;color:#fff}
+.irz-steps button.is-done:not([aria-current="step"]){background:#e8efe5}
+.irz-case{background:#fbf8f2;border:1px solid #e3d8c7;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.irz-case h3{margin:0;font-family:'Lora',serif;font-size:21px;font-weight:600}
+.irz-case p{margin:0;font-size:17px;line-height:1.6;color:#2f2a26}
+.irz-tag{align-self:flex-start;font-size:13px;font-weight:700;letter-spacing:.04em;border-radius:4px;padding:3px 8px;background:#f6ecd0;color:#3a2f12}
+.irz-lab{font-size:16px;font-weight:700;color:#2f2a26}
+.irz-ta{width:100%;box-sizing:border-box;font:16px/1.55 'Source Sans 3',system-ui,sans-serif;color:#2f2a26;background:#fff;border:1.5px solid #cdbfa9;border-radius:6px;padding:12px 14px;resize:vertical;min-height:150px}
+.irz-ta:focus{outline:3px solid #a9c0a4;outline-offset:1px;border-color:#4f6b4c}
+.irz-cnt{font-size:15px;color:#4a413a}
+.irz-cnt b{font-weight:700}
+.irz-hint{margin:0;font-size:17px;line-height:1.6;color:#2f2a26}
+.irz-q{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:16.5px;line-height:1.5;color:#4a413a}
+.irz-det{border:1px solid #e3d8c7;border-radius:8px;background:#fbf8f2}
+.irz-det summary{cursor:pointer;font-weight:700;font-size:16.5px;padding:12px 16px;min-height:44px;box-sizing:border-box;display:flex;align-items:center}
+.irz-det summary:focus-visible{outline:3px solid #a9c0a4;outline-offset:1px;border-radius:8px}
+.irz-det .irz-in{padding:0 16px 14px;display:flex;flex-direction:column;gap:8px;font-size:16.5px;line-height:1.55;color:#4a413a}
+.irz-det .irz-in p{margin:0}
+.irz-det ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.irz-ex{font-style:italic;color:#3b332d;border-left:3px solid #c9d6c4;padding-left:12px}
+.irz-chk{border:1px solid #e3d8c7;border-radius:8px;padding:12px 16px 8px;margin:0;display:flex;flex-direction:column;gap:2px;background:#fffdf9}
+.irz-chk legend{font-weight:700;font-size:16.5px;padding:0 6px}
+.irz-chk label{display:flex;gap:12px;align-items:flex-start;padding:8px 0;min-height:44px;box-sizing:border-box;font-size:16.5px;line-height:1.45;cursor:pointer}
+.irz-chk input,.irz-save input{width:22px;height:22px;flex:0 0 22px;margin:1px 0 0;accent-color:#4f6b4c}
+.irz-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.irz-btn{font:700 16px/1.3 'Source Sans 3',system-ui,sans-serif;color:#fff;background:#4f6b4c;border:0;border-radius:6px;padding:11px 20px;min-height:44px;cursor:pointer}
+.irz-btn:hover{background:#3f5a3c}
+.irz-btn--ghost{color:#2f2a26;background:#fffdf9;border:1px solid #d8cbb6}
+.irz-btn--ghost:hover{background:#fffdf9;border-color:#4f6b4c}
+.irz-btn--warn{color:#8a4a46;border-color:#d9b5b0}
+.irz-btn[disabled]{opacity:.5;cursor:not-allowed}
+.irz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.irz-status{font-size:15px;font-weight:700;color:#3f5a3c;min-height:22px}
+.irz-save{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.45;min-height:44px;cursor:pointer}
+.irz-ref{border:2px solid #c9d6c4;background:#f3f7f1}
+.irz-ref h3{margin:0;font-family:'Lora',serif;font-size:20px;font-weight:600}
+.irz-blk{background:#fffdf9;border:1px solid #e3d8c7;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.irz-blk p,.irz-blk li{margin:0;font-size:16.5px;line-height:1.55;color:#2f2a26}
+.irz-blk ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.irz-src{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15.5px;line-height:1.5;color:#4a413a}
+.irz-tbl{width:100%;border-collapse:collapse;font-size:16px}
+.irz-tbl th,.irz-tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid #e3d8c7;vertical-align:top}
+.irz-tbl th{font-weight:700;color:#2f2a26;background:#fbf8f2}
+.irz-wrapt{overflow-x:auto}
+.irz-ta-case{min-height:180px}
+@media (max-width:560px){.irz-panel-pad{padding:16px}.irz-steps button .irz-s{display:none}.irz-btn,.irz-grp button{flex:1 1 auto}}
+</style>
+</head>
+<body>
+<div style="font-family: 'Source Sans 3', 'Segoe UI', sans-serif; color: #2f2a26; background: #f7f2ea; display: flex; flex-direction: column; min-height: 100vh;">
+
+<header style="border-bottom: 1px solid #e3d8c7; background: #f7f2ea;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 1.25rem 1.5rem; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 40px;">
+<a href="index.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 2px;" aria-label="На початок">
+<span style="font-family: 'Lora', serif; font-size: 26px; font-weight: 600; color: #2f2a26;">Катерина Звєрєва</span>
+<span style="font-size: 14px; color: #6b5f55; letter-spacing: 0.08em; text-transform: uppercase;">Особистий сайт</span>
+</a>
+<nav aria-label="Головне меню" style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-size: 17px;">
+<a href="publikatsii.html" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Наукові праці</a>
+<a href="index.html#knyhy" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Книги</a>
+<a href="index.html#ihry" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Ігри</a>
+<a href="index.html#shkola" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Відкрита школа</a>
+<a href="novyny.html"  style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Новини</a>
+<a href="studentam.html" aria-current="page" style="text-decoration: none; color: #4f6b4c; padding: 10px 0; font-weight: 700; border-bottom: 2px solid #4f6b4c;">Студентам</a>
+<a href="index.html#pro-mene" style="text-decoration: none; color: #2f2a26; padding: 10px 0;">Про мене</a>
+<span style="font-size: 15px; color: #6b5f55; border: 1px solid #e3d8c7; border-radius: 6px; padding: 6px 10px;"><b style="color: #2f2a26;">UA</b> · EN</span>
+</nav>
+</div>
+</header>
+
+<main class="rz-wrap">
+<div class="rz-intro"><span class="rz-eyebrow">Тренажер</span><h1>Розв’язання юридичних задач за схемою IRAC</h1>
+<p>Вставте текст казусу й пройдіть чотири кроки: питання, норма, застосування, висновок. На кожному кроці є підказки, зразки формулювань, типові помилки та чекліст самоперевірки. Працює для будь-якої галузі права. Є два навчальних казуси з еталонним каркасом розв’язання.</p></div>
+
+<noscript><p class="rz-note">Для роботи тренажера потрібен JavaScript.</p></noscript>
+
+<section class="ic-panel" aria-labelledby="irz-h1"><h2 id="irz-h1">1. Казус</h2>
+<div class="irz-grp" id="irz-mode" role="group" aria-label="Оберіть казус"></div>
+<div id="irz-casebox"></div>
+<p class="rz-note" style="margin:0">Усе, що ви вводите, залишається лише у вашому браузері й нікуди не надсилається. Чернетку можна зберегти в цьому браузері (прапорець нижче); без нього після закриття сторінки текст зникне.</p>
+</section>
+
+<section class="ic-panel" aria-labelledby="irz-h2"><h2 id="irz-h2">2. Структура</h2>
+<div class="irz-grp" id="irz-struct" role="group" aria-label="Оберіть структуру"></div>
+<p class="irz-hint" id="irz-structlead"></p>
+<details class="irz-det"><summary>Коли яку структуру обирати</summary><div class="irz-in" id="irz-when"></div></details>
+</section>
+
+<section class="ic-panel" aria-labelledby="irz-h3"><h2 id="irz-h3">3. Покроково</h2>
+<div class="irz-steps" id="irz-steps" role="group" aria-label="Кроки"></div>
+<div id="irz-step" aria-live="off"></div>
+<div class="irz-nav"><button type="button" class="irz-btn irz-btn--ghost" id="irz-prev">← Назад</button><button type="button" class="irz-btn" id="irz-next">Далі →</button></div>
+</section>
+
+<section class="ic-panel" aria-labelledby="irz-h4"><h2 id="irz-h4">4. Самоперевірка та результат</h2>
+<p class="irz-hint" style="font-size:16px">Загальний чекліст перед тим, як вважати відповідь завершеною. Це ваша власна перевірка: тренажер не оцінює текст.</p>
+<fieldset class="irz-chk" id="irz-global"><legend>Загальна самоперевірка</legend></fieldset>
+<p class="irz-cnt" id="irz-prog" aria-live="polite"></p>
+<div class="irz-row"><button type="button" class="irz-btn" id="irz-copy">Скопіювати відповідь як текст</button><button type="button" class="irz-btn irz-btn--ghost irz-btn--warn" id="irz-clear">Очистити</button></div>
+<div class="irz-status" id="irz-status" role="status" aria-live="polite"></div>
+<label class="irz-save"><input type="checkbox" id="irz-savebox"><span>Зберігати чернетку в цьому браузері (localStorage). Не вмикайте це на спільному комп’ютері.</span></label>
+</section>
+
+<section class="ic-panel irz-ref" id="irz-refsec" aria-labelledby="irz-h5" hidden><h2 id="irz-h5">5. Еталонний каркас розв’язання</h2><div id="irz-ref"></div></section>
+
+<div class="rz-note"><b>Важливо.</b> Це навчальний інструмент, а не юридична консультація. Казуси в тренажері вигадані: держави, компанії, події й суми не існують. Каркаси еталонів показують хід міркування, а не єдино можливу відповідь; норми перевіряйте за чинними офіційними текстами й консультуйтеся з викладачем щодо вимог до оформлення. Тренажер нікого не оцінює: чекліст лише допомагає самому помітити прогалини.</div>
+</main>
+<script>
+(function(){
+"use strict";
+var KEY='kz-irac-draft-v1', FLAG='kz-irac-save-v1';
+
+var STEPS={
+ issue:{key:'issue',letter:'I',en:'Issue',uk:'Питання',min:12,max:70,
+  hint:'Сформулюйте одне чітке правове питання, на яке має відповісти ваш розв’язок. Воно поєднує норму (або правовий інститут) і ключовий факт казусу. Це питання, а не переказ фабули й не відповідь.',
+  qs:['Яке правове питання вирішує казус: чи є порушення, чи звільняється сторона від відповідальності, чи є підстави для позову?','Який саме факт визначає відповідь?','Чи не змішано в одному реченні кілька питань? Якщо їх кілька, пронумеруйте.','Хто суб’єкт питання (чия позиція розглядається)?'],
+  ex:['Чи може [суб’єкт] послатися на [норму/інститут], якщо [ключовий факт]?','Чи є [дія] порушенням [зобов’язання], коли [обставина]?','Чи наявні підстави для [правового наслідку] для [сторони] за [договором/актом]?'],
+  err:['Питання надто широке («Хто правий?», «Чи законні дії сторони?»).','Замість питання переказано факти казусу.','У питанні вже міститься відповідь («Чому дії Альтерії незаконні?»).','Кілька питань злито в одне речення.','Питання про справедливість чи мораль, а не про право.'],
+  chk:['Текст закінчується знаком питання','У питанні названо ключовий факт','На питання можна відповісти «так/ні» з обґрунтуванням','Одне питання охоплює один предмет (або питання пронумеровані)','Питання не містить відповіді']},
+ lead:{key:'lead',letter:'C',en:'Conclusion (коротка відповідь)',uk:'Відповідь наперед',min:15,max:60,
+  hint:'У схемі CRAC відповідь іде першою: одне-два речення, що прямо вирішують питання казусу й називають головну підставу. Далі ви обґрунтуєте її в блоках Rule та Application.',
+  qs:['Яка моя відповідь на питання казусу, якщо сказати це в одному реченні?','Яка головна підстава цієї відповіді?','Чи не надто категорично, якщо факти неповні?'],
+  ex:['Ймовірно, [так/ні], оскільки [головна підстава].','Скоріш за все, [сторона] [може/не може] [наслідок], тому що [елемент норми не/виконано].'],
+  err:['Відповідь без підстави («Ні, не може»).','Відповідь не збігається з фінальним висновком.','Питання, на яке дається відповідь, неочевидне читачеві.','Надмірна категоричність попри неповні факти.'],
+  chk:['Відповідь прямо відповідає на питання казусу','Названо головну підставу','Відповідь збігатиметься з фінальним висновком']},
+ rule:{key:'rule',letter:'R',en:'Rule',uk:'Норма',min:50,max:260,
+  hint:'Назвіть застосовні норми з точним джерелом (акт, стаття, частина), своїми словами викладіть їхній зміст і розбийте на елементи або умови застосування. Додайте винятки та тлумачення (практика судів, доктрина). Тут немає фактів казусу.',
+  qs:['Який акт і яка стаття застосовуються? Чи чинна редакція на дату подій?','З яких елементів або умов складається норма?','Які винятки й обмеження?','Що кажуть суди або доктрина про тлумачення цієї норми?','Чи не конкурують норми (спеціальна й загальна, пізніша й раніша)?'],
+  ex:['Відповідно до ст. [№] [акт], [суб’єкт] може [наслідок], якщо виконано умови: (1) …; (2) …; (3) ….','Ст. [№] не застосовується, якщо [виняток].','Як зазначив [суд] у [справі/рішенні], [зміст позиції].'],
+  err:['Змішування фактів і норми: у блоці Rule з’являються імена й обставини казусу.','Відсутність джерел: норма названа «загалом», без акта й статті.','Норму процитовано, але не розбито на елементи.','Пропущено винятки та практику тлумачення.','Перелічено всі знайдені норми без відбору релевантних.','Не перевірено чинність і редакцію на дату подій.'],
+  chk:['Кожна норма має джерело (акт, стаття, частина)','Норму розкладено на елементи або умови','Названо винятки й обмеження (або пояснено, що їх немає)','У блоці немає фактів казусу','Перевірено чинність і редакцію на дату подій']},
+ application:{key:'application',letter:'A',en:'Application',uk:'Застосування',min:100,max:480,
+  hint:'Застосуйте елементи норми до фактів по черзі: факт, елемент, висновок щодо цього елемента. Розгляньте аргументи обох сторін, оцініть докази й тягар доведення. Не вводьте фактів, яких немає в казусі.',
+  qs:['Який факт відповідає якому елементу норми?','Що заперечить протилежна сторона й чим я їй відповім?','Які факти спірні або відсутні, і як це впливає на відповідь?','Хто має доводити кожен елемент?','Який елемент вирішальний?'],
+  ex:['Елемент 1 ([назва]). У казусі [факт]. Тому цей елемент [виконано/не виконано], оскільки …','Протилежна сторона може заперечити, що … Проте …','Фактів недостатньо, щоб встановити [х]; якщо [припущення], то …'],
+  err:['Ігнорування контраргументів: розглянуто лише одну позицію.','Повтор фактів без аналізу («Альтерія зменшила стік, отже порушила»).','Норма застосована «загалом», без розбору елементів.','Додано факти, яких немає в казусі.','Підміна аналізу оцінкою справедливості.','Не розрізнено, що доведено, а що лише стверджується.'],
+  chk:['Кожен елемент норми застосовано до фактів окремо','Розглянуто принаймні один контраргумент і дано відповідь','Нових фактів не додано (припущення позначені)','Розглянуто докази й тягар доведення','У аналізі видно, який елемент вирішальний']},
+ conclusion:{key:'conclusion',letter:'C',en:'Conclusion',uk:'Висновок',min:25,max:110,
+  hint:'Дайте пряму відповідь на питання з першого блоку, назвіть вирішальні елементи й правовий наслідок. Нових аргументів тут не буде; якщо факти неповні, зробіть застереження.',
+  qs:['Чи відповідає цей текст саме на сформульоване питання?','Які два-три елементи вирішили справу?','Який практичний наслідок (відповідальність, нечинність, відмова, відшкодування)?','Чи є застереження через неповні факти?'],
+  ex:['Отже, [так/ні]: [суб’єкт] [може/не може] [наслідок], оскільки [вирішальні елементи].','Імовірний наслідок: [відповідальність/відмова/відшкодування]. Висновок залежить від [невстановленого факту].'],
+  err:['Висновок без обґрунтування: твердження не пов’язане з аналізом.','У висновку з’явилися нові аргументи чи норми.','Ухильна відповідь («усе залежить від обставин») без пояснення, від яких.','Відповідь не збігається з питанням.','Немає практичного наслідку.'],
+  chk:['Є пряма відповідь на питання казусу','Названо вирішальні елементи з аналізу','Названо правовий наслідок','Нових аргументів і норм немає','Є застереження, якщо фактів бракує']}
+};
+var ORDER={IRAC:['issue','rule','application','conclusion'],CRAC:['lead','rule','application','conclusion']};
+var STRUCT={
+ IRAC:{name:'IRAC',lead:'Issue (питання), Rule (норма), Application (застосування), Conclusion (висновок). Читач іде за вашою думкою від питання до відповіді.'},
+ CRAC:{name:'CRAC',lead:'Conclusion (відповідь наперед), Rule, Application, Conclusion (підтвердження). Відповідь іде першою, далі її обґрунтування.'}
+};
+var WHEN=[
+ '<p><b>IRAC</b> підходить для навчальних задач, іспитів і семінарів, де потрібно показати хід міркування. Питання на початку тримає вас у межах казусу, а відповідь з’являється наприкінці як результат аналізу. Це зручна основа за замовчуванням.</p>',
+ '<p><b>CRAC</b> (conclusion-first) підходить для практичних документів: правової консультації клієнтові, внутрішнього меморандуму, позиції для суду чи арбітражу. Читач має мало часу й хоче відповідь одразу, а обґрунтування читає за потреби.</p>',
+ '<p><b>Кілька питань у казусі.</b> Для кожного питання робіть окремий міні-цикл (I-R-A-C або C-R-A-C) і порядкуйте їх від логічно первинного. Наприклад, спершу чи є підстава, потім які наслідки.</p>',
+ '<p><b>Варіації.</b> У деяких школах поширена схема CREAC, де між нормою й застосуванням додають блок Explanation: пояснення правила на прикладах практики. Якщо норма складна, цей блок можна вмістити в Rule.</p>',
+ '<p>Вимоги викладача, суду чи установи мають пріоритет. Якщо вони вимагають іншої структури, збережіть сам зміст (питання, норма, застосування, висновок) і змініть лише порядок.</p>'
+];
+var GLOBAL=[
+ 'Усі чотири блоки заповнені, структура дотримана',
+ 'Кожне твердження про право має джерело (акт, стаття, рішення)',
+ 'Факти й норма розділені: у Rule немає фактів, у Application немає нових фактів',
+ 'Розглянуто принаймні один контраргумент',
+ 'Висновок відповідає на питання з першого блоку і не містить нових аргументів',
+ 'Перевірено чинність норм і редакцію на дату подій'
+];
+
+var CASES={
+ c1:{label:'Навчальний казус 1: міжнародне право',title:'Посуха на річці Сірій',field:'Міжнародне право: дія й припинення договору; відповідальність держав',
+  text:['Держави Альтерія (верхня течія річки Сірої) і Бореалія (нижня течія) у 2004 році уклали двосторонній договір про використання річки. За статтею 3 договору Альтерія зобов’язується забезпечувати на кордоні мінімальний стік не нижче 40 м³/с упродовж усього року. Стаття 7 передбачає: якщо в басейні оголошено надзвичайну посуху, сторони протягом 30 днів проводять консультації щодо тимчасового перегляду обсягів. Про припинення договору чи вихід із нього договір нічого не говорить. Обидві держави беруть участь у Віденській конвенції про право міжнародних договорів 1969 року.',
+  'Після трьох посушливих років уряд Альтерії постановою наказав водосховищам верхньої течії скоротити пропуск води до 15 м³/с, щоб зберегти запаси для власних електростанцій. Дипломатичною нотою Альтерія повідомила Бореалію, що «докорінна зміна обставин» звільняє її від виконання статті 3 до закінчення посухи. Консультацій за статтею 7 вона не пропонувала. Бореалія заперечила: клімат басейну був відомий сторонам ще під час переговорів, а від скорочення стоку страждають її посіви; збитки оцінено в 12 млн умовних одиниць. Бореалія вимагає відновити стік і відшкодувати збитки.'],
+  tip:'У казусі можна виокремити два питання: чи може Альтерія послатися на зміну обставин і чи є її дії порушенням із наслідками відповідальності. Визначте, яке з них головне, або розбийте на два цикли.'},
+ c2:{label:'Навчальний казус 2: цивільне і торговельне право',title:'Борошно не приїхало вчасно',field:'Цивільне й торговельне право України: прострочення, форс-мажор',
+  text:['ТОВ «Лісовий Хліб» (покупець) і ТОВ «Сонячний Колос» (продавець) уклали договір поставки 100 тонн борошна пшеничного на суму 2 400 000 грн. Покупець сплатив 50 % передоплати. Поставка мала відбутися до 15 березня. Пункт 6.1 договору встановлює пеню 0,1 % вартості непоставленого в строк товару за кожен день прострочення. Пункт 8.1 звільняє сторону від відповідальності за невиконання, спричинене форс-мажором (зокрема пожежею, стихійним лихом, військовими діями), за умови, що вона письмово повідомить іншу сторону протягом 10 днів з початку обставини й надасть сертифікат Торгово-промислової палати України.',
+  '5 березня на млині третьої особи, у якої продавець зазвичай купує борошно, сталася пожежа. Продавець повідомив покупця листом лише 19 березня, сертифіката ТПП не отримував. Товар було поставлено 4 квітня, тобто з прострочкою в 20 днів. Інші постачальники борошна на ринку в цей час були, але продавець звернувся до них лише після 25 березня, чекаючи на відновлення роботи свого постачальника. Покупець вимагає сплатити пеню. Продавець посилається на форс-мажор і статтю 617 Цивільного кодексу України.'],
+  tip:'Питання розміру пені та її можливого зменшення в цьому казусі не розглядайте: зосередьтеся на тому, чи звільняється продавець від відповідальності.'}
+};
+
+var REF={
+ c1:{
+  issue:['Чи може Альтерія послатися на докорінну зміну обставин (ст. 62 Віденської конвенції 1969) і зупинити виконання зобов’язання щодо мінімального стоку, а якщо ні, чи є скорочення стоку порушенням міжнародного зобов’язання, що тягне відповідальність за Проєктом статей про відповідальність держав 2001?'],
+  lead:['Ймовірно, ні: умови ст. 62 не виконано, зокрема посуху сторони передбачили в ст. 7 договору, а скорочення стоку є порушенням, яке тягне повне відшкодування.'],
+  rule:['- Ст. 26 Віденської конвенції про право міжнародних договорів 1969: чинний договір обов’язковий для його учасників і має виконуватися ними добросовісно.',
+   '- Ст. 62(1) ВК: докорінна зміна обставин, яких сторони не передбачали, не може бути підставою для припинення договору чи виходу з нього, якщо тільки: (а) наявність цих обставин була істотною основою згоди сторін на обов’язковість договору; і (б) зміна докорінно перетворює обсяг зобов’язань, що ще мають виконуватися.',
+   '- Ст. 62(2) ВК: підставу не можна застосувати до договору про кордон, а також якщо зміна є наслідком порушення стороною, що на неї посилається, договірного зобов’язання або іншого міжнародного зобов’язання перед будь-якою іншою стороною. Ст. 62(3): якщо сторона може посилатися на зміну для припинення, вона може посилатися на неї й для зупинення дії договору.',
+   '- Тлумачення: у справі Gabčíkovo-Nagymaros (МС ООН, рішення від 25 вересня 1997 р.) Суд визнав, що положення ВК про припинення й зупинення договорів (ст. 60-62) у багатьох аспектах кодифікують звичаєве право (п. 46), і зазначив, що негативне й умовне формулювання ст. 62 свідчить про її застосування лише в виняткових випадках (п. 104). Про процедуру див. ст. 65 ВК (прочитайте її текст самостійно).',
+   '- Проєкт статей про відповідальність держав за міжнародно протиправні діяння 2001 (КМП): ст. 2 (діяння держави є протиправним, коли дія чи бездіяльність: а) приписується державі за міжнародним правом; і б) становить порушення міжнародного зобов’язання держави); ст. 4(1) (поведінка будь-якого органу держави розглядається як діяння цієї держави); ст. 12 (порушення є, коли діяння держави не відповідає тому, чого від неї вимагає зобов’язання).',
+   '- Наслідки: ст. 31 (відповідальна держава зобов’язана повністю відшкодувати шкоду), ст. 34 (форми: реституція, компенсація, сатисфакція окремо чи разом), ст. 35-37 (зміст кожної форми).',
+   '- Альтернатива: стан необхідності, ст. 25(1) Проєкту: можна посилатися лише коли діяння є єдиним способом захистити істотний інтерес від тяжкої й неминучої небезпеки і воно не завдає серйозної шкоди істотному інтересу іншої держави чи міжнародної спільноти.'],
+  application:['- Істотна основа згоди (62(1)(а)). Альтерія скаже, що стабільний водний режим лежав в основі договору. Проте стаття 7 прямо врахувала надзвичайну посуху, тож умови стоку не були гарантовані за будь-якої погоди; сама доступність води навряд чи була «істотною основою».',
+   '- Непередбачуваність зміни (62(1)). Посуха й консультації за ст. 7 договору вказують, що сторони її передбачали; крім того, Бореалія посилається на відомий клімат басейну. Умова не виконана. Це найсильніший аргумент проти Альтерії.',
+   '- Докорінне перетворення обсягу зобов’язань (62(1)(б)). Зобов’язання лишилося тим самим за змістом (пропускати певний обсяг води); змінилися лише витрати й складність його виконання. Для докорінної трансформації потрібно більше, ніж економічна невигода чи дефіцит для власних електростанцій (див. вимогу виняткового застосування, Gabčíkovo, п. 104).',
+   '- Винятки (62(2)). Договір не встановлює кордону; чи є зміна наслідком порушення самої Альтерії, з фактів не видно, і це слід позначити як припущення.',
+   '- Контраргумент Альтерії: договір не передбачає виходу, тому єдиний шлях відповідає ст. 62; і що Бореалія відмовилася від консультацій. Відповідь: Альтерія не запропонувала консультацій за ст. 7, тому не може посилатися на їх відсутність; Альтерія діяла односторонньо.',
+   '- Порушення (Проєкт 2001). Постанова уряду є поведінкою органу (ст. 4(1)), отже приписується Альтерії; стік у 15 м³/с не відповідає зобов’язанню у 40 м³/с (ст. 12); обидва елементи ст. 2 є. Необхідність (ст. 25(1)) навряд чи спрацює: не доведено, що скорочення стоку було єдиним способом, а шкода посівам Бореалії може бути серйозною для її істотного інтересу.'],
+  conclusion:['Ймовірно, Альтерія не має підстав за ст. 62 ВК зупинити виконання ст. 3 договору: зміна була передбачена (ст. 7), не доведено докорінної трансформації обсягу зобов’язань, а ст. 62 застосовується лише винятково. Скорочення стоку до 15 м³/с є порушенням зобов’язання, яке приписується Альтерії, тож виникає її відповідальність: вона має припинити порушення, відновити стік (реституція, ст. 35) і відшкодувати документально підтверджену шкоду (компенсація, ст. 36); за потреби сатисфакція (ст. 37). Висновок залежить від неповних фактів (чи не спричинила Альтерія зміну сама; докази розміру шкоди).'],
+  sources:['Віденська конвенція про право міжнародних договорів, 1969, ст. 26, 62; офіційний текст у Збірнику договорів ООН.',
+   'Проєкт статей про відповідальність держав за міжнародно протиправні діяння, Комісія міжнародного права, 2001, ст. 2, 4(1), 12, 25(1), 31, 34-37 (Yearbook of the International Law Commission, 2001, vol. II, Part Two).',
+   'Gabčíkovo-Nagymaros Project (Hungary/Slovakia), Judgment of 25 September 1997, ICJ Reports, пп. 46, 104.']},
+ c2:{
+  issue:['Чи звільняється ТОВ «Сонячний Колос» від відповідальності за прострочення поставки в 20 днів на підставі ст. 617 ЦК України та п. 8.1 договору (форс-мажор), якщо причиною була пожежа на млині його постачальника, а повідомлення покупцеві надіслано з пропуском 10-денного строку й без сертифіката ТПП?'],
+  lead:['Ймовірно, ні: пожежа в постачальника сама по собі не доводить, що виконати зобов’язання було неможливо, а умови п. 8.1 договору щодо повідомлення й сертифіката продавець не виконав.'],
+  rule:['- Ст. 612 ЦК України: боржник вважається таким, що прострочив, якщо не приступив до виконання зобов’язання або не виконав його в строк, встановлений договором чи законом; прострочивший боржник відповідає перед кредитором за завдані простроченням збитки (ч. 2).',
+   '- Ст. 617 ЦК: особа, що порушила зобов’язання, звільняється від відповідальності, якщо доведе, що порушення сталося внаслідок випадку або непереборної сили. Це звільнення від відповідальності, тягар доведення лежить на боржнику.',
+   '- Практика Верховного Суду (дайджест ВС щодо форс-мажору): наявність форс-мажору сама по собі не доводить його впливу на виконання, цей вплив має бути доведено (КАС ВС, 27.02.2025, справа 520/2941/24; 03.04.2025, справа 320/27109/23; позиції сформульовано в адміністративних справах, тому застосовуються за аналогією); сертифікат ТПП не є єдиним чи обов’язковим доказом, якщо інше не передбачено законом або договором (справа 910/7679/22), а там, де договір вимагає сертифіката, суд може розглядати його як необхідний доказ (справа 918/289/19); сертифікат оцінюють у сукупності з іншими доказами.',
+   '- Закон України «Про торгово-промислові палати в Україні», ст. 14-1: ТПП України й уповноважені регіональні палати засвідчують форс-мажорні обставини.',
+   '- Умови договору (вигадані): п. 6.1 (пеня), п. 8.1 (форс-мажор, письмове повідомлення протягом 10 днів і сертифікат ТПП).'],
+  application:['- Прострочення. Строк поставки 15 березня, поставлено 4 квітня: прострочення 20 днів, боржник прострочив за ст. 612(1) ЦК, і відповідає за наслідки прострочення за договором.',
+   '- Подія. Пожежа на млині третьої особи сама по собі може бути «випадком» чи навіть підпадати під перелік п. 8.1, але це подія у сфері постачальника продавця; покупець не відповідає за відносини продавця з його постачальником, тож продавець має показати, чому це унеможливило виконання.',
+   '- Причинний зв’язок. Борошно є родовим товаром, на ринку були інші постачальники, а продавець звернувся до них лише після 25 березня. Зв’язок між пожежею і неможливістю виконати вчасно слабкий; тягар доведення на продавцеві.',
+   '- Умови п. 8.1. Повідомлення надіслано на 14-й день, строк 10 днів, сертифікат не отриманий. Практика ВС допускає інші докази, але там, де договір прямо вимагає сертифікат, суд ставиться до нього як до необхідного.',
+   '- Контраргумент продавця: формальні вимоги не мають зводити нанівець суть звільнення, а пожежа непередбачувана. Відповідь: навіть без формальностей продавець не довів, що саме пожежа унеможливила своєчасну поставку з іншого джерела.'],
+  conclusion:['Ймовірно, продавець не звільняється від відповідальності: його прострочення в 20 днів встановлене (ст. 612 ЦК), а підстав для застосування ст. 617 ЦК бракує: не доведено причинного зв’язку між пожежею й невиконанням (борошно легко було придбати в інших постачальників), а договірні умови п. 8.1 про повідомлення й сертифікат ТПП не виконані. Покупець має право на пеню за п. 6.1 договору за період прострочення; її розмір і можливе зменшення тут не аналізуються.'],
+  sources:['Цивільний кодекс України, ст. 612, 617 (перевірте чинну редакцію на zakon.rada.gov.ua).',
+   'Закон України «Про торгово-промислові палати в Україні», ст. 14-1.',
+   'Дайджест судової практики Верховного Суду щодо застосування форс-мажорних обставин як підстави для звільнення від відповідальності за порушення зобов’язань (court.gov.ua): справи 520/2941/24, 320/27109/23, 910/7679/22, 918/289/19. Перед цитуванням у роботі знайдіть повні тексти рішень у Єдиному державному реєстрі судових рішень.']}
+};
+
+var $=function(id){return document.getElementById(id)};
+var state=load()||{mode:'own',struct:'IRAC',step:0,data:{}};
+['own','c1','c2'].forEach(function(k){ if(!state.data[k]) state.data[k]={text:'',blocks:{},checks:{},gl:{}}; });
+if(!CASES[state.mode] && state.mode!=='own') state.mode='own';
+if(!ORDER[state.struct]) state.struct='IRAC';
+var saveOn=false;
+try{saveOn=localStorage.getItem(FLAG)==='1';}catch(e){}
+
+function load(){try{var s=localStorage.getItem(KEY);if(s&&localStorage.getItem(FLAG)==='1'){var o=JSON.parse(s);if(o&&o.data)return o;}}catch(e){}return null;}
+var tm=null;
+function persist(){ if(!saveOn) return; clearTimeout(tm); tm=setTimeout(function(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}},300); }
+function words(t){var m=(t||'').trim().match(/\S+/g);return m?m.length:0;}
+function cur(){return state.data[state.mode];}
+function order(){return ORDER[state.struct];}
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+function status(msg){var s=$('irz-status');s.textContent=msg;if(msg){clearTimeout(status.t);status.t=setTimeout(function(){s.textContent='';},4000);}}
+
+function renderMode(){
+  var g=$('irz-mode');g.textContent='';
+  [['own','Мій казус']].concat([['c1',CASES.c1.label],['c2',CASES.c2.label]]).forEach(function(p){
+    var b=el('button',null,p[1]);b.type='button';b.setAttribute('aria-pressed',String(state.mode===p[0]));
+    b.addEventListener('click',function(){state.mode=p[0];state.step=0;renderAll();persist();});
+    g.appendChild(b);
+  });
+}
+function renderCase(){
+  var box=$('irz-casebox');box.textContent='';
+  if(state.mode==='own'){
+    var l=el('label','irz-lab','Вставте або введіть текст казусу');l.setAttribute('for','irz-case');
+    var t=el('textarea','irz-ta irz-ta-case');t.id='irz-case';t.value=cur().text||'';t.placeholder='Фабула: учасники, дати, дії, документи, вимоги сторін…';
+    var c=el('div','irz-cnt');c.id='irz-casecnt';
+    t.addEventListener('input',function(){cur().text=t.value;c.innerHTML='Слів у казусі: <b>'+words(t.value)+'</b>';persist();});
+    c.innerHTML='Слів у казусі: <b>'+words(t.value)+'</b>';
+    box.appendChild(l);box.appendChild(t);box.appendChild(c);
+  }else{
+    var cs=CASES[state.mode];var d=el('div','irz-case');
+    d.appendChild(el('span','irz-tag','Вигаданий навчальний казус'));
+    d.appendChild(el('h3',null,cs.title));
+    d.appendChild(el('div','irz-cnt',cs.field));
+    cs.text.forEach(function(p){d.appendChild(el('p',null,p));});
+    d.appendChild(el('div','irz-cnt','Підказка: '+cs.tip));
+    d.appendChild(el('div','irz-cnt','Слів у казусі: '+cs.text.join(' ').split(/\s+/).length));
+    box.appendChild(d);
+  }
+}
+function renderStruct(){
+  var g=$('irz-struct');g.textContent='';
+  ['IRAC','CRAC'].forEach(function(k){
+    var b=el('button',null,k);b.type='button';b.setAttribute('aria-pressed',String(state.struct===k));
+    b.addEventListener('click',function(){state.struct=k;state.step=0;renderStruct();renderSteps();renderStep();renderProg();renderRef();persist();});
+    g.appendChild(b);
+  });
+  $('irz-structlead').textContent=STRUCT[state.struct].lead;
+}
+function stepOk(k){var st=STEPS[k];return words(cur().blocks[k])>=st.min;}
+function renderSteps(){
+  var g=$('irz-steps');g.textContent='';
+  order().forEach(function(k,i){
+    var st=STEPS[k];var b=el('button',null);b.type='button';
+    var l=el('span','irz-l',st.letter+(stepOk(k)?' ✓':''));var s=el('span','irz-s',st.uk);
+    b.appendChild(l);b.appendChild(s);
+    b.setAttribute('aria-label','Крок '+(i+1)+': '+st.en+(stepOk(k)?', заповнено':''));
+    if(i===state.step)b.setAttribute('aria-current','step');
+    if(stepOk(k))b.classList.add('is-done');
+    b.addEventListener('click',function(){state.step=i;renderSteps();renderStep();persist();});
+    g.appendChild(b);
+  });
+  $('irz-prev').disabled=state.step===0;
+  $('irz-next').disabled=state.step===order().length-1;
+}
+function detail(title,build,open){
+  var d=el('details','irz-det');if(open)d.open=true;
+  var s=el('summary',null,title);d.appendChild(s);var i=el('div','irz-in');build(i);d.appendChild(i);return d;
+}
+function renderStep(){
+  var box=$('irz-step');box.textContent='';
+  var k=order()[state.step],st=STEPS[k];
+  var wrap=el('div',null);wrap.style.cssText='display:flex;flex-direction:column;gap:14px';
+  wrap.appendChild(el('h3',null,'Крок '+(state.step+1)+' з 4: '+st.en+(st.uk&&k!=='lead'?' ('+st.uk.toLowerCase()+')':'')));
+  wrap.firstChild.style.cssText="margin:0;font-family:'Lora',serif;font-size:22px;font-weight:600";
+  wrap.appendChild(el('p','irz-hint',st.hint));
+  wrap.appendChild(detail('Запитання до себе',function(i){var u=el('ul');st.qs.forEach(function(q){u.appendChild(el('li',null,q));});i.appendChild(u);},true));
+  wrap.appendChild(detail('Приклади формулювань',function(i){st.ex.forEach(function(q){i.appendChild(el('p','irz-ex',q));});}));
+  wrap.appendChild(detail('Типові помилки',function(i){var u=el('ul');st.err.forEach(function(q){u.appendChild(el('li',null,q));});i.appendChild(u);}));
+  var id='irz-ta-'+k;
+  var lab=el('label','irz-lab','Ваш блок: '+st.en);lab.setAttribute('for',id);wrap.appendChild(lab);
+  var t=el('textarea','irz-ta');t.id=id;t.value=cur().blocks[k]||'';
+  var cnt=el('div','irz-cnt');cnt.id='irz-cnt';cnt.setAttribute('aria-live','polite');
+  function upd(){var n=words(t.value);var msg=n<st.min?'замало, орієнтир від '+st.min:(n>st.max?'забагато, орієнтир до '+st.max:'у межах орієнтиру');cnt.innerHTML='Слів: <b>'+n+'</b> · орієнтир '+st.min+'-'+st.max+' · '+msg;}
+  t.addEventListener('input',function(){cur().blocks[k]=t.value;upd();renderSteps();renderProg();renderRef();persist();});
+  upd();wrap.appendChild(t);wrap.appendChild(cnt);
+  var f=el('fieldset','irz-chk');f.appendChild(el('legend',null,'Самоперевірка кроку'));
+  st.chk.forEach(function(txt,i){
+    var lb=el('label');var cb=el('input');cb.type='checkbox';var ck=k+':'+i;cb.checked=!!cur().checks[ck];
+    cb.addEventListener('change',function(){cur().checks[ck]=cb.checked;renderProg();persist();});
+    lb.appendChild(cb);lb.appendChild(el('span',null,txt));f.appendChild(lb);
+  });
+  wrap.appendChild(f);
+  box.appendChild(wrap);
+}
+function renderGlobal(){
+  var f=$('irz-global');
+  Array.prototype.slice.call(f.querySelectorAll('label')).forEach(function(n){n.remove();});
+  GLOBAL.forEach(function(txt,i){
+    var lb=el('label');var cb=el('input');cb.type='checkbox';cb.checked=!!cur().gl[i];
+    cb.addEventListener('change',function(){cur().gl[i]=cb.checked;renderProg();persist();});
+    lb.appendChild(cb);lb.appendChild(el('span',null,txt));f.appendChild(lb);
+  });
+}
+function renderProg(){
+  var total=GLOBAL.length,done=0,sTotal=0,sDone=0;
+  GLOBAL.forEach(function(x,i){if(cur().gl[i])done++;});
+  order().forEach(function(k){STEPS[k].chk.forEach(function(x,i){sTotal++;if(cur().checks[k+':'+i])sDone++;});});
+  var filled=order().filter(stepOk).length;
+  $('irz-prog').textContent='Блоків заповнено в межах орієнтира: '+filled+' з 4. Пунктів чеклістів кроків: '+sDone+' з '+sTotal+'. Загальна самоперевірка: '+done+' з '+total+'.';
+}
+function renderRef(){
+  var sec=$('irz-refsec');
+  if(state.mode==='own'){sec.hidden=true;return;}
+  sec.hidden=false;
+  var b=$('irz-ref');
+  var need=order().filter(function(k){return words(cur().blocks[k])<8;});
+  if(need.length){
+    if(b.getAttribute('data-state')==='locked'){b.querySelector('p').textContent=lockMsg(need);return;}
+    b.textContent='';b.setAttribute('data-state','locked');b.removeAttribute('data-key');
+    b.appendChild(el('p','irz-hint',lockMsg(need)));return;
+  }
+  var key=state.mode+state.struct;
+  if(b.getAttribute('data-state')==='open'&&b.getAttribute('data-key')===key)return;
+  b.setAttribute('data-state','open');b.setAttribute('data-key',key);b.textContent='';
+  var r=REF[state.mode];
+  var wrap=el('div');wrap.style.cssText='display:flex;flex-direction:column;gap:14px';
+  wrap.appendChild(el('p','irz-hint','Порівняйте свої блоки з каркасом. Це один із можливих способів розв’язання: цінність має хід міркування, а не збіг слів.'));
+  order().forEach(function(k){
+    var st=STEPS[k];var blk=el('div','irz-blk');var h3=el('h3',null,st.letter+': '+st.en);
+    h3.style.cssText="margin:0;font-family:'Lora',serif;font-size:19px;font-weight:600";blk.appendChild(h3);
+    var ul=null;
+    (r[k]||[]).forEach(function(line){
+      if(line.indexOf('- ')===0){if(!ul){ul=el('ul');blk.appendChild(ul);}ul.appendChild(el('li',null,line.slice(2)));}
+      else{ul=null;blk.appendChild(el('p',null,line));}
+    });
+    wrap.appendChild(blk);
+  });
+  var sb2=el('div','irz-blk');var h=el('h3',null,'Джерела, на які спирається каркас');h.style.cssText="margin:0;font-family:'Lora',serif;font-size:19px;font-weight:600";sb2.appendChild(h);
+  var ul2=el('ul','irz-src');r.sources.forEach(function(x){ul2.appendChild(el('li',null,x));});sb2.appendChild(ul2);
+  sb2.appendChild(el('p','irz-cnt','Перед використанням у письмовій роботі звіряйте номери статей і формулювання з чинними офіційними текстами.'));
+  wrap.appendChild(sb2);
+  b.appendChild(wrap);
+}
+function lockMsg(need){
+  return 'Еталон відкриється після того, як ви заповните власні блоки (хоча б кілька речень у кожному). Ще потрібно: '+need.map(function(k){return STEPS[k].en;}).join(', ')+'.';
+}
+function buildText(){
+  var d=cur();var out=[];
+  out.push(state.struct+(state.mode==='own'?'':' · '+CASES[state.mode].title+' (вигаданий навчальний казус)'));
+  if(state.mode==='own'&&d.text.trim()){out.push('');out.push('КАЗУС');out.push(d.text.trim());}
+  order().forEach(function(k){
+    var st=STEPS[k];out.push('');out.push((st.letter+' · '+st.en+(k==='lead'?'':' ('+st.uk.toLowerCase()+')')).toUpperCase());
+    out.push((d.blocks[k]||'').trim()||'—');
+  });
+  return stripInv(out.join('\n'));
+}
+function stripInv(t){var r='';for(var i=0;i<t.length;i++){var c=t.charCodeAt(i);if((c>=8203&&c<=8207)||(c>=8234&&c<=8238)||(c>=8288&&c<=8292)||c===65279)continue;r+=t.charAt(i);}return r;}
+function copyText(t){
+  if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(t);}
+  return new Promise(function(res,rej){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;left:-9999px;top:0';document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}document.body.removeChild(ta);ok?res():rej();});
+}
+function renderAll(){renderMode();renderCase();renderStruct();renderSteps();renderStep();renderGlobal();renderProg();$('irz-ref').removeAttribute('data-state');renderRef();}
+
+$('irz-when').innerHTML=WHEN.join('');
+$('irz-prev').addEventListener('click',function(){if(state.step>0){state.step--;renderSteps();renderStep();persist();}});
+$('irz-next').addEventListener('click',function(){if(state.step<order().length-1){state.step++;renderSteps();renderStep();persist();}});
+$('irz-copy').addEventListener('click',function(){
+  copyText(buildText()).then(function(){status('Скопійовано в буфер обміну.');},function(){status('Не вдалося скопіювати автоматично. Виділіть текст у блоках і скопіюйте вручну.');});
+});
+var clrT=null;
+$('irz-clear').addEventListener('click',function(){
+  var b=$('irz-clear');
+  if(!b.getAttribute('data-arm')){b.setAttribute('data-arm','1');b.textContent='Натисніть ще раз, щоб очистити';clearTimeout(clrT);clrT=setTimeout(function(){b.removeAttribute('data-arm');b.textContent='Очистити';},4000);return;}
+  clearTimeout(clrT);b.removeAttribute('data-arm');b.textContent='Очистити';
+  state.data[state.mode]={text:'',blocks:{},checks:{},gl:{}};
+  state.step=0;
+  if(saveOn){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  renderAll();status('Очищено: текст і позначки цього казусу видалено.');
+});
+var sb=$('irz-savebox');sb.checked=saveOn;
+sb.addEventListener('change',function(){
+  saveOn=sb.checked;
+  try{ if(saveOn){localStorage.setItem(FLAG,'1');localStorage.setItem(KEY,JSON.stringify(state));status('Чернетку збережено в цьому браузері.');}
+       else{localStorage.removeItem(FLAG);localStorage.removeItem(KEY);status('Збережену чернетку видалено.');} }
+  catch(e){status('Браузер не дозволяє зберігати чернетку.');if(saveOn){saveOn=false;sb.checked=false;}}
+});
+renderAll();
+})();
+</script>
+
+<footer style="background: #3f5a3c;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 2.25rem 1.5rem; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 16px; color: #e6eee2;">
+<span>© 2026 Катерина Звєрєва</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px;"><a href="https://orcid.org/0000-0003-2539-7035" style="color: #ffffff;" rel="noopener">ORCID</a><a href="https://scholar.google.com/citations?user=alw63JcAAAAJ" style="color: #ffffff;" rel="noopener">Google Scholar</a><a href="vykladacham.html" style="color: #ffffff;">Викладачам</a><a href="zaraz.html" style="color: #ffffff;">Зараз у роботі</a><a href="#" style="color: #ffffff;">YouTube</a><a href="#" style="color: #ffffff;">Контакти</a></span>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
