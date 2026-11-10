@@ -1,6 +1,6 @@
 /* Кнопка «Цитувати» на сторінці «Наукові праці».
    Дані беруться з розмітки самої публікації (автори, назва, журнал, рік, випуск, сторінки, DOI), окремого файлу не потрібно.
-   Поки що працює для розділу «Статті». Формати: ДСТУ 8302:2015 та APA 7. OSCOLA і BibTeX можна додати пізніше. */
+   Поки що працює для розділу «Статті». Формати: ДСТУ 8302:2015, APA 7, OSCOLA, BibTeX (для статей). */
 (function () {
   var LAT = { 'а': 'a', 'б': 'b', 'в': 'v', 'г': 'h', 'ґ': 'g', 'д': 'd', 'е': 'e', 'є': 'ie', 'ж': 'zh', 'з': 'z', 'и': 'y', 'і': 'i', 'ї': 'i', 'й': 'i', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ь': '', 'ю': 'iu', 'я': 'ia' };
   var LAT0 = { 'є': 'ye', 'ї': 'yi', 'й': 'y', 'ю': 'yu', 'я': 'ya' };
@@ -98,14 +98,42 @@
     return { text: clean(text), html: html };
   }
 
+  /* OSCOLA (журнальна стаття): Ініціали Прізвище, 'Назва' (рік) випуск Журнал сторінки. */
+  function oscola(r) {
+    var p = parseRest(r.rest), ua = CYR.test(r.title);
+    function nm(a) { var ini = a.ini.map(function (x) { return ua && CYR.test(x) ? translit(x) : x; }).join(' '); return ini + ' ' + (ua ? translit(a.sur) : a.sur); }
+    var au = r.authors.map(nm), names;
+    if (au.length > 3) names = au[0] + ' and others';
+    else if (au.length > 1) names = au.slice(0, -1).join(', ') + ' and ' + au[au.length - 1];
+    else names = au[0];
+    var jr = CYR.test(r.journal) ? translit(r.journal) : r.journal;
+    var t = ua ? translit(r.title) + ' [in Ukrainian]' : r.title;
+    var loc = (p.vol ? p.vol + (p.iss ? '(' + p.iss + ')' : '') : (p.iss ? p.iss : ''));
+    var text = names + ", '" + t.replace(/[.]$/, '') + "' (" + r.year + ') ' + (loc ? loc + ' ' : '') + jr + (p.pages ? ' ' + p.pages : '') + (r.doi ? ' <https://doi.org/' + r.doi + '>' : '') + '.';
+    return { text: clean(text), html: esc(clean(text)) };
+  }
+  /* BibTeX: кирилицю лишаємо в UTF-8 (потрібен biblatex/biber або XeLaTeX). */
+  function bibtex(r) {
+    var p = parseRest(r.rest);
+    var au = r.authors.map(function (a) { return a.sur + ', ' + a.ini.join(' '); }).join(' and ');
+    var key = (translit(r.authors[0].sur) + r.year).replace(/[^A-Za-z0-9]/g, '');
+    var f = [['author', au], ['title', r.title.replace(/[.]$/, '')], ['journaltitle', r.journal], ['year', r.year], ['volume', p.vol], ['number', p.iss], ['pages', p.pages.replace('–', '--')], ['doi', r.doi]]
+      .filter(function (x) { return x[1]; }).map(function (x) { return '  ' + x[0] + ' = {' + x[1] + '}'; });
+    var text = '@article{' + key + ',\n' + f.join(',\n') + '\n}';
+    return { text: text, html: esc(text) };
+  }
+
   var dlg, outEl, titleEl, state = { r: null, fmt: 'dstu' };
 
   function render() {
-    var res = state.fmt === 'dstu' ? { text: dstu(state.r), html: esc(dstu(state.r)) } : apa(state.r);
+    var res = state.fmt === 'dstu' ? { text: dstu(state.r), html: esc(dstu(state.r)) } : state.fmt === 'oscola' ? oscola(state.r) : state.fmt === 'bibtex' ? bibtex(state.r) : apa(state.r);
+    outEl.style.whiteSpace = state.fmt === 'bibtex' ? 'pre-wrap' : '';
     outEl.innerHTML = res.html;
     outEl.dataset.text = res.text;
     dlg.querySelector('.ct-note').textContent = state.fmt === 'dstu'
       ? 'ДСТУ 8302:2015. Перед поданням звірте з вимогами вашого видання.'
+      : state.fmt === 'oscola' ? 'OSCOLA (для журнальної статті). Українські дані транслітеровано; перед поданням звірте з вимогами видання.'
+      : state.fmt === 'bibtex' ? 'BibTeX/biblatex у кодуванні UTF-8 (для кирилиці потрібні biblatex з biber та XeLaTeX або LuaLaTeX).'
       : 'APA 7. Українські назви транслітеровано за правилами КМУ (2010); англомовний переклад назви в дужках додайте за потреби.';
     dlg.querySelectorAll('.ct-tabs button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.f === state.fmt)); });
     dlg.querySelector('.ct-ok').textContent = '';
@@ -129,7 +157,7 @@
     dlg.className = 'ct-dlg';
     dlg.setAttribute('aria-label', 'Цитувати працю');
     dlg.innerHTML = '<div class="ct-in"><h2>Цитувати</h2><p class="ct-title"></p>' +
-      '<div class="ct-tabs"><button type="button" data-f="dstu">ДСТУ 8302:2015</button><button type="button" data-f="apa">APA 7</button></div>' +
+      '<div class="ct-tabs"><button type="button" data-f="dstu">ДСТУ 8302:2015</button><button type="button" data-f="apa">APA 7</button><button type="button" data-f="oscola">OSCOLA</button><button type="button" data-f="bibtex">BibTeX</button></div>' +
       '<p class="ct-out"></p><p class="ct-note"></p>' +
       '<div class="ct-row"><span><button type="button" class="ct-copy">Копіювати</button> <span class="ct-ok" role="status"></span></span><button type="button" class="ct-close">Закрити</button></div></div>';
     document.body.appendChild(dlg);
