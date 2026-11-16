@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /ihry/pult.html
+
+Sitemap: https://kz.com.ua/sitemap.xml
