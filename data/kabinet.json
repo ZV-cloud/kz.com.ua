@@ -292,5 +292,22 @@
   "source": "https://surl.li/fcbyau",
   "deadlineLabel": "Реєстрація до",
   "added": "2026-11-17"
+ },
+ {
+  "type": "konferentsiia",
+  "title": "Онлайн-захід «Bringing European Human Rights Standards into University Education: contribution of HELP and OCEAN Programmes»",
+  "organizer": "Рада Європи: програма HELP (освіта з прав людини для юристів) і мережа OCEAN (Open Council of Europe Academic Networks)",
+  "dates": "20 листопада 2026, 14:00–17:00 за CET (реєстрація учасників з 13:45)",
+  "deadline": "2026-11-20",
+  "format": "online",
+  "where": "Zoom",
+  "lang": "англійська, французька, українська",
+  "level": "all",
+  "free": null,
+  "summary": "Захід для університетів і викладачів про те, як вводити стандарти прав людини Ради Європи в навчання: огляд безкоштовних онлайн-курсів HELP, методики викладання, досвід вишів (серед доповідачів Олена Свьотун з КНУ імені Тараса Шевченка, за програмою) та можливості академічної співпраці в мережі OCEAN.",
+  "note": "За проєктом програми v.1: склад доповідачів частково не підтверджено (TBC), програма може змінитися. У проєкті не вказано посилання на реєстрацію та дані Zoom: уточнюйте на сторінці HELP & Universities або в організаторів.",
+  "source": "https://www.coe.int/en/web/help/help-and-universities",
+  "deadlineLabel": "Захід",
+  "added": "2026-11-17"
  }
 ]
