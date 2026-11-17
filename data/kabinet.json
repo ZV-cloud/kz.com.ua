@@ -410,5 +410,39 @@
     "source": "https://doctorat.ase.ro/faculty-of-law-university-of-split-call-for-abstracts-international-doctoral-and-postdoctoral-conference-in-the-law-and-law-related-fields-splitlaw-2027/",
     "deadlineLabel": "Абстракт до",
     "added": "2026-11-17"
+  },
+  {
+    "type": "konkurs",
+    "title": "Albert S. Pergam International Law Writing Competition (NYSBA, США)",
+    "organizer": "International Section, New York State Bar Association",
+    "dates": "подання до 20.11.2026, 16:00 за східним часом США",
+    "deadline": "2026-11-20",
+    "deadlineLabel": "Подання до",
+    "format": "online",
+    "where": "США, подання онлайн",
+    "lang": "en",
+    "level": "phd",
+    "free": null,
+    "summary": "Конкурс наукових статей у стилі law review з публічного або приватного міжнародного права для чинних студентів-правників, зокрема магістрів LL.M. і аспірантів. Переможець отримує 2000 доларів і публікацію у New York International Law Review.",
+    "note": "За сторінкою NYSBA, брати участь можуть студенти будь-якого юрфаку світу, які мають не більше трьох років ліцензованої практики; потрібні непублікований текст, підтвердження навчання й CV. Щодо практики за кордоном формулювання неоднозначні: перевірте брошуру конкурсу. Збір не згадано. Дедлайн дуже близький.",
+    "source": "https://nysba.org/awards-competitions/international-section-albert-s-pergam-international-law-writing-competition-award/",
+    "added": "2026-11-17"
+  },
+  {
+    "type": "konkurs",
+    "title": "UNCITRAL Global Essay Competition: «From Foundations to Frontiers: UNCITRAL's Role in Shaping Tomorrow's Trade Law»",
+    "organizer": "Секретаріат ЮНСІТРАЛ (UNCITRAL), до 60-річчя комісії",
+    "dates": "подання до 31.12.2026; десять переможців презентують роботи на сесії комісії у Відні, червень–липень 2027",
+    "deadline": "2026-12-31",
+    "deadlineLabel": "Подання до",
+    "format": "online",
+    "where": "Відень, онлайн-подання електронною поштою",
+    "lang": "en",
+    "level": "all",
+    "free": null,
+    "summary": "Глобальний конкурс есе про вплив текстів ЮНСІТРАЛ та нові підходи до міжнародного торговельного права; вітаються міждисциплінарні роботи. Десятеро авторів отримують публікацію у ювілейній документації, запрошення на сесію у Відні й пропозицію візитної стипендії в секретаріаті.",
+    "note": "Конкурс відкритий для дослідників усіх дисциплін; дедлайн 31.12.2026, обсяг до 10 000 слів, мови: шість офіційних мов ООН, за даними SCC Online і Lexibal (офіційна сторінка не містить цих деталей). Чи можуть брати участь студенти, не підтверджено; за SCC Online потрібна рекомендація університету чи установи. Збір не згадано. Умови уточніть у документі «call for submission» на сторінці ЮНСІТРАЛ.",
+    "source": "https://uncitral.un.org/en/node/1033",
+    "added": "2026-11-17"
   }
 ]
