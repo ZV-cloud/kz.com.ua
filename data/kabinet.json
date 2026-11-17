@@ -376,5 +376,22 @@
   "source": "https://iesfukr.com.ua/en/conferences/miznarodna-naukovo-prakticna-konferenciia-onlain-na-temu-globalni-vikliki-u-protidiyi-nasilstvu-shhodo-zinok-miznarodni-standarti-naukovi-pidxodi-ta-prakticni-risennia",
   "deadlineLabel": "Тези до",
   "added": "2026-11-17"
+ },
+ {
+  "type": "konferentsiia",
+  "title": "18-та міжуніверситетська конференція аспірантів Cornell Law School (потік Public International Law)",
+  "organizer": "Cornell Law School (Ітака, США), Juris Scientiae Doctoris Association",
+  "dates": "абстракти до 01.12.2026; рішення до 21.12.2026; повні тексти до 15.02.2027; конференція 25–26.03.2027",
+  "deadline": "2026-12-01",
+  "format": "offline",
+  "where": "Ітака, штат Нью-Йорк, США (лише очна участь)",
+  "lang": "en",
+  "level": "phd",
+  "free": null,
+  "summary": "Конференція для магістрів права (LLM), докторантів і постдоків; один із потоків присвячено публічному міжнародному праву (збройні конфлікти, геноцид тощо), є також потік «Злочинність, правосуддя й суспільство». Абстракт до 500 слів, потім стаття до 10 000 слів.",
+  "note": "Збір за участь на сторінці не згадується; організатори покривають харчування й соціальні заходи, а проїзд і проживання учасники оплачують самі (радять шукати фінансування в університеті). Для участі в США потрібна віза. Абстракти подають через Google-форму; питання: jsda.law@cornell.edu.",
+  "source": "https://community.lawschool.cornell.edu/inter-university-graduate-student-conference/call-for-papers",
+  "deadlineLabel": "Абстракт до",
+  "added": "2026-11-17"
  }
 ]
