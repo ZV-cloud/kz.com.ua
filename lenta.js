@@ -150,6 +150,8 @@
     var d = parseDate(o.deadline);
     var c = el('article', 'ln-card' + (d && daysTo(d) < 0 ? ' is-past' : ''));
     var badges = el('div', 'ln-badges');
+    var ad = parseDate(o.added);
+    if (ad && daysTo(ad) <= 0 && daysTo(ad) >= -7) badges.appendChild(el('span', 'ln-badge ln-badge--new', 'Нове'));
     badges.appendChild(el('span', 'ln-badge', TYPE1[o.type] || 'Можливість'));
     var db = deadlineBadge(d, o.deadlineLabel || 'Дедлайн');
     if (db) badges.appendChild(db);

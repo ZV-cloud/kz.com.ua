@@ -37,6 +37,7 @@
 .ln-badge{font-size:13px;font-weight:700;letter-spacing:.04em;border-radius:4px;padding:3px 8px;background:#e8efe5;color:#3f5a3c}
 .ln-badge--warn{background:#f3e1dd;color:#8a4a46}
 .ln-badge--soon{background:#f6ecd0;color:#6b4f1f}
+.ln-badge--new{background:#4f6b4c;color:#fff}
 .ln-badge--gray{background:#eee8dd;color:#6b5f55}
 .ln-card h3{margin:0;font-family:'Lora',serif;font-size:20px;line-height:1.35;font-weight:600}
 .ln-facts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:15.5px;color:#4a413a;line-height:1.45}
