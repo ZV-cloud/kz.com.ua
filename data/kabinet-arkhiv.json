@@ -1,20 +1,30 @@
 [
- {
-  "title": "Willem C. Vis International Commercial Arbitration Moot, 34-й (Відень)",
-  "organizer": "Pace University / Vis Moot Directors (Відень)",
-  "lastDeadline": "2026-11-12",
-  "removed": "2026-11-17",
-  "annual": true,
-  "source": "https://www.vismoot.org/home/34th-vis-moot/",
-  "typicalTiming": "щороку; перевіряти оголошення нової редакції"
- },
- {
-  "title": "24-й Willem C. Vis East Moot (Гонконг)",
-  "organizer": "Vis East Moot Foundation / Eastern Advisory Board",
-  "lastDeadline": "2026-11-12",
-  "removed": "2026-11-17",
-  "annual": true,
-  "source": "https://cisgmoot.org/wp-content/uploads/2026/07/VEM24-Key-Dates-and-Times-as-of-27-July-2026.pdf",
-  "typicalTiming": "щороку; перевіряти оголошення нової редакції"
- }
+  {
+    "title": "Willem C. Vis International Commercial Arbitration Moot, 34-й (Відень)",
+    "organizer": "Pace University / Vis Moot Directors (Відень)",
+    "lastDeadline": "2026-11-12",
+    "removed": "2026-11-17",
+    "annual": true,
+    "source": "https://www.vismoot.org/home/34th-vis-moot/",
+    "typicalTiming": "щороку; перевіряти оголошення нової редакції"
+  },
+  {
+    "title": "24-й Willem C. Vis East Moot (Гонконг)",
+    "organizer": "Vis East Moot Foundation / Eastern Advisory Board",
+    "lastDeadline": "2026-11-12",
+    "removed": "2026-11-17",
+    "annual": true,
+    "source": "https://cisgmoot.org/wp-content/uploads/2026/07/VEM24-Key-Dates-and-Times-as-of-27-July-2026.pdf",
+    "typicalTiming": "щороку; перевіряти оголошення нової редакції"
+  },
+  {
+    "title": "ESIL Research Forum 2027 (Марибор, 22–23.04.2027): «ЄС, Рада Європи та інші регіональні організації у світі, що змінюється»",
+    "organizer": "Європейське товариство міжнародного права (ESIL), Університет Марибору",
+    "lastDeadline": "2026-09-30",
+    "removed": "2026-11-17",
+    "annual": true,
+    "source": "https://esil-sedi.eu/wp-content/uploads/2026/05/2027-Maribor-ESIL-RF-CfP.pdf",
+    "typicalTiming": "щороку; оголошення CfP у травні, подання абстрактів до кінця вересня; перевіряти з травня 2027 (участь за членством ESIL, реєстраційного внеску немає, доступно аспірантам)",
+    "lastChecked": "2026-11-17"
+  }
 ]
