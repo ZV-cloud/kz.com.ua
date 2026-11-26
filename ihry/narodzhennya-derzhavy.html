@@ -30,6 +30,7 @@ iframe{display:block;flex:1 1 auto;min-height:0;width:100%;height:auto;border:no
 </iframe>
 <script>
 /* Пульт ведучої: ключ передається лише після «#», тож він не потрапляє ні на сервер сайту, ні в код сторінки. */
+window.addEventListener('hashchange', function () { if (/^#pult=/.test(location.hash)) location.reload(); });
 (function () {
   var m = /^#pult=([0-9a-f]{6,40})$/.exec(location.hash);
   if (!m) return;
