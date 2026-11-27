@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Перехрестя — кросворди з права · Катерина Звєрєва</title>
+<meta name="description" content="Кросворди, сканворди, кросворди з ключовим словом і філворди з міжнародного права: залікові ігри на парі й удома та тренування. © Катерина Звєрєва, 2026">
+<meta name="author" content="Катерина Звєрєва">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+/* Сторінка гри: без меню сайту, гра на весь екран. © Катерина Звєрєва, 2026 */
+html,body{margin:0;padding:0;height:100%;background:#2e3135;overflow:hidden}
+body{display:flex;flex-direction:column;height:100vh;height:100dvh}
+.kzbar{flex:0 0 auto;display:flex;gap:18px;align-items:center;padding:0 14px;padding-top:env(safe-area-inset-top,0px);min-height:30px;background:#1d1d1f;font:500 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.kzbar a{color:#fff;text-decoration:none;padding:8px 0;opacity:.9}
+.kzbar a:hover,.kzbar a:focus-visible{opacity:1;text-decoration:underline}
+iframe{display:block;flex:1 1 auto;min-height:0;width:100%;height:auto;border:none}
+</style>
+</head>
+<body>
+<nav class="kzbar" aria-label="Навігація сайту"><a href="./">← Усі ігри</a><a href="../">Головна сайту</a></nav>
+<iframe
+  id="gra" src="https://script.google.com/macros/s/AKfycbwTWXSlUEYrO4CW5ipJhuf6hQz2Zw5X6Res2YkcjI99auSrGBl16ElYGdC8yvdMqI25/exec"
+  title="Перехрестя"
+  width="100%"
+  height="600"
+  frameborder="0"
+  allow="clipboard-write"
+  style="border: none;">
+</iframe>
+<script>
+/* Пульт ведучої: ключ передається лише після «#», тож він не потрапляє ні на сервер сайту, ні в код сторінки. */
+window.addEventListener('hashchange', function () { if (/^#pult=/.test(location.hash)) location.reload(); });
+(function () {
+  var m = /^#pult=([0-9a-f]{6,40})$/.exec(location.hash);
+  if (!m) return;
+  var f = document.getElementById('gra');
+  f.src = f.src.split('?')[0] + '?role=host&k=' + m[1];
+  f.title = 'Перехрестя — пульт';
+  document.title = 'Пульт — Перехрестя';
+  history.replaceState(null, '', location.pathname);
+})();
+</script>
+</body>
+</html>
